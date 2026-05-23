@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { ChevronLeft, MapPin, Zap, Cloud, DollarSign, Info, Users } from 'lucide-react';
+import { ChevronLeft, MapPin, Zap, Cloud, DollarSign, Info, Users, Crown, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function BarcelonaDecisionBoardScreen() {
@@ -24,6 +24,7 @@ export default function BarcelonaDecisionBoardScreen() {
       groupFit: 'Strong',
       strength: 'Food choices for everyone (Tapas)',
       tradeoff: 'Can be busy, you added it',
+      bestReason: 'Best overall balance for time, budget, weather, and group fit.',
     },
     {
       name: 'Hidden Speakeasy in El Born',
@@ -100,7 +101,10 @@ export default function BarcelonaDecisionBoardScreen() {
         </button>
 
         <div className="space-y-3 pb-2 flex-1">
-          {options.map((option, index) => (
+          {options.map((option, index) => {
+            const isBestOption = index === 0;
+
+            return (
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -111,14 +115,34 @@ export default function BarcelonaDecisionBoardScreen() {
                   navigate('/group/barcelona-detail');
                 }
               }}
-              className={`bg-white border border-slate-200/60 rounded-[20px] p-4 shadow-sm relative overflow-hidden ${option.name === 'Cervecería Catalana' ? 'cursor-pointer hover:border-primary/50 hover:shadow-md transition-all active:scale-[0.99]' : ''}`}
+              className={`bg-white border rounded-[20px] p-4 shadow-sm relative overflow-hidden ${
+                isBestOption
+                  ? 'border-teal-300 shadow-teal-100/80 ring-2 ring-teal-100 cursor-pointer hover:border-primary/60 hover:shadow-md transition-all active:scale-[0.99]'
+                  : 'border-slate-200/60'
+              }`}
             >
+              {isBestOption && (
+                <div className="absolute top-0 right-0 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-bl-2xl px-3 py-1.5 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                  <Crown className="w-3.5 h-3.5" />
+                  #1 best fit
+                </div>
+              )}
+
               <div className="mb-3.5">
-                <div className="inline-flex px-2.5 py-1 bg-primary/10 rounded-lg text-[11px] text-primary font-bold uppercase tracking-wider mb-2.5">
+                <div className={`inline-flex px-2.5 py-1 rounded-lg text-[11px] font-bold uppercase tracking-wider mb-2.5 ${
+                  isBestOption ? 'bg-teal-50 text-teal-700 pr-24' : 'bg-primary/10 text-primary'
+                }`}>
                   {option.fitLabel}
                 </div>
                 <h3 className="font-extrabold text-slate-800 text-[16px] leading-snug">{option.name}</h3>
               </div>
+
+              {isBestOption && (
+                <div className="mb-3 bg-teal-50/80 border border-teal-100 rounded-xl px-3 py-2 flex items-start gap-2">
+                  <Sparkles className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
+                  <p className="text-[12px] font-bold text-teal-800 leading-snug">{option.bestReason}</p>
+                </div>
+              )}
 
               <div className="grid grid-cols-2 gap-2 mb-3.5">
                 <div className="flex items-center gap-1.5 text-[12px] bg-slate-50 rounded-xl px-2.5 py-2">
@@ -156,7 +180,8 @@ export default function BarcelonaDecisionBoardScreen() {
                 </p>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

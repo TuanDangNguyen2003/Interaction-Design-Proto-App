@@ -1,8 +1,56 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { ChevronLeft, ChevronRight, Users, Clock, Zap, MapPin, DollarSign, Cloud, Sun, Umbrella } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clock, Zap, MapPin, DollarSign, Cloud, Sun, Umbrella, Info, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
+
+const setupDetails = {
+  energy: {
+    title: 'Group energy',
+    summary: 'This tells TripFit how active or relaxed the next plan should feel.',
+    rows: [
+      { label: 'Low-key', value: 'Quiet spots, easy seating, low effort.' },
+      { label: 'Moderate', value: 'Social but manageable, good for mixed moods.' },
+      { label: 'High energy', value: 'Louder places, more walking, livelier atmosphere.' },
+    ],
+  },
+  budget: {
+    title: 'Budget',
+    summary: 'Budget is used to filter places before comparing the final options.',
+    rows: [
+      { label: '$', value: 'CHF 1-10 per person.' },
+      { label: '$$', value: 'CHF 10-30 per person.' },
+      { label: '$$$', value: 'CHF 30+ per person.' },
+    ],
+  },
+  environment: {
+    title: 'Environment',
+    summary: 'This helps the app avoid places that do not fit the weather or group preference.',
+    rows: [
+      { label: 'Indoor', value: 'Covered, weather-safe, lower uncertainty.' },
+      { label: 'Mixed', value: 'Indoor or covered terrace options are both okay.' },
+      { label: 'Outdoor', value: 'Open-air places, parks, plazas, rooftops.' },
+    ],
+  },
+  time: {
+    title: 'Time left',
+    summary: 'Time left controls how far away and how involved the recommendation can be.',
+    rows: [
+      { label: '1 hr', value: 'Very nearby, quick to start, low commitment.' },
+      { label: '2 hrs', value: 'Enough time for a proper stop without rushing.' },
+      { label: 'Half day', value: 'Allows travel time and longer activities.' },
+    ],
+  },
+  location: {
+    title: 'Location',
+    summary: 'The starting area anchors travel time and distance filters.',
+    rows: [
+      { label: 'BCN Center', value: 'Searches around central Barcelona.' },
+      { label: 'Tap to change', value: 'Use when the group moves to another neighborhood.' },
+      { label: 'Why it matters', value: 'Closer options get priority when time is limited.' },
+    ],
+  },
+} as const;
 
 export default function BarcelonaSetupScreen() {
   const navigate = useNavigate();
@@ -11,6 +59,22 @@ export default function BarcelonaSetupScreen() {
   const [budget, setBudget] = useState('$$');
   const [time, setTime] = useState('2 hrs');
   const [environment, setEnvironment] = useState('mixed');
+  const [activeInfo, setActiveInfo] = useState<keyof typeof setupDetails | null>(null);
+  const activeDetails = activeInfo ? setupDetails[activeInfo] : null;
+
+  const InfoButton = ({ topic }: { topic: keyof typeof setupDetails }) => (
+    <button
+      type="button"
+      onClick={(event) => {
+        event.stopPropagation();
+        setActiveInfo(topic);
+      }}
+      className="w-5 h-5 rounded-full bg-slate-100 text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors flex items-center justify-center shrink-0"
+      aria-label={`Show ${setupDetails[topic].title} details`}
+    >
+      <Info className="w-3.5 h-3.5" />
+    </button>
+  );
 
   return (
     <motion.div 
@@ -67,6 +131,7 @@ export default function BarcelonaSetupScreen() {
           <div className="flex justify-between items-end mb-6 relative z-10">
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 uppercase tracking-wider">
               <Zap size={14} className="text-primary" /> Group Energy
+              <InfoButton topic="energy" />
             </label>
             <span className="text-[13px] font-bold text-slate-800 bg-slate-100 px-3 py-1 rounded-lg">
               {energy < 33 ? 'Chill / Tired' : energy < 66 ? 'Moderate' : 'Ready to party'}
@@ -104,6 +169,7 @@ export default function BarcelonaSetupScreen() {
           <div className="bg-white p-4 rounded-[20px] border border-slate-200/60 shadow-sm">
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 mb-3 uppercase tracking-wider">
               <DollarSign size={14} className="text-slate-400" /> Budget
+              <InfoButton topic="budget" />
             </label>
             <div className="flex bg-slate-50 p-1 rounded-xl">
               {['$', '$$', '$$$'].map(level => (
@@ -121,6 +187,7 @@ export default function BarcelonaSetupScreen() {
           <div className="bg-white p-4 rounded-[20px] border border-slate-200/60 shadow-sm">
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 mb-3 uppercase tracking-wider">
               <Cloud size={14} className="text-slate-400" /> Environment
+              <InfoButton topic="environment" />
             </label>
             <div className="flex bg-slate-50 p-1 rounded-xl justify-between">
               {[{id:'indoor', icon: Umbrella, color: 'text-indigo-500'}, {id:'mixed', icon: Cloud, color: 'text-slate-500'}, {id:'outdoor', icon: Sun, color: 'text-amber-500'}].map(env => (
@@ -141,6 +208,7 @@ export default function BarcelonaSetupScreen() {
           <div className="bg-white p-4 rounded-[20px] border border-slate-200/60 shadow-sm">
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 mb-3 uppercase tracking-wider">
               <Clock size={14} className="text-slate-400" /> Time left
+              <InfoButton topic="time" />
             </label>
             <div className="flex flex-wrap gap-2">
               {['1 hr', '2 hrs', 'Half day'].map(t => (
@@ -161,6 +229,7 @@ export default function BarcelonaSetupScreen() {
             </div>
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 mb-1.5 uppercase tracking-wider relative z-10">
               <MapPin size={14} className="text-slate-400" /> Location
+              <InfoButton topic="location" />
             </label>
             <div className="text-[15px] font-bold text-slate-800 truncate relative z-10">BCN Center</div>
             <div className="text-[11px] text-primary font-bold mt-1 relative z-10">Tap to change</div>
@@ -176,6 +245,51 @@ export default function BarcelonaSetupScreen() {
           Confirm Vibe <ChevronRight size={18} />
         </button>
       </div>
+
+      {activeDetails && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setActiveInfo(null)}
+          className="absolute inset-0 z-[60] bg-slate-900/30 backdrop-blur-sm flex items-center justify-center px-6"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 18, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: 'spring', damping: 20, stiffness: 260 }}
+            onClick={(event) => event.stopPropagation()}
+            className="w-full max-w-[320px] bg-white rounded-[24px] shadow-2xl border border-white overflow-hidden"
+          >
+            <div className="p-5 border-b border-slate-100 flex items-start justify-between gap-4">
+              <div>
+                <div className="w-9 h-9 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-3">
+                  <Info className="w-5 h-5" />
+                </div>
+                <h2 className="text-[20px] font-extrabold text-slate-800 tracking-tight">{activeDetails.title}</h2>
+                <p className="text-[13px] text-slate-500 font-medium leading-snug mt-1">{activeDetails.summary}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveInfo(null)}
+                className="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 flex items-center justify-center shrink-0"
+                aria-label="Close details"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="p-5 space-y-3">
+              {activeDetails.rows.map((row) => (
+                <div key={row.label} className="bg-slate-50 border border-slate-100 rounded-2xl p-3">
+                  <div className="text-[13px] font-extrabold text-slate-800 mb-0.5">{row.label}</div>
+                  <div className="text-[12px] font-medium text-slate-500 leading-snug">{row.value}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </motion.div>
   );
 }
