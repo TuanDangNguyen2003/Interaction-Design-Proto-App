@@ -1,9 +1,16 @@
 import { useNavigate } from 'react-router';
-import { ChevronLeft, Check, HelpCircle, AlertCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ChevronLeft, Check, HelpCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function BarcelonaVoteScreen() {
   const navigate = useNavigate();
+  const [isVoting, setIsVoting] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVoting(false), 1800);
+    return () => clearTimeout(timer);
+  }, []);
 
   const steps = [
     { number: 1, label: 'Context', active: true },
@@ -71,12 +78,24 @@ export default function BarcelonaVoteScreen() {
                 </div>
                 <span className="font-bold text-slate-700">{person.name}</span>
               </div>
-              <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full ${
-                person.status === 'yes' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'
-              }`}>
-                {person.status === 'yes' ? <Check className="w-3.5 h-3.5" strokeWidth={3} /> : <HelpCircle className="w-3.5 h-3.5" strokeWidth={3} />}
-                <span className="text-[12px] font-bold uppercase tracking-wider">{person.vote}</span>
-              </div>
+              {isVoting && person.name !== 'Lina (You)' ? (
+                <div className="flex min-w-[88px] items-center justify-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-500">
+                  <Loader2 className="w-3.5 h-3.5 animate-spin" strokeWidth={3} />
+                  <span className="text-[12px] font-bold uppercase tracking-wider">Voting</span>
+                </div>
+              ) : (
+                <motion.div
+                  initial={person.name === 'Lina (You)' ? false : { opacity: 0, scale: 0.92 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25, delay: person.name === 'Lina (You)' ? 0 : i * 0.08 }}
+                  className={`flex min-w-[88px] items-center justify-center gap-1.5 px-3 py-1.5 rounded-full ${
+                    person.status === 'yes' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'
+                  }`}
+                >
+                  {person.status === 'yes' ? <Check className="w-3.5 h-3.5" strokeWidth={3} /> : <HelpCircle className="w-3.5 h-3.5" strokeWidth={3} />}
+                  <span className="text-[12px] font-bold uppercase tracking-wider">{person.vote}</span>
+                </motion.div>
+              )}
             </div>
           ))}
         </div>

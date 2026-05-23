@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from 'react-router';
-import { useEffect, useRef, useState } from 'react';
-import { Navigation, Share, PartyPopper, MapPin, Sparkles, Clock, Users, Euro, Check, Calendar } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { ChevronLeft, Navigation, PartyPopper, MapPin, Sparkles, Clock, Users, Euro, Check, Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
 import confetti from 'canvas-confetti';
 
@@ -9,12 +9,8 @@ export default function BarcelonaConfirmationScreen() {
   const location = useLocation();
   const isBackup = location.state?.usedBackup;
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [mounted, setMounted] = useState(false);
-  const [isShared, setIsShared] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    
     if (!canvasRef.current) return;
     
     // Create a custom confetti instance bound to our canvas
@@ -73,7 +69,13 @@ export default function BarcelonaConfirmationScreen() {
       </div>
 
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0 relative z-30">
-        <div className="w-6 h-6" />
+        <button
+          onClick={() => navigate(-1)}
+          className="text-slate-400 hover:text-slate-600 transition-colors"
+          aria-label="Go back"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
         <div className="flex-1 flex gap-1.5">
           {steps.map((step) => (
             <div key={step.number} className="flex-1 flex items-center">
@@ -108,10 +110,10 @@ export default function BarcelonaConfirmationScreen() {
               </motion.div>
               
               <h1 className="text-[28px] font-extrabold text-white tracking-tight text-center mb-1 relative z-10">
-                It's a plan!
+                Decision made!
               </h1>
               <p className="text-teal-50 font-medium text-center relative z-10 text-[15px]">
-                Your group is heading to
+                Good choice. Your group is heading to
               </p>
             </div>
             
@@ -191,65 +193,21 @@ export default function BarcelonaConfirmationScreen() {
           <Navigation className="w-5 h-5" />
           Get directions
         </button>
-        <button
-          onClick={() => {
-            setIsShared(true);
-            setTimeout(() => setIsShared(false), 3000);
-          }}
-          className="w-full bg-white border-2 border-teal-500/20 text-teal-600 rounded-2xl py-3.5 font-bold text-[15px] hover:bg-teal-50 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
-        >
-          <Share className="w-5 h-5" />
-          Share with group
-        </button>
-        
-        <div className="pt-2 flex flex-col gap-2">
-          <div className="flex justify-between px-2">
-            <button
-              onClick={() => navigate('/group/barcelona-board')}
-              className="text-slate-400 text-[12px] font-bold hover:text-slate-600 transition-colors"
-            >
-              Undo choice
-            </button>
-            <button
-              onClick={() => navigate('/group/barcelona-backup-selection', { state: { previousOption: isBackup ? 'Hidden Speakeasy' : 'Cervecería Catalana' } })}
-              className="text-teal-600 text-[12px] font-bold hover:text-teal-700 transition-colors"
-            >
-              Use backup instead
-            </button>
-          </div>
+        <div className="grid grid-cols-2 gap-3">
           <button
             onClick={() => navigate('/')}
-            className="text-slate-400 text-[12px] font-bold hover:text-slate-600 transition-colors mt-2 text-center w-full"
+            className="bg-slate-50 border border-slate-200 text-slate-600 rounded-2xl py-3 font-bold text-[14px] hover:bg-slate-100 transition-all active:scale-[0.98]"
           >
             Back to home
           </button>
+          <button
+            onClick={() => navigate('/group/barcelona-backup-selection', { state: { previousOption: isBackup ? 'Hidden Speakeasy' : 'Cervecería Catalana' } })}
+            className="bg-teal-50 border border-teal-100 text-teal-700 rounded-2xl py-3 font-bold text-[14px] hover:bg-teal-100 transition-all active:scale-[0.98]"
+          >
+            {isBackup ? 'Change choice' : 'Use backup'}
+          </button>
         </div>
       </div>
-
-      {/* Share animation overlay */}
-      {isShared && (
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="absolute inset-0 z-50 flex items-end justify-center pointer-events-none pb-32"
-        >
-          <motion.div 
-            initial={{ y: 50, scale: 0.8, opacity: 0 }}
-            animate={{ y: 0, scale: 1, opacity: 1 }}
-            transition={{ type: "spring", damping: 15 }}
-            className="bg-slate-800 text-white px-5 py-4 rounded-[20px] shadow-2xl flex items-center gap-4 mx-5"
-          >
-            <div className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center shrink-0">
-              <Check className="w-6 h-6 text-white" strokeWidth={3} />
-            </div>
-            <div>
-              <p className="text-[14px] font-bold">Sent to group!</p>
-              <p className="text-[12px] text-slate-300">"Barcelona Girls Trip 💃" chat has been updated.</p>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
     </motion.div>
   );
 }

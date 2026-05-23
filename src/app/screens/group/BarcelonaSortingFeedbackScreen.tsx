@@ -109,21 +109,6 @@ export default function BarcelonaSortingFeedbackScreen() {
           })}
         </div>
       </div>
-
-      <div className="p-6 shrink-0 h-[100px]">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: isDone ? 1 : 0, y: isDone ? 0 : 10 }}
-          className="w-full"
-        >
-          <button
-            onClick={() => navigate('/group/barcelona-board')}
-            className="w-full bg-gradient-to-r from-emerald-500 to-emerald-400 text-white rounded-2xl py-3.5 font-bold text-[15px] shadow-lg shadow-emerald-500/30"
-          >
-            View group decision board
-          </button>
-        </motion.div>
-      </div>
     </motion.div>
   );
 }

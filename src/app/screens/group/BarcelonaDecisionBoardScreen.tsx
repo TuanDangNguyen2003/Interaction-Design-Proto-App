@@ -139,7 +139,7 @@ export default function BarcelonaDecisionBoardScreen() {
                 </div>
               </div>
 
-              <div className="border-t border-slate-100 pt-3 mb-4 space-y-1.5 bg-slate-50/50 -mx-4 px-4 -mb-4 pb-4">
+              <div className="border-t border-slate-100 pt-3 space-y-1.5 bg-slate-50/50 -mx-4 px-4 -mb-4 pb-3">
                 <p className="text-[12px] text-slate-700 leading-relaxed flex items-center gap-2">
                   <Users className="w-3.5 h-3.5 text-primary" />
                   <span className="font-bold text-slate-400 uppercase tracking-wider text-[10px]">Group Fit</span>
@@ -154,18 +154,6 @@ export default function BarcelonaDecisionBoardScreen() {
                   <span className="font-bold text-slate-400 uppercase tracking-wider text-[10px] mr-1.5">Trade-off</span> 
                   <span className="font-medium">{option.tradeoff}</span>
                 </p>
-              </div>
-
-              <div className="pt-3">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    navigate('/group/barcelona-compare');
-                  }}
-                  className="w-full bg-white border border-primary/20 text-primary rounded-xl py-2.5 text-[14px] font-bold hover:bg-primary/5 active:scale-[0.98] transition-all"
-                >
-                  Compare
-                </button>
               </div>
             </motion.div>
           ))}
