@@ -1,0 +1,399 @@
+Create a new mobile app prototype from scratch for TripFit.
+
+Create ONE complete clickable key path scenario only. Do not create a chatbot. Do not create a prompt box. Do not create a generic AI assistant. Do not show “Ask AI anything.” Do not show only one generated recommendation.
+
+TripFit is a mobile decision-support app that helps a student choose one low-effort nearby activity from scattered options.
+
+Scenario for the prototype:
+Maya is at EPFL with one friend. It is raining. They have 2 hours free. They are slightly tired and want something nearby, low-effort, and worth doing. They already have too many possible ideas from saved places, nearby options, and friend suggestions. TripFit helps them sort these options into a decision board, compare trade-offs, choose one, and keep a backup.
+
+Overall prototype requirements:
+- Mobile app, portrait phone screens.
+- Around 14–18 screens.
+- No sign-up, no login.
+- No desktop scrollbars.
+- Native mobile scrolling only.
+- One main path must be fully clickable from start to finish.
+- Secondary features can appear as disabled cards, but should not distract.
+- Use the product name: TripFit.
+- Main tagline: “Fewer options. Clearer reasons. Faster confidence.”
+- Main path name: “Low-Effort Nearby.”
+- Main action language: “Sort options”, “Compare”, “Choose this”, “Save backup”, “Get directions.”
+
+Visual style:
+- Clean modern student travel app.
+- White or very light gray background.
+- Dark navy text.
+- One calm teal or blue accent color for primary actions only.
+- Neutral gray for secondary text.
+- Rounded cards.
+- Consistent icon style.
+- Consistent card spacing.
+- Use one sans-serif font family.
+- Use typography mostly by size and weight, not many different fonts.
+- Keep a clear 8pt spacing grid.
+- Every screen must have one obvious main action button.
+- Primary buttons should be large, high contrast, and at the bottom.
+- Secondary actions should be quieter.
+- Use the same top bar, same card style, and same button hierarchy across all screens.
+- Do not use too many saturated colors.
+
+Interaction design principles must be visible in the prototype:
+1. Visibility: show the user’s selected context clearly.
+2. Constraints: use chips, toggles, and cards instead of free text.
+3. Feedback: show what the app is checking and what it filtered out.
+4. Piece-wise problem solving: split the task into small steps.
+5. Task closure: show a final “Decision made” screen.
+6. Congratulation: include a positive message after completion.
+7. Exit marks: include Back, Edit context, and Back to dashboard.
+8. Emergency exits: include Change choice, Undo, and Use backup.
+
+Create the following screens and interactions:
+
+SCREEN 1 — Landing screen
+Title: TripFit
+Subtitle: What fits now?
+Main card:
+“Low-Effort Nearby”
+Description: “Sort nearby ideas by what fits your time, energy, and weather.”
+Primary button: “Start decision”
+Below, show two disabled/lower-emphasis cards:
+“Group Vibe Check”
+“Plan Repair”
+Mark them visually as secondary, not the focus.
+Bottom small text: “Built for short city decisions.”
+
+Interaction:
+Tap “Start decision” → Screen 2.
+
+SCREEN 2 — Decision setup stepper
+Top stepper: 1 Context / 2 Sources / 3 Decision Board / 4 Compare / 5 Confirm.
+Highlight step 1.
+Title: What is your situation?
+Show context cards with selected values:
+- People: 2
+- Time left: 2 hours
+- Weather: Rainy
+- Energy: Low-medium
+- Effort wanted: Low
+- Location: EPFL area
+Each value should appear as a selected chip with a check mark.
+No text input.
+Primary button: “Continue”
+Secondary link: “Back”
+
+Interaction:
+Tap “Continue” → Screen 3.
+
+SCREEN 3 — Edit context screen
+Title: Adjust context
+Show grouped chip sections:
+People: 1 / 2 / Group
+Time left: 1 hour / 2 hours / Half day
+Weather: Rainy / Clear / Cold
+Energy: Low / Low-medium / High
+Effort: Low / Medium / Any
+Radius: <1 km / <3 km / Any
+Selected chips:
+2, 2 hours, Rainy, Low-medium, Low, <3 km.
+Primary button: “Use this context”
+Secondary link: “Cancel”
+
+Interaction:
+Tap “Use this context” → Screen 4.
+
+SCREEN 4 — Source selection
+Top stepper highlights step 2.
+Title: Bring in your options
+Subtitle: TripFit sorts what you already have and what is realistically nearby.
+Show three source cards:
+1. Saved places
+Text: “4 saved ideas”
+Status: connected
+2. Nearby places
+Text: “12 nearby candidates”
+Status: available now
+3. Friend suggestions
+Text: “3 shared ideas”
+Status: included
+At bottom, show a context summary chip row:
+2 people • 2 hours • Rainy • Low effort • EPFL
+Primary button: “Build decision board”
+Secondary link: “Edit context”
+
+Interaction:
+Tap “Build decision board” → Screen 5.
+
+SCREEN 5 — Sorting feedback screen
+Title: Sorting by contextual fit
+Subtitle: Checking what actually works now.
+Show a progress checklist with animated or checked items:
+- Checking distance from EPFL
+- Removing outdoor options because it is raining
+- Removing options over 25 min away
+- Checking opening status
+- Prioritizing low-effort places
+- Keeping options possible within 2 hours
+Include a Cancel button at top right.
+Primary button appears after progress: “View decision board”
+
+Interaction:
+Tap “View decision board” → Screen 6.
+Tap “Cancel” → Screen 4.
+
+SCREEN 6 — Decision board
+Top stepper highlights step 3.
+Title: 3 realistic fits
+Subtitle: Ranked for a rainy 2-hour window.
+At top, show context summary:
+2 people • 2 hours • Rainy • Low effort • EPFL
+Show a small feedback banner:
+“8 options filtered out: outdoor, too far, closed, or too demanding.”
+Show three option cards, not one.
+
+Card 1:
+Name: ArtLab Café + Lakeside Stop
+Fit label: Best low-effort fit
+Distance: 6 min walk
+Effort: Very low
+Weather fit: Indoor
+Price: $
+Strength: Closest and easiest
+Trade-off: Less discovery
+Button: Compare
+
+Card 2:
+Name: Lausanne Design Museum
+Fit label: Best indoor discovery
+Distance: 18 min transit
+Effort: Medium
+Weather fit: Indoor
+Price: $$
+Strength: More memorable
+Trade-off: More travel and focus
+Button: Compare
+
+Card 3:
+Name: Covered Food Hall
+Fit label: Best relaxed backup
+Distance: 14 min transit
+Effort: Low
+Weather fit: Covered
+Price: $
+Strength: Good for food and sitting down
+Trade-off: Less cultural
+Button: Compare
+
+Bottom sticky buttons:
+Primary: “Compare all”
+Secondary: “Edit context”
+
+Interaction:
+Tap “Compare all” → Screen 7.
+Tap any “Compare” → Screen 7.
+Tap “Edit context” → Screen 3.
+
+SCREEN 7 — Comparison view
+Top stepper highlights step 4.
+Title: Compare trade-offs
+Subtitle: Not more options — clearer choice.
+Create a comparison table with three columns:
+ArtLab Café + Lakeside Stop / Lausanne Design Museum / Covered Food Hall.
+Rows:
+- Time fit
+- Weather fit
+- Energy fit
+- Discovery value
+- Price
+- Risk
+Use simple indicators:
+Strong / Medium / Weak.
+Use green/teal for Strong, gray for Medium, muted red/orange only for Weak.
+At bottom, add a recommendation banner:
+“Best compromise: ArtLab Café + Lakeside Stop”
+Reason: “Closest, indoor, low effort, and safest for rain.”
+Primary button: “View best option”
+Secondary button: “Back to board”
+
+Interaction:
+Tap “View best option” → Screen 8.
+Tap “Back to board” → Screen 6.
+
+SCREEN 8 — Option detail
+Title: ArtLab Café + Lakeside Stop
+Show image placeholder.
+Show key facts:
+6 min walk • Indoor • $ • Very low effort • Open now
+Section title: Why this fits now
+Text:
+“Best match for a rainy 2-hour window: close enough, low effort, affordable, indoor, and relaxed for two people.”
+Section title: Fit breakdown
+Use five horizontal fit bars:
+- Time fit: Strong
+- Weather fit: Strong
+- Energy fit: Strong
+- Budget fit: Strong
+- Discovery value: Medium
+Section title: Trade-off
+Text:
+“Less unique than the museum, but easier and safer for the current situation.”
+Buttons:
+Primary: “Choose this”
+Secondary: “Keep as backup”
+Tertiary link: “Back to comparison”
+
+Interaction:
+Tap “Choose this” → Screen 9.
+Tap “Keep as backup” → Screen 10.
+Tap “Back to comparison” → Screen 7.
+
+SCREEN 9 — Backup selection
+Title: Save a backup
+Subtitle: Travel plans can change.
+Show main choice card:
+Main choice: ArtLab Café + Lakeside Stop
+Reason: Closest, indoor, low effort.
+Show backup suggestion card:
+Backup: Covered Food Hall
+Reason: Covered, relaxed, good if you want food or a longer sit-down stop.
+Buttons:
+Primary: “Save backup”
+Secondary: “Skip backup”
+Link: “Change main choice”
+
+Interaction:
+Tap “Save backup” → Screen 11.
+Tap “Skip backup” → Screen 11.
+Tap “Change main choice” → Screen 6.
+
+SCREEN 10 — Backup saved from detail
+Title: Added to backup
+Text: “ArtLab Café + Lakeside Stop is saved as a backup.”
+Buttons:
+Primary: “Return to decision board”
+Secondary: “Choose this instead”
+
+Interaction:
+Tap “Return to decision board” → Screen 6.
+Tap “Choose this instead” → Screen 9.
+
+SCREEN 11 — Decision confirmation
+Top stepper highlights step 5.
+Dark celebratory but clean screen.
+Title: Decision made!
+Subtitle: You’re heading to ArtLab Café + Lakeside Stop.
+Show decision card:
+- 6 min walk
+- Indoor
+- Low effort
+- Fits your 2-hour window
+- Backup saved: Covered Food Hall
+Positive message:
+“Good choice — this fits your time, energy, and weather.”
+Primary button: “Get directions”
+Secondary button: “Share with friend”
+Small link: “Undo choice”
+Small link: “Back to dashboard”
+
+Interaction:
+Tap “Get directions” → Screen 12.
+Tap “Share with friend” → Screen 13.
+Tap “Undo choice” → Screen 6.
+Tap “Back to dashboard” → Screen 15.
+
+SCREEN 12 — Directions placeholder
+Title: On the way
+Show route card:
+ArtLab Café + Lakeside Stop
+6 min walk
+Leave now to stay within your 2-hour window.
+Show small backup card:
+Backup: Covered Food Hall
+Button:
+Primary: “Done”
+Secondary: “Use backup instead”
+
+Interaction:
+Tap “Done” → Screen 15.
+Tap “Use backup instead” → Screen 14.
+
+SCREEN 13 — Share with friend
+Title: Share with friend
+Show message preview:
+“Let’s do ArtLab Café + Lakeside Stop. It fits our 2-hour window, rainy weather, and low energy. Backup: Covered Food Hall.”
+Buttons:
+Primary: “Copy message”
+Secondary: “Done”
+Link: “Back”
+
+Interaction:
+Tap “Copy message” → show small feedback toast: “Copied.”
+Tap “Done” → Screen 15.
+Tap “Back” → Screen 11.
+
+SCREEN 14 — Use backup
+Title: Switch to backup?
+Text:
+“If ArtLab Café is full or you change your mind, Covered Food Hall is ready.”
+Show backup card:
+Covered Food Hall
+14 min transit • Covered • Low effort • $
+Buttons:
+Primary: “Use backup”
+Secondary: “Keep original”
+
+Interaction:
+Tap “Use backup” → Screen 11 with updated text “You’re heading to Covered Food Hall.”
+Tap “Keep original” → Screen 12.
+
+SCREEN 15 — Dashboard return
+Title: TripFit
+Subtitle: What fits now?
+Show recent decision card:
+ArtLab Café + Lakeside Stop
+Chosen because: indoor, low effort, fits 2 hours.
+Show backup:
+Covered Food Hall
+Button:
+Primary: “Start another decision”
+
+Interaction:
+Tap “Start another decision” → Screen 2.
+
+Optional SCREEN 16 — Filtered-out options explanation
+This screen can be reached from the Decision Board banner.
+Title: Why these were filtered out
+Show examples:
+- Outdoor viewpoint: removed because rainy
+- Far museum: removed because 35 min away
+- Restaurant queue: removed because uncertain wait
+- Long activity: removed because exceeds 2 hours
+Button: “Back to decision board”
+
+Interaction:
+Tap banner on Screen 6 → Screen 16.
+Tap “Back to decision board” → Screen 6.
+
+Important content rules:
+- Do not use generic AI words such as “AI answer”, “prompt”, “chat”, or “ask anything.”
+- Use decision-support words: “sort”, “compare”, “fit”, “trade-off”, “backup”, “filtered out.”
+- Do not show unrealistic or inappropriate recommendations.
+- Because the situation is rainy, low-effort, and 2 hours, avoid hikes, long trips, outdoor-only activities, expensive dinner reservations, or anything far away.
+- Make the system show why bad options were removed.
+- Make the system show the user’s context on every recommendation screen.
+
+Important visual design rules:
+- Keep color palette small and calm.
+- Use accent color only for primary actions and selected chips.
+- Avoid color pollution.
+- Use large clear titles.
+- Use readable body text.
+- Do not use all-caps except short section labels.
+- Use strong visual hierarchy: users should immediately see the main action on each screen.
+- Group related elements with cards, spacing, and alignment.
+- Put controls next to the items they affect.
+- Make all option cards visually consistent.
+- Make all context chips visually consistent.
+- Follow a consistent grid.
+- Keep the logical path clear from top to bottom.
+- Make screens feel like one coherent app with screen inertia.
