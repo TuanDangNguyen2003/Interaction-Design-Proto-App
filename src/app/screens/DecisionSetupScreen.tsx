@@ -1,6 +1,55 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { ChevronLeft, ChevronRight, Users, Clock, CloudRain, Sun, Cloud, MapPin, Zap } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Users, Clock, CloudRain, Sun, Cloud, MapPin, Zap, Info, X } from 'lucide-react';
+import { motion } from 'motion/react';
+
+const setupDetails = {
+  energy: {
+    title: 'Energy level',
+    summary: 'This keeps the nearby option realistic for how much effort Tran and her friend want right now.',
+    rows: [
+      { label: 'Low effort', value: 'Sit-down stops and very short walks.' },
+      { label: 'Moderate', value: 'A simple activity or short transit is okay.' },
+      { label: 'Explore', value: 'More movement and a more active stop.' },
+    ],
+  },
+  people: {
+    title: 'Group size',
+    summary: 'Group size helps TripFit favor places that are practical to enter and enjoy together.',
+    rows: [
+      { label: '1 person', value: 'Fast, flexible solo options.' },
+      { label: '2 people', value: 'Easy seating and low coordination effort.' },
+      { label: '3-4+ people', value: 'More space and group-friendly options needed.' },
+    ],
+  },
+  weather: {
+    title: 'Weather',
+    summary: 'Weather prevents the app from proposing an uncomfortable or unrealistic nearby plan.',
+    rows: [
+      { label: 'Sunny', value: 'Outdoor routes and open-air stops are included.' },
+      { label: 'Cloudy', value: 'Covered or flexible options get priority.' },
+      { label: 'Rainy', value: 'Indoor places and sheltered routes are prioritized.' },
+    ],
+  },
+  time: {
+    title: 'Time left',
+    summary: 'Tran needs an option that leaves enough buffer to return for the train.',
+    rows: [
+      { label: '1 hr', value: 'Only immediate, very low-commitment stops.' },
+      { label: '2 hrs', value: 'A nearby break with a comfortable return buffer.' },
+      { label: 'Half day', value: 'Allows farther or longer activities.' },
+    ],
+  },
+  location: {
+    title: 'Location',
+    summary: 'The starting point determines travel time and whether an option is train-safe.',
+    rows: [
+      { label: 'Lyon Perrache', value: 'Search begins near the station area.' },
+      { label: 'Tap to change', value: 'Update this if Tran moves elsewhere.' },
+      { label: 'Why it matters', value: 'Closer places rank higher when departure time matters.' },
+    ],
+  },
+} as const;
 
 export default function DecisionSetupScreen() {
   const navigate = useNavigate();
@@ -9,6 +58,22 @@ export default function DecisionSetupScreen() {
   const [people, setPeople] = useState(2);
   const [time, setTime] = useState('2 hrs');
   const [weather, setWeather] = useState('cloud');
+  const [activeInfo, setActiveInfo] = useState<keyof typeof setupDetails | null>(null);
+  const activeDetails = activeInfo ? setupDetails[activeInfo] : null;
+
+  const InfoButton = ({ topic }: { topic: keyof typeof setupDetails }) => (
+    <button
+      type="button"
+      onClick={(event) => {
+        event.stopPropagation();
+        setActiveInfo(topic);
+      }}
+      className="w-5 h-5 rounded-full bg-slate-100 text-slate-400 hover:bg-primary/10 hover:text-primary transition-colors flex items-center justify-center shrink-0"
+      aria-label={`Show ${setupDetails[topic].title} details`}
+    >
+      <Info className="w-3.5 h-3.5" />
+    </button>
+  );
 
   return (
     <div className="flex flex-col h-full bg-slate-50 relative">
@@ -46,6 +111,7 @@ export default function DecisionSetupScreen() {
           <div className="flex justify-between items-end mb-6 relative z-10">
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 uppercase tracking-wider">
               <Zap size={14} className="text-primary" /> Energy Level
+              <InfoButton topic="energy" />
             </label>
             <span className="text-[13px] font-bold text-slate-800 bg-slate-100 px-3 py-1 rounded-lg">
               {energy < 33 ? 'Low-key' : energy < 66 ? 'Moderate' : 'High energy'}
@@ -84,6 +150,7 @@ export default function DecisionSetupScreen() {
           <div className="bg-white p-4 rounded-[20px] border border-slate-200/60 shadow-sm">
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 mb-3 uppercase tracking-wider">
               <Users size={14} className="text-slate-400" /> Group Size
+              <InfoButton topic="people" />
             </label>
             <div className="flex bg-slate-50 p-1 rounded-xl">
               {[1,2,3,4].map(num => (
@@ -101,6 +168,7 @@ export default function DecisionSetupScreen() {
           <div className="bg-white p-4 rounded-[20px] border border-slate-200/60 shadow-sm">
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 mb-3 uppercase tracking-wider">
               <CloudRain size={14} className="text-slate-400" /> Weather
+              <InfoButton topic="weather" />
             </label>
             <div className="flex bg-slate-50 p-1 rounded-xl justify-between">
               {[{id:'sun', icon: Sun, color: 'text-amber-500'}, {id:'cloud', icon: Cloud, color: 'text-slate-500'}, {id:'rain', icon: CloudRain, color: 'text-blue-500'}].map(w => (
@@ -121,6 +189,7 @@ export default function DecisionSetupScreen() {
           <div className="bg-white p-4 rounded-[20px] border border-slate-200/60 shadow-sm">
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 mb-3 uppercase tracking-wider">
               <Clock size={14} className="text-slate-400" /> Time left
+              <InfoButton topic="time" />
             </label>
             <div className="flex flex-wrap gap-2">
               {['1 hr', '2 hrs', 'Half day'].map(t => (
@@ -141,6 +210,7 @@ export default function DecisionSetupScreen() {
             </div>
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 mb-1.5 uppercase tracking-wider relative z-10">
               <MapPin size={14} className="text-slate-400" /> Location
+              <InfoButton topic="location" />
             </label>
             <div className="text-[15px] font-bold text-slate-800 truncate relative z-10">Lyon Perrache</div>
             <div className="text-[11px] text-primary font-bold mt-1 relative z-10">Tap to change</div>
@@ -156,6 +226,51 @@ export default function DecisionSetupScreen() {
           Find nearby fits <ChevronRight size={18} />
         </button>
       </div>
+
+      {activeDetails && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setActiveInfo(null)}
+          className="absolute inset-0 z-[60] bg-slate-900/30 backdrop-blur-sm flex items-center justify-center px-6"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 18, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: 'spring', damping: 20, stiffness: 260 }}
+            onClick={(event) => event.stopPropagation()}
+            className="w-full max-w-[320px] bg-white rounded-[24px] shadow-2xl border border-white overflow-hidden"
+          >
+            <div className="p-5 border-b border-slate-100 flex items-start justify-between gap-4">
+              <div>
+                <div className="w-9 h-9 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-3">
+                  <Info className="w-5 h-5" />
+                </div>
+                <h2 className="text-[20px] font-extrabold text-slate-800 tracking-tight">{activeDetails.title}</h2>
+                <p className="text-[13px] text-slate-500 font-medium leading-snug mt-1">{activeDetails.summary}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveInfo(null)}
+                className="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 flex items-center justify-center shrink-0"
+                aria-label="Close details"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="p-5 space-y-3">
+              {activeDetails.rows.map((row) => (
+                <div key={row.label} className="bg-slate-50 border border-slate-100 rounded-2xl p-3">
+                  <div className="text-[13px] font-extrabold text-slate-800 mb-0.5">{row.label}</div>
+                  <div className="text-[12px] font-medium text-slate-500 leading-snug">{row.value}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </div>
   );
 }
