@@ -44,7 +44,7 @@
 
 \textbf{Video URL:} \textit{To be added before submission.}
 
-\textbf{Prototype scope:} The submitted prototype is a mobile-first digital mockup shown inside a phone frame. It focuses on one complete high-fidelity key path scenario: Lina's Barcelona group decision flow. The main walkthrough contains the following core screens and screen states: landing, Barcelona ideas, Barcelona setup, source gathering, sorting feedback, decision board, comparison bottom sheet, option detail, quick group vote, backup/confirmation, and directions. Additional supporting screens from earlier prototype branches remain in the codebase, but the final walkthrough is centered on the Barcelona group flow because it is the most coherent and polished expression of TripFit's vision.
+\textbf{Prototype scope:} The submitted prototype is a mobile-first digital mockup shown inside a phone frame. It supports two key path scenarios derived from Design Brief 3. The primary path is Lina's Barcelona group decision flow, where TripFit turns scattered group ideas into one explainable shared decision. The secondary path is Tran's low-effort nearby flow, where TripFit helps two travelers quickly choose a practical Lyon stop before a train. The prototype does not include sign-up or registration screens, following the Design Brief 4 instructions.
 
 \section{Vision Statement}
 
@@ -61,8 +61,8 @@ The task tree below follows the structure developed in Design Brief 3, but is ph
 \begin{enumerate}[leftmargin=1.5em]
     \item \textbf{Recognize the decision moment}
     \begin{itemize}
-        \item The group has free time before dinner.
-        \item Many saved ideas exist, but they are scattered across TikTok, Instagram, Maps pins, and group chat.
+        \item The traveler or group has free time before the next fixed event.
+        \item Many possible ideas exist, but they are scattered across saved lists, social media, Maps pins, and messages.
         \item The user wants one realistic next plan, not a full itinerary.
     \end{itemize}
 
@@ -70,7 +70,7 @@ The task tree below follows the structure developed in Design Brief 3, but is ph
     \begin{itemize}
         \item Practical context: time left, current location, budget, weather/environment.
         \item Experiential context: group energy and desired vibe.
-        \item Social context: group size and shared preferences.
+        \item Social context: solo, duo, or group size and shared preferences.
     \end{itemize}
 
     \item \textbf{Gather candidate options}
@@ -91,17 +91,17 @@ The task tree below follows the structure developed in Design Brief 3, but is ph
     \item \textbf{Choose and act}
     \begin{itemize}
         \item Open the recommended option detail.
-        \item Run a quick group vote.
+        \item Run a quick group vote when several people need to align.
         \item Confirm the chosen option and keep a backup.
         \item Open directions and switch to the backup route if needed.
     \end{itemize}
 \end{enumerate}
 
-\section{Key Path Scenario Used for the Prototype}
+\section{Key Path Scenarios Used for the Prototype}
 
-The final prototype concentrates on one complete key path scenario derived from Lina's context scenario in Design Brief 3. This focus keeps the prototype under control and allows the flow, visuals, feedback, and interaction principles to be demonstrated in greater detail.
+The final prototype supports two key path scenarios derived from the context scenarios in Design Brief 3. Lina's path is the primary, more detailed path because she is the main persona and expresses the strongest version of the group decision problem. Tran's path is a shorter secondary path that demonstrates how the same product logic also supports a simpler duo-travel situation.
 
-\subsection{KPS: Lina chooses with her group in Barcelona}
+\subsection{KPS 1: Lina chooses with her group in Barcelona}
 
 Lina is in Barcelona with three friends on the second day of a short trip. The group has a few hours before dinner. Everyone is slightly tired, the budget is moderate, and the group chat contains many saved ideas from TikTok, Instagram, screenshots, and Google Maps pins. Lina opens TripFit from the landing screen and enters the Barcelona trip space.
 
@@ -112,6 +112,14 @@ After Lina confirms the vibe, TripFit shows the sources it will use: saved place
 If Lina wants more confidence, she opens the comparison bottom sheet. This sheet rises from the bottom over the decision board, making it clear that she has not left the decision context; she is only comparing trade-offs before choosing. She taps the top pick to see a detailed explanation of why it fits now, including time fit, budget fit, weather fit, group fit, and the main trade-off.
 
 Lina chooses Cerveceria Catalana and TripFit runs a quick group check. Her own vote appears immediately, while the other group members briefly show a voting state before resolving to their final answers. Once the group agrees, the confirmation screen creates task closure with the message ``Decision made!'' and congratulates the user with ``Good choice.'' It also shows that a backup is ready. Finally, Lina opens directions. If the chosen place becomes crowded or no longer feels right, she can switch directly to the backup route inside the directions screen without restarting the flow.
+
+\subsection{KPS 2: Tran quickly filters a nearby option in Lyon}
+
+Tran is in Lyon with one friend and has about two hours before taking the train. Unlike Lina, she does not need a full group alignment flow. She wants a practical, low-effort answer quickly. From the landing screen, she chooses the ``Low-Effort Nearby'' action.
+
+Tran enters a lightweight context: two people, two hours left, low-to-moderate energy, and a starting location near Lyon Perrache. She then chooses which sources to include, such as saved Lyon places, nearby open places, and a few ideas from her friend. TripFit sorts these candidates by distance, opening status, effort, and fit with the train window.
+
+The app then presents a small decision board with three realistic options: Riverside Cafe Walk, Mini Textile Museum Stop, and Les Halles Food Stop. Instead of producing one black-box recommendation, TripFit explains why the first option is the best low-effort fit and which options were filtered out. Tran can compare the trade-offs, inspect the best option, choose it, save a backup, and open directions. This path demonstrates the same core principle as Lina's path--fewer options, clearer reasons, faster confidence--but in a simpler duo-travel context.
 
 \section{Application of Interaction Design Principles}
 
@@ -205,7 +213,7 @@ The instructor feedback pointed to four main issues:
 
 \subsection{Design Decision After Feedback}
 
-After this feedback, we decided to focus the final prototype on Lina, our primary persona. Lina's core problem is not simply finding places. Her problem is managing too many scattered group ideas from TikTok, Instagram, Google Maps, screenshots, and group chats, then helping the group converge on one choice.
+After this feedback, we decided to focus the final prototype primarily on Lina, our primary persona. Lina's core problem is not simply finding places. Her problem is managing too many scattered group ideas from TikTok, Instagram, Google Maps, screenshots, and group chats, then helping the group converge on one choice. Tran remains in the prototype as a secondary KPS, but this path is deliberately shorter and uses the same product logic in a simpler duo setting.
 
 This changed the positioning of TripFit:
 
@@ -214,12 +222,14 @@ This changed the positioning of TripFit:
 \textbf{New direction:} Turn everyone's scattered saved ideas into one shared, explainable group decision.
 \end{tripfitbox}
 
-The final prototype therefore positions TripFit as a group decision-support tool rather than a generic recommendation app. Lina creates or opens a shared trip space, the group contributes saved ideas, TripFit collects them into one pool, filters them according to the current context, compares the best options, explains the trade-offs, supports a quick group check, and keeps a backup in case the chosen option fails.
+The final prototype therefore positions TripFit as a contextual decision-support tool rather than a generic recommendation app. In Lina's path, TripFit acts as a group decision-support tool: the group contributes saved ideas, TripFit collects them into one pool, filters them according to the current context, compares the best options, explains the trade-offs, supports a quick group check, and keeps a backup in case the chosen option fails. In Tran's path, the same logic is simplified for a duo decision: combine saved and nearby options, filter by current constraints, and choose a low-effort fit before the train.
 
 \subsection{Final Walkthrough Task}
 
 \begin{tripfitbox}
-You are in Barcelona with three friends. You have a few hours before dinner, everyone is slightly tired, and the group has many saved places from TikTok, Instagram, screenshots, and Google Maps. Use TripFit to choose what to do next, align with the group, keep a backup, and open directions.
+\textbf{Walkthrough 1: Lina group decision.} You are in Barcelona with three friends. You have a few hours before dinner, everyone is slightly tired, and the group has many saved places from TikTok, Instagram, screenshots, and Google Maps. Use TripFit to choose what to do next, align with the group, keep a backup, and open directions.
+
+\textbf{Walkthrough 2: Tran low-effort nearby.} You are in Lyon with one friend and have two hours before the train. You want something close, low effort, and still worth doing. Use TripFit to filter nearby and saved options, choose the best fit, keep a backup, and open directions.
 \end{tripfitbox}
 
 \subsection{Observed problems in the redesigned prototype}
@@ -239,7 +249,7 @@ You are in Barcelona with three friends. You have a few hours before dinner, eve
 \subsection{Changes made after feedback}
 
 \begin{itemize}
-    \item \textbf{Change 1: Rebuilt the prototype around Lina's group decision problem.} The final flow now starts from the Barcelona group trip, shows the group's unsorted ideas, gathers saved sources, filters them, and turns them into a decision board. This makes the product's value clearer: fewer options, clearer reasons, and faster group agreement.
+    \item \textbf{Change 1: Rebuilt the prototype around Lina's group decision problem while preserving Tran as a secondary KPS.} The final Lina flow now starts from the Barcelona group trip, shows the group's unsorted ideas, gathers saved sources, filters them, and turns them into a decision board. The Tran flow was reframed as a shorter low-effort nearby path in Lyon. This makes the product's value clearer: fewer options, clearer reasons, and faster agreement.
 
     \item \textbf{Change 2: Clarified the top recommendation.} The first option on Barcelona Board now has a stronger highlighted border, a ``\#1 best fit'' badge, and a short explanation of why it is the best overall balance. This improves visibility and feedback.
 
