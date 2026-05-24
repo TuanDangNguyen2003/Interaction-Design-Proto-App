@@ -108,7 +108,7 @@ export default function LandingScreen() {
             </div>
           </button>
 
-          {/* Secondary Action: Low-Effort Nearby */}
+          {/* Secondary Action: Tran's low-effort nearby flow */}
           <button
             onClick={() => navigate('/setup')}
             className="group w-full bg-white border border-slate-200 rounded-[20px] p-4 text-left shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200 active:scale-[0.98]"
@@ -120,7 +120,7 @@ export default function LandingScreen() {
               <div className="flex-1 pt-0.5">
                 <h3 className="font-semibold text-slate-800 mb-1 text-[15px]">Low-Effort Nearby</h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed">
-                  Just need a quick fix? Find something cheap and close by.
+                  Tran and one friend need a practical Lyon stop before the train.
                 </p>
               </div>
             </div>

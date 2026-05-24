@@ -5,39 +5,41 @@ import { motion } from 'motion/react';
 
 export default function SortingFeedbackScreen() {
   const navigate = useNavigate();
-  const [step, setStep] = useState(0);
+  const [completedSteps, setCompletedSteps] = useState<number>(0);
+  const [isDone, setIsDone] = useState(false);
 
-  const checks = [
-    'Checking distance from EPFL',
-    'Removing outdoor options because it is raining',
-    'Removing options over 25 min away',
+  const checklist = [
+    'Checking distance from Lyon Perrache',
+    'Removing options that risk missing the train',
+    'Removing options over 20 min away',
     'Checking opening status',
-    'Prioritizing low-effort places',
+    'Prioritizing low-effort places for two people',
     'Keeping options possible within 2 hours',
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setStep((prev) => {
-        if (prev < checks.length) {
-          return prev + 1;
-        }
-        return prev;
-      });
-    }, 700);
+    let currentStep = 0;
+    const interval = setInterval(() => {
+      currentStep++;
+      setCompletedSteps(currentStep);
+      
+      if (currentStep >= checklist.length) {
+        clearInterval(interval);
+        setTimeout(() => setIsDone(true), 600);
+      }
+    }, 600);
 
-    return () => clearInterval(timer);
-  }, [checks.length]);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
-    if (step === checks.length) {
-      // Wait a brief moment to show the final checkmark, then navigate
-      const navTimer = setTimeout(() => {
+    if (isDone) {
+      const timer = setTimeout(() => {
         navigate('/board');
       }, 800);
-      return () => clearTimeout(navTimer);
+      return () => clearTimeout(timer);
     }
-  }, [step, navigate, checks.length]);
+  }, [isDone, navigate]);
 
   return (
     <motion.div 
@@ -46,52 +48,65 @@ export default function SortingFeedbackScreen() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="flex flex-col h-full bg-slate-50 relative"
     >
-      {/* Screen Label */}
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold">
-        Sorting Feedback Screen
+      <div className="absolute top-2 right-12 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
+        Tran Sorting
       </div>
 
-      <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center justify-between shrink-0">
-        <h2 className="font-bold text-slate-800 text-[15px]">Sorting by contextual fit</h2>
-        <button onClick={() => navigate('/sources')} className="text-slate-400 hover:text-slate-600 transition-colors">
+      <div className="px-4 py-4 flex justify-end shrink-0">
+        <button 
+          onClick={() => navigate('/sources')} 
+          className="w-8 h-8 flex items-center justify-center bg-white border border-slate-200 rounded-full text-slate-400 hover:text-slate-600 shadow-sm"
+        >
           <X className="w-6 h-6" />
         </button>
       </div>
 
-      <div className="flex-1 px-5 py-6 flex flex-col min-h-0 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-        <div className="shrink-0 mb-6">
-          <p className="text-[15px] text-slate-500 font-medium leading-relaxed">
-            Checking what actually works now.
+      <div className="flex-1 px-6 py-4 flex flex-col mt-4">
+        <div className="mb-10 text-center">
+          <div className="inline-flex w-16 h-16 bg-white rounded-[20px] shadow-sm border border-slate-100 items-center justify-center mb-6 relative">
+            {isDone ? (
+              <Check className="w-8 h-8 text-emerald-500" strokeWidth={3} />
+            ) : (
+              <Loader2 className="w-8 h-8 text-primary animate-spin" />
+            )}
+          </div>
+          <h1 className="text-[24px] font-extrabold text-slate-800 tracking-tight mb-2">
+            Sorting nearby fits
+          </h1>
+          <p className="text-[15px] text-slate-500 font-medium">
+            Checking what works before the train.
           </p>
         </div>
 
-        <div className="space-y-4">
-          {checks.map((check, index) => (
-            <div key={check} className="flex items-start gap-3.5">
-              <div className="mt-0.5 shrink-0">
-                {index < step ? (
-                  <div className="w-6 h-6 bg-gradient-to-br from-primary to-cyan-500 rounded-full flex items-center justify-center shadow-md shadow-primary/20">
-                    <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
-                  </div>
-                ) : index === step ? (
-                  <Loader2 className="w-6 h-6 text-primary animate-spin" strokeWidth={2.5} />
-                ) : (
-                  <div className="w-6 h-6 bg-slate-200/80 rounded-full" />
-                )}
-              </div>
-              <p
-                className={`text-[15px] leading-relaxed transition-colors duration-300 pt-0.5 ${
-                  index < step 
-                    ? 'text-slate-800 font-bold' 
-                    : index === step 
-                      ? 'text-slate-800 font-bold'
-                      : 'text-slate-400 font-medium'
+        <div className="space-y-4 max-w-sm mx-auto w-full">
+          {checklist.map((item, index) => {
+            const isCompleted = index < completedSteps;
+            const isActive = index === completedSteps;
+            
+            return (
+              <div 
+                key={index} 
+                className={`flex items-start gap-3 transition-all duration-500 ${
+                  isCompleted ? 'opacity-100' : isActive ? 'opacity-100' : 'opacity-30'
                 }`}
               >
-                {check}
-              </p>
-            </div>
-          ))}
+                <div className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                  isCompleted ? 'bg-emerald-500' : isActive ? 'bg-primary/20' : 'bg-slate-200'
+                }`}>
+                  {isCompleted ? (
+                    <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                  ) : isActive ? (
+                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  ) : null}
+                </div>
+                <span className={`text-[14px] font-medium leading-tight ${
+                  isCompleted ? 'text-slate-700' : isActive ? 'text-slate-800 font-semibold' : 'text-slate-400'
+                }`}>
+                  {item}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </motion.div>

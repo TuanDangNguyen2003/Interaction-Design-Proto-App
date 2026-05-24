@@ -33,17 +33,17 @@ export default function DashboardScreen() {
             </div>
             <div className="flex-1">
               <h3 className="font-bold text-foreground mb-2 text-[17px]">
-                ArtLab Café + Lakeside Stop
+                Riverside Café Walk
               </h3>
               <p className="text-[14px] text-teal-700 leading-relaxed">
-                Chosen because: indoor, low effort, fits 2 hours.
+                Chosen because: covered, low effort, fits 2 hours before the train.
               </p>
             </div>
           </div>
 
           <div className="border-t border-teal-200/50 pt-3">
             <p className="text-[14px] text-teal-700">
-              <span className="font-semibold">Backup:</span> Covered Food Hall
+              <span className="font-semibold">Backup:</span> Les Halles Food Stop
             </p>
           </div>
         </div>

@@ -8,13 +8,13 @@ export default function DecisionSetupScreen() {
   const [energy, setEnergy] = useState(40);
   const [people, setPeople] = useState(2);
   const [time, setTime] = useState('2 hrs');
-  const [weather, setWeather] = useState('rain');
+  const [weather, setWeather] = useState('cloud');
 
   return (
     <div className="flex flex-col h-full bg-slate-50 relative">
       {/* Screen Label */}
       <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Decision Setup Screen
+        Tran Setup
       </div>
 
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0">
@@ -33,9 +33,9 @@ export default function DecisionSetupScreen() {
       <div className="flex-1 px-5 py-6 flex flex-col gap-5 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <div>
           <h1 className="text-[26px] font-extrabold text-slate-800 tracking-tight mb-1">
-            Set the scene
+            Quick nearby filter
           </h1>
-          <p className="text-[14px] text-slate-500 font-medium">Adjust the dials for the perfect plan.</p>
+          <p className="text-[14px] text-slate-500 font-medium">Tran and one friend have two hours before the train.</p>
         </div>
 
         {/* Energy Slider */}
@@ -74,8 +74,8 @@ export default function DecisionSetupScreen() {
           </div>
           
           <div className="flex justify-between text-[11px] text-slate-400 font-bold mt-2 uppercase tracking-wider">
-            <span>Couch</span>
-            <span>Adventure</span>
+            <span>Low effort</span>
+            <span>Explore</span>
           </div>
         </div>
 
@@ -120,7 +120,7 @@ export default function DecisionSetupScreen() {
         <div className="grid grid-cols-[1.2fr_1fr] gap-4">
           <div className="bg-white p-4 rounded-[20px] border border-slate-200/60 shadow-sm">
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 mb-3 uppercase tracking-wider">
-              <Clock size={14} className="text-slate-400" /> Time Window
+              <Clock size={14} className="text-slate-400" /> Time left
             </label>
             <div className="flex flex-wrap gap-2">
               {['1 hr', '2 hrs', 'Half day'].map(t => (
@@ -142,7 +142,7 @@ export default function DecisionSetupScreen() {
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 mb-1.5 uppercase tracking-wider relative z-10">
               <MapPin size={14} className="text-slate-400" /> Location
             </label>
-            <div className="text-[15px] font-bold text-slate-800 truncate relative z-10">EPFL Area</div>
+            <div className="text-[15px] font-bold text-slate-800 truncate relative z-10">Lyon Perrache</div>
             <div className="text-[11px] text-primary font-bold mt-1 relative z-10">Tap to change</div>
           </div>
         </div>
@@ -153,7 +153,7 @@ export default function DecisionSetupScreen() {
           onClick={() => navigate('/sources')}
           className="w-full bg-gradient-to-r from-primary to-cyan-500 text-white rounded-2xl py-4 font-bold text-[16px] shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
         >
-          Confirm Settings <ChevronRight size={18} />
+          Find nearby fits <ChevronRight size={18} />
         </button>
       </div>
     </div>

@@ -7,7 +7,7 @@ export default function ShareScreen() {
   const [copied, setCopied] = useState(false);
 
   const message =
-    "Let's do ArtLab Café + Lakeside Stop. It fits our 2-hour window, rainy weather, and low energy. Backup: Covered Food Hall.";
+    "Let's do Riverside Café Walk. It fits our 2-hour window, low effort, and train schedule. Backup: Les Halles Food Stop.";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(message);
@@ -19,7 +19,7 @@ export default function ShareScreen() {
     <div className="flex flex-col min-h-screen bg-white relative">
       {/* Screen Label */}
       <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold">
-        Share Screen
+        Tran Share
       </div>
 
       <div className="border-b border-border px-4 py-4 flex items-center gap-3">

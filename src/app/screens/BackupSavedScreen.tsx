@@ -8,7 +8,7 @@ export default function BackupSavedScreen() {
     <div className="flex flex-col min-h-screen bg-white relative">
       {/* Screen Label */}
       <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold">
-        Backup Saved Screen
+        Tran Backup Saved
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center px-6">
@@ -21,7 +21,7 @@ export default function BackupSavedScreen() {
         </h1>
 
         <p className="text-[16px] text-muted-foreground text-center mb-8 max-w-sm leading-relaxed">
-          ArtLab Café + Lakeside Stop is saved as a backup.
+          Riverside Café Walk is saved as a backup.
         </p>
       </div>
 

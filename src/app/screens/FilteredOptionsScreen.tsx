@@ -6,13 +6,13 @@ export default function FilteredOptionsScreen() {
 
   const filteredOptions = [
     {
-      name: 'Outdoor viewpoint',
-      reason: 'Removed because rainy',
+      name: 'Hilltop viewpoint',
+      reason: 'Removed because it takes too much effort before the train',
       icon: '☔',
     },
     {
       name: 'Far museum',
-      reason: 'Removed because 35 min away',
+      reason: 'Removed because it is 35 min away',
       icon: '📏',
     },
     {
@@ -31,7 +31,7 @@ export default function FilteredOptionsScreen() {
     <div className="flex flex-col min-h-screen bg-white relative">
       {/* Screen Label */}
       <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold">
-        Filtered Options Screen
+        Tran Filtered
       </div>
 
       <div className="border-b border-border px-4 py-4 flex items-center gap-3">

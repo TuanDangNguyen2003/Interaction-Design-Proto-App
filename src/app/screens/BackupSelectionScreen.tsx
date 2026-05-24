@@ -8,7 +8,7 @@ export default function BackupSelectionScreen() {
     <div className="flex flex-col min-h-screen bg-white relative">
       {/* Screen Label */}
       <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold">
-        Backup Selection Screen
+        Tran Backup
       </div>
 
       <div className="border-b border-border px-4 py-4">
@@ -17,7 +17,7 @@ export default function BackupSelectionScreen() {
 
       <div className="flex-1 px-6 py-6 pb-32">
         <p className="text-[15px] text-muted-foreground mb-6 font-medium leading-relaxed">
-          Travel plans can change.
+          Tran can keep a second realistic option in case the café is full or the timing changes.
         </p>
 
         <div className="mb-5">
@@ -27,10 +27,10 @@ export default function BackupSelectionScreen() {
           </div>
           <div className="bg-gradient-to-br from-teal-50 to-cyan-50 border border-teal-200/50 rounded-2xl p-5 shadow-sm">
             <h4 className="font-bold text-foreground mb-2 text-[17px]">
-              ArtLab Café + Lakeside Stop
+              Riverside Café Walk
             </h4>
             <p className="text-[14px] text-teal-700 leading-relaxed">
-              Closest, indoor, low effort.
+              Closest, covered, low effort.
             </p>
           </div>
         </div>
@@ -42,10 +42,10 @@ export default function BackupSelectionScreen() {
           </div>
           <div className="bg-white border border-border/50 rounded-2xl p-5 shadow-sm">
             <h4 className="font-bold text-foreground mb-2 text-[17px]">
-              Covered Food Hall
+              Les Halles Food Stop
             </h4>
             <p className="text-[14px] text-muted-foreground leading-relaxed">
-              Covered, relaxed, good if you want food or a longer sit-down stop.
+              Covered, relaxed, good if they want food or a longer sit-down stop.
             </p>
           </div>
         </div>

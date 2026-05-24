@@ -8,7 +8,7 @@ export default function UseBackupScreen() {
     <div className="flex flex-col min-h-screen bg-white relative">
       {/* Screen Label */}
       <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold">
-        Use Backup Screen
+        Tran Use Backup
       </div>
 
       <div className="border-b border-border px-4 py-4">
@@ -17,18 +17,18 @@ export default function UseBackupScreen() {
 
       <div className="flex-1 px-6 py-6 pb-32">
         <p className="text-[15px] text-muted-foreground mb-6 font-medium leading-relaxed">
-          If ArtLab Café is full or you change your mind, Covered Food Hall is ready.
+          If the riverside café is full or Tran changes her mind, Les Halles Food Stop is ready.
         </p>
 
         <div className="bg-white border border-border/50 rounded-2xl p-6 shadow-lg shadow-primary/5">
           <h3 className="font-bold text-foreground mb-5 text-[18px]">
-            Covered Food Hall
+            Les Halles Food Stop
           </h3>
 
           <div className="grid grid-cols-2 gap-3">
             <div className="flex items-center gap-2 text-[14px] bg-slate-50 rounded-lg px-3 py-2.5">
               <MapPin className="w-4 h-4 text-primary" />
-              <span className="text-foreground font-medium">14 min transit</span>
+              <span className="text-foreground font-medium">12 min transit</span>
             </div>
             <div className="flex items-center gap-2 text-[14px] bg-slate-50 rounded-lg px-3 py-2.5">
               <Cloud className="w-4 h-4 text-blue-500" />
