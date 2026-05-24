@@ -70,7 +70,7 @@ export default function LandingScreen() {
               </p>
 
               <div className="grid grid-cols-2 gap-2">
-                <div className="bg-slate-50 rounded-xl border border-slate-100 px-3 py-2.5 flex items-center gap-2">
+                <div className="bg-slate-50 rounded-xl border border-slate-100 px-3 py-2.5 flex items-center gap-2 text-[12px] font-bold text-slate-700">
                   <MapPin className="w-4 h-4 text-primary shrink-0" />
                   <span className="text-[12px] font-bold text-slate-700">Barcelona</span>
                 </div>
@@ -100,47 +100,49 @@ export default function LandingScreen() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.16, duration: 0.35 }}
             onClick={() => navigate('/setup')}
-            className="w-full text-left bg-white border border-slate-200 rounded-[22px] shadow-sm overflow-hidden hover:border-primary/35 hover:shadow-md transition-all active:scale-[0.985]"
+            className="w-full text-left bg-white border-2 border-cyan-200 rounded-[22px] shadow-sm overflow-hidden hover:border-cyan-400 hover:shadow-md transition-all active:scale-[0.985]"
           >
             <div className="px-5 pt-5 pb-4">
-              <div className="inline-flex items-center gap-1.5 bg-cyan-50 text-cyan-700 rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider mb-4">
-                <Compass className="w-3.5 h-3.5" />
-                Quick Low-Effort Nearby
-              </div>
-
-              <div className="flex items-start gap-3 mb-4">
-                <div className="w-11 h-11 rounded-full bg-cyan-50 text-cyan-700 flex items-center justify-center text-[16px] font-extrabold shrink-0">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div className="inline-flex items-center gap-1.5 bg-cyan-50 text-cyan-700 rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                  <Compass className="w-3.5 h-3.5" />
+                  Quick Low-Effort Nearby
+                </div>
+                <div className="w-8 h-8 rounded-full bg-cyan-50 text-cyan-700 border-2 border-white shadow-sm flex items-center justify-center text-[13px] font-extrabold shrink-0">
                   T
                 </div>
-                <div>
-                  <h3 className="text-[18px] font-extrabold text-slate-800 tracking-tight">
-                    Tran's Lyon stop
-                  </h3>
-                  <p className="text-[13px] text-slate-500 font-medium leading-relaxed mt-1">
-                    Tran and one friend need a practical stop before their train.
-                  </p>
-                </div>
               </div>
 
-              <div className="flex gap-2 flex-wrap">
-                <span className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-lg px-2.5 py-2 text-[12px] font-bold text-slate-600">
-                  <TrainFront className="w-3.5 h-3.5 text-cyan-600" />
+              <h3 className="text-[20px] font-extrabold text-slate-800 tracking-tight mb-1">
+                Tran's Lyon stop
+              </h3>
+              <p className="text-[13px] text-slate-500 font-medium leading-relaxed mb-4">
+                Tran and one friend need a practical stop before their train.
+              </p>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-slate-50 rounded-xl border border-slate-100 px-3 py-2.5 flex items-center gap-2">
+                  <TrainFront className="w-4 h-4 text-cyan-600 shrink-0" />
                   Lyon Perrache
-                </span>
-                <span className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-lg px-2.5 py-2 text-[12px] font-bold text-slate-600">
-                  <Clock className="w-3.5 h-3.5 text-cyan-600" />
+                </div>
+                <div className="bg-slate-50 rounded-xl border border-slate-100 px-3 py-2.5 flex items-center gap-2 text-[12px] font-bold text-slate-700">
+                  <Clock className="w-4 h-4 text-cyan-600 shrink-0" />
                   2 hours
-                </span>
-                <span className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-lg px-2.5 py-2 text-[12px] font-bold text-slate-600">
-                  <Bookmark className="w-3.5 h-3.5 text-cyan-600" />
+                </div>
+                <div className="bg-slate-50 rounded-xl border border-slate-100 px-3 py-2.5 flex items-center gap-2 text-[12px] font-bold text-slate-700">
+                  <Bookmark className="w-4 h-4 text-cyan-600 shrink-0" />
                   Saved ideas
-                </span>
+                </div>
+                <div className="bg-slate-50 rounded-xl border border-slate-100 px-3 py-2.5 flex items-center gap-2 text-[12px] font-bold text-slate-700">
+                  <Users className="w-4 h-4 text-cyan-600 shrink-0" />
+                  2 people
+                </div>
               </div>
             </div>
 
-            <div className="border-t border-slate-100 bg-slate-50/80 px-5 py-3.5 flex items-center justify-between">
-              <span className="text-[14px] font-bold text-slate-700">Find a nearby fit</span>
-              <ArrowRight className="w-5 h-5 text-slate-500" />
+            <div className="border-t border-cyan-100 bg-cyan-50/50 px-5 py-3.5 flex items-center justify-between">
+              <span className="text-[14px] font-bold text-cyan-700">Find a nearby fit</span>
+              <ArrowRight className="w-5 h-5 text-cyan-700" />
             </div>
           </motion.button>
         </div>
