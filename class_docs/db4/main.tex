@@ -185,13 +185,44 @@ The prototype uses a consistent mobile-first visual style that supports the task
 
 \section{Prototype Review and Iteration}
 
-We prepared the following walkthrough task for the final prototype:
+The prototype changed substantially after the first review. Version 1 of TripFit was built around a more general travel decision flow, mainly because it was easier to film a two-person scenario based on Tran's persona. In that version, two travelers had two hours left, discussed a few possible options, opened TripFit, entered their context, and received a recommendation. If the recommendation was not right, the user adjusted the inputs and tried again.
+
+This first version helped us test the basic idea of contextual recommendation, but it also revealed a major weakness: the interaction felt too close to a generic AI assistant. The user essentially described a situation, received an answer, and refined the prompt when the answer was not good enough. As a result, the specific design problem and the specific value of TripFit were not visible enough.
+
+\subsection{Feedback on Version 1}
+
+The instructor feedback pointed to four main issues:
+
+\begin{itemize}
+    \item \textbf{The target persona was too broad.} The prototype needed to focus on one specific user and one specific pain point instead of trying to cover many travel situations.
+
+    \item \textbf{The difference from a generic AI assistant was unclear.} If the interaction is simply ``enter context and get a suggestion'', users could imagine doing the same thing with ChatGPT.
+
+    \item \textbf{The wrong-suggestion scenario damaged trust.} Showing a clearly inappropriate recommendation, such as an outdoor walk in the rain, made the system look unreliable rather than helpful.
+
+    \item \textbf{The prototype tried to cover too much.} The core tension was not sharp enough: it was unclear whether TripFit was for solo discovery, duo travel, group planning, plan repair, or general recommendation.
+\end{itemize}
+
+\subsection{Design Decision After Feedback}
+
+After this feedback, we decided to focus the final prototype on Lina, our primary persona. Lina's core problem is not simply finding places. Her problem is managing too many scattered group ideas from TikTok, Instagram, Google Maps, screenshots, and group chats, then helping the group converge on one choice.
+
+This changed the positioning of TripFit:
+
+\begin{tripfitbox}
+\textbf{Old direction:} Tell the app your situation and get recommendations.\\
+\textbf{New direction:} Turn everyone's scattered saved ideas into one shared, explainable group decision.
+\end{tripfitbox}
+
+The final prototype therefore positions TripFit as a group decision-support tool rather than a generic recommendation app. Lina creates or opens a shared trip space, the group contributes saved ideas, TripFit collects them into one pool, filters them according to the current context, compares the best options, explains the trade-offs, supports a quick group check, and keeps a backup in case the chosen option fails.
+
+\subsection{Final Walkthrough Task}
 
 \begin{tripfitbox}
 You are in Barcelona with three friends. You have a few hours before dinner, everyone is slightly tired, and the group has many saved places from TikTok, Instagram, screenshots, and Google Maps. Use TripFit to choose what to do next, align with the group, keep a backup, and open directions.
 \end{tripfitbox}
 
-\subsection{Observed problems during prototype review}
+\subsection{Observed problems in the redesigned prototype}
 
 \begin{itemize}
     \item \textbf{Problem 1: The best option was not obvious enough.} The Barcelona Board showed three options, but the top option did not visually communicate that it was the recommended best fit.
@@ -201,20 +232,24 @@ You are in Barcelona with three friends. You have a few hours before dinner, eve
     \item \textbf{Problem 3: Some feedback was too static.} The quick vote screen immediately showed final votes, which made the group-check interaction feel less alive. The directions map was also too blank to communicate a route.
 
     \item \textbf{Problem 4: The comparison screen felt like a full navigation step.} The comparison view originally entered like another screen, even though conceptually it should behave like an extension of the decision board.
+
+    \item \textbf{Problem 5: Some parameters needed explanation.} The setup screen used compact controls for budget, energy, environment, time, and location, but users might not immediately understand what each setting means.
 \end{itemize}
 
 \subsection{Changes made after feedback}
 
 \begin{itemize}
-    \item \textbf{Change 1: Clarified the top recommendation.} The first option on Barcelona Board now has a stronger highlighted border, a ``\#1 best fit'' badge, and a short explanation of why it is the best overall balance. This improves visibility and feedback.
+    \item \textbf{Change 1: Rebuilt the prototype around Lina's group decision problem.} The final flow now starts from the Barcelona group trip, shows the group's unsorted ideas, gathers saved sources, filters them, and turns them into a decision board. This makes the product's value clearer: fewer options, clearer reasons, and faster group agreement.
 
-    \item \textbf{Change 2: Improved exits and emergency recovery.} Back buttons were added to confirmation and directions. The directions screen now lets users switch between Cerveceria Catalana and the backup route in place. This supports clear exits and emergency exits.
+    \item \textbf{Change 2: Clarified the top recommendation.} The first option on Barcelona Board now has a stronger highlighted border, a ``\#1 best fit'' badge, and a short explanation of why it is the best overall balance. This improves visibility and feedback.
 
-    \item \textbf{Change 3: Added more dynamic feedback.} The quick vote screen now briefly shows Emma, Lucas, and Sofia as voting before their final statuses appear. The directions screen now includes a stylized map with a visible route and destination pin. This improves feedback and makes the prototype more playful.
+    \item \textbf{Change 3: Improved exits and emergency recovery.} Back buttons were added to confirmation and directions. The directions screen now lets users switch between Cerveceria Catalana and the backup route in place. This supports clear exits and emergency exits.
 
-    \item \textbf{Change 4: Reframed comparison as a bottom sheet.} Barcelona Compare now slides up from the bottom over a dimmed board-like background. This communicates that the user is still on the decision board and is only comparing before choosing.
+    \item \textbf{Change 4: Added more dynamic feedback.} The quick vote screen now briefly shows Emma, Lucas, and Sofia as voting before their final statuses appear. The directions screen now includes a stylized map with a visible route and destination pin. This improves feedback and makes the prototype more playful.
 
-    \item \textbf{Change 5: Added parameter explanations.} The Barcelona Setup screen now includes small information buttons for group energy, budget, environment, time left, and location. Each opens a modal with details, such as the meaning of each budget level. This improves visibility while preserving constrained input.
+    \item \textbf{Change 5: Reframed comparison as a bottom sheet.} Barcelona Compare now slides up from the bottom over a dimmed board-like background. This communicates that the user is still on the decision board and is only comparing before choosing.
+
+    \item \textbf{Change 6: Added parameter explanations.} The Barcelona Setup screen now includes small information buttons for group energy, budget, environment, time left, and location. Each opens a modal with details, such as the meaning of each budget level. This improves visibility while preserving constrained input.
 \end{itemize}
 
 \section{Conclusion}
