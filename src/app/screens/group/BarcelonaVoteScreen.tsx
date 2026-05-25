@@ -21,7 +21,7 @@ export default function BarcelonaVoteScreen() {
   ];
 
   const votes = [
-    { name: 'Lina (You)', vote: 'Yes', status: 'yes' },
+    { name: 'You (organizer)', vote: 'Yes', status: 'yes' },
     { name: 'Emma', vote: 'Yes', status: 'yes' },
     { name: 'Lucas', vote: 'Maybe', status: 'maybe' },
     { name: 'Sofia', vote: 'Yes', status: 'yes' },
@@ -34,12 +34,8 @@ export default function BarcelonaVoteScreen() {
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="flex flex-col h-full bg-slate-50 relative"
     >
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Cerve Quick Vote
-      </div>
-
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0">
-        <button onClick={() => navigate('/group/barcelona-detail')} className="text-slate-400 hover:text-slate-600 transition-colors">
+        <button onClick={() => navigate(-1)} className="text-slate-400 hover:text-slate-600 transition-colors">
           <ChevronLeft className="w-6 h-6" />
         </button>
         <div className="flex-1 flex gap-1.5">
@@ -78,16 +74,16 @@ export default function BarcelonaVoteScreen() {
                 </div>
                 <span className="font-bold text-slate-700">{person.name}</span>
               </div>
-              {isVoting && person.name !== 'Lina (You)' ? (
+              {isVoting && person.name !== 'You (organizer)' ? (
                 <div className="flex min-w-[88px] items-center justify-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-500">
                   <Loader2 className="w-3.5 h-3.5 animate-spin" strokeWidth={3} />
                   <span className="text-[12px] font-bold uppercase tracking-wider">Voting</span>
                 </div>
               ) : (
                 <motion.div
-                  initial={person.name === 'Lina (You)' ? false : { opacity: 0, scale: 0.92 }}
+                  initial={person.name === 'You (organizer)' ? false : { opacity: 0, scale: 0.92 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.25, delay: person.name === 'Lina (You)' ? 0 : i * 0.08 }}
+                  transition={{ duration: 0.25, delay: person.name === 'You (organizer)' ? 0 : i * 0.08 }}
                   className={`flex min-w-[88px] items-center justify-center gap-1.5 px-3 py-1.5 rounded-full ${
                     person.status === 'yes' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'
                   }`}

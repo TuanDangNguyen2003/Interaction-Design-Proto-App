@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
-import { ChevronLeft, Check, AlertCircle, Image as ImageIcon } from 'lucide-react';
+import { ChevronLeft, Check, AlertCircle } from 'lucide-react';
 import { motion } from 'motion/react';
+import cerveceriaHero from '../../../imports/cerveceria-catalana-hero.webp';
 
 export default function BarcelonaOptionDetailScreen() {
   const navigate = useNavigate();
@@ -21,10 +22,6 @@ export default function BarcelonaOptionDetailScreen() {
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="flex flex-col h-full bg-slate-50 relative"
     >
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Cerv Option Detail
-      </div>
-
       <div className="absolute top-4 left-4 z-50">
         <button 
           onClick={() => navigate(-1)} 
@@ -35,9 +32,13 @@ export default function BarcelonaOptionDetailScreen() {
       </div>
 
       <div className="flex-1 overflow-y-auto">
-        <div className="h-[240px] bg-slate-200 relative flex items-center justify-center">
-          <ImageIcon className="w-12 h-12 text-slate-400" />
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900/80 to-transparent" />
+        <div className="h-[240px] bg-slate-200 relative overflow-hidden">
+          <img
+            src={cerveceriaHero}
+            alt="Warm tapas bar counter with small plates and indoor seating"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent" />
           <h1 className="absolute bottom-5 left-5 text-white text-[28px] font-extrabold tracking-tight">
             Cervecería Catalana
           </h1>

@@ -48,10 +48,6 @@ export default function BarcelonaSortingFeedbackScreen() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="flex flex-col h-full bg-slate-50 relative"
     >
-      <div className="absolute top-2 right-12 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Barcelona Sorting
-      </div>
-
       <div className="px-4 py-4 flex justify-end shrink-0">
         <button 
           onClick={() => navigate('/group/barcelona-sources')} 

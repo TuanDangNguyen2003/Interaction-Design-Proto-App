@@ -64,10 +64,6 @@ export default function BarcelonaConfirmationScreen() {
         className="absolute inset-0 w-full h-full pointer-events-none z-40"
       />
       
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Barcelona Confirmation
-      </div>
-
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0 relative z-30">
         <button
           onClick={() => navigate(-1)}

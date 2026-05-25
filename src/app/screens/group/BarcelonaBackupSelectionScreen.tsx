@@ -12,10 +12,6 @@ export default function BarcelonaBackupSelectionScreen() {
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="flex flex-col h-full bg-slate-50 relative"
     >
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Barcelona Backup Selection
-      </div>
-
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0">
         <button onClick={() => navigate(-1)} className="text-slate-400 hover:text-slate-600 transition-colors">
           <ChevronLeft className="w-6 h-6" />
@@ -63,7 +59,7 @@ export default function BarcelonaBackupSelectionScreen() {
             </div>
             <div className="bg-primary/5 rounded-xl p-3 border border-primary/10">
               <p className="text-[13px] text-slate-700 font-medium leading-relaxed">
-                <span className="font-bold text-primary">Reason:</span> Lower risk, low effort, and nearby if the main spot is crowded.
+                <span className="font-bold text-primary">Reason:</span> A nearby indoor alternative with a calmer drinks-focused vibe if the tapas venue is crowded. Check availability first.
               </p>
             </div>
           </div>

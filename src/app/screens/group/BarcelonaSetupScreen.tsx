@@ -83,10 +83,6 @@ export default function BarcelonaSetupScreen() {
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="flex flex-col h-full bg-slate-50 relative"
     >
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Barcelona Setup
-      </div>
-
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0">
         <button onClick={() => navigate('/group/barcelona-ideas')} className="text-slate-400 hover:text-slate-600 transition-colors">
           <ChevronLeft className="w-6 h-6" />
@@ -112,7 +108,7 @@ export default function BarcelonaSetupScreen() {
         <div className="flex items-center gap-3 bg-white p-3 rounded-[20px] border border-slate-200/60 shadow-sm">
            <div className="flex -space-x-3">
              <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-slate-100">
-               <ImageWithFallback src="https://images.unsplash.com/photo-1662850886700-4ec19bd30d11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMGZlbWFsZSUyMHN0dWRlbnQlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXx8fHwxNzc5NDg4MjI0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Lina" className="w-full h-full object-cover" />
+               <ImageWithFallback src="https://images.unsplash.com/photo-1662850886700-4ec19bd30d11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMGZlbWFsZSUyMHN0dWRlbnQlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXx8fHwxNzc5NDg4MjI0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Organizer" className="w-full h-full object-cover" />
              </div>
              <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-[14px]">E</div>
              <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-amber-100 flex items-center justify-center text-amber-700 font-bold text-[14px]">S</div>
@@ -125,7 +121,7 @@ export default function BarcelonaSetupScreen() {
         </div>
 
         {/* Energy Slider */}
-        <div className="bg-white p-5 rounded-[20px] border border-slate-200/60 shadow-sm relative overflow-hidden mt-1">
+        <div className="bg-white px-5 pt-5 pb-7 min-h-[148px] rounded-[20px] border border-slate-200/60 shadow-sm relative overflow-hidden mt-1">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-500/5 to-primary/5 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
           
           <div className="flex justify-between items-end mb-6 relative z-10">
@@ -158,7 +154,7 @@ export default function BarcelonaSetupScreen() {
             </div>
           </div>
           
-          <div className="flex justify-between text-[11px] text-slate-400 font-bold mt-2 uppercase tracking-wider">
+          <div className="flex justify-between text-[11px] text-slate-400 font-bold mt-3 uppercase tracking-wider leading-none relative z-10">
             <span>Low-key</span>
             <span>High Energy</span>
           </div>

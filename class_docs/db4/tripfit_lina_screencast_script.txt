@@ -1,0 +1,237 @@
+TRIPFIT SCREENCAST SCRIPT - LINA KEY PATH SCENARIO
+Target duration: approximately 4 minutes 30 seconds
+
+Before recording:
+- Begin on the TripFit landing screen.
+- Follow the Group Vibe Check path.
+- Let scanning, collection, sorting, and voting animations play briefly.
+- Do not scroll through every option or read every line on screen.
+
+
+0:00 - 0:20 | LANDING SCREEN
+
+Action:
+Show the TripFit landing screen and point briefly to Group Vibe Check.
+
+Narration:
+Hello everyone. Today I will show you TripFit, a mobile decision-support
+app for travelers who have many saved ideas but struggle to choose what
+to do next.
+
+TripFit is not designed to generate more recommendations. Its goal is
+to turn existing ideas into fewer options, clearer reasons, and a faster
+decision.
+
+
+0:20 - 0:40 | START GROUP VIBE CHECK
+
+Action:
+Click "Start a shared decision" under Group Vibe Check.
+
+Narration:
+For this scenario, imagine Lina. She is travelling in Barcelona with
+three friends. They have a few hours before dinner, but their possible
+plans are scattered across TikTok links, Google Maps pins, and group
+messages.
+
+Lina wants to help the group agree on one realistic plan without spending
+their evening debating.
+
+
+0:40 - 0:55 | CREATE SHARED TRIP
+
+Action:
+On the create group screen, click "Create group."
+
+Narration:
+Lina first creates a shared Barcelona Trip space. This gives everyone
+one place to collect their ideas instead of keeping them fragmented
+across different apps.
+
+
+0:55 - 1:15 | FIND AND INVITE FRIENDS
+
+Action:
+Let the nearby-friends scanning animation appear. When Emma, Sofia, and
+Elena appear, select all three and click "Invite friends."
+
+Narration:
+TripFit scans for nearby friends who are part of the trip. Lina invites
+her three travel companions so that they can each contribute places they
+already saved.
+
+
+1:15 - 1:30 | COLLECT SHARED IDEAS
+
+Action:
+Let the incoming contributions appear, then click "Open shared idea pool."
+
+Narration:
+The group contributions arrive in the shared pool: TikTok links, chat
+recommendations, and Google Maps pins.
+
+In this prototype, this activity is simulated so that we can see the
+collaborative process without switching between several user accounts.
+
+
+1:30 - 1:48 | UNSORTED IDEA POOL
+
+Action:
+Briefly show the Barcelona idea pool, then click "Start Group Vibe Check."
+
+Narration:
+Lina can now see the real decision problem. The group already has many
+ideas, but they are still unsorted.
+
+Instead of searching for even more places, Lina starts a Group Vibe Check
+to decide what actually fits the group right now.
+
+
+1:48 - 2:12 | SET THE GROUP VIBE
+
+Action:
+Show the setup controls. Open one information icon briefly, for example
+Budget or Group Energy, close it, then click "Confirm Vibe."
+
+Narration:
+Here, Lina expresses the current situation using constrained controls:
+group energy, budget, environment, time left, and location.
+
+She does not type a vague prompt. Each input directly maps to a practical
+decision factor, and the information buttons explain what each parameter
+means.
+
+
+2:12 - 2:28 | SOURCES
+
+Action:
+Show the sources screen and click "Build group decision board."
+
+Narration:
+TripFit then makes its information sources visible. It uses the group's
+saved places, Google Maps pins, and nearby realistic options.
+
+This makes the result more transparent because Lina can understand where
+the final choices come from.
+
+
+2:28 - 2:42 | SORTING FEEDBACK
+
+Action:
+Wait for the sorting checklist to complete and advance automatically.
+
+Narration:
+During sorting, the app visibly explains what it is doing: combining
+saved ideas, removing options that do not fit the constraints, considering
+weather and budget, and prioritizing realistic group choices.
+
+
+2:42 - 3:03 | DECISION BOARD
+
+Action:
+On the decision board, point to the filtered-out message and the marked
+top option. Then click "Compare all options."
+
+Narration:
+The result is a decision board with only three realistic options.
+
+Cerveceria Catalana is clearly marked as the best fit because it balances
+time, budget, weather protection, and suitability for the group.
+
+TripFit also explains that other options were filtered out, so this is not
+a black-box recommendation.
+
+
+3:03 - 3:20 | COMPARE TRADE-OFFS
+
+Action:
+Briefly show the comparison bottom sheet, then click the top option.
+
+Narration:
+If Lina wants more confidence, she can compare trade-offs without leaving
+the decision board.
+
+For example, Hidden Speakeasy is an appealing indoor alternative, but it
+is less reliable for a group of four because a reservation may be needed.
+
+
+3:20 - 3:36 | OPTION DETAIL
+
+Action:
+Show the Cerveceria Catalana image and explanation, then click "Choose this."
+
+Narration:
+Lina opens the top choice to understand why it fits now. TripFit shows the
+venue, practical facts, its fit breakdown, and its main trade-off: it may
+be crowded, so keeping a backup is sensible.
+
+
+3:36 - 3:57 | QUICK GROUP CHECK
+
+Action:
+Let the voting indicators resolve, then click "Save backup and confirm."
+
+Narration:
+Because this is a group decision, TripFit runs a quick group check.
+The organizer's choice appears immediately while the friends respond.
+
+One person raises the concern that the restaurant could be crowded, so
+TripFit suggests saving an alternative before final confirmation.
+
+
+3:57 - 4:14 | BACKUP OPTION
+
+Action:
+Show the backup explanation and click "Save backup."
+
+Narration:
+The suggested backup is Hidden Speakeasy in El Born. It is not presented
+as better than the main choice. It is a nearby indoor alternative with a
+calmer drinks-focused atmosphere if the tapas venue is crowded, while
+availability should still be checked first.
+
+
+4:14 - 4:30 | CONFIRMATION
+
+Action:
+Show the confirmation screen, then click "Get directions."
+
+Narration:
+The confirmation screen provides clear task closure: "Decision made" and
+"Good choice."
+
+Lina can see the chosen destination and that a backup is ready. The group
+has moved from scattered ideas to one agreed action.
+
+
+4:30 - 4:48 | DIRECTIONS AND RECOVERY
+
+Action:
+On the directions screen, click "Use backup instead" once. You may toggle
+back to the best choice if time permits.
+
+Narration:
+Finally, TripFit supports uncertainty in real travel situations. If the
+main venue becomes too crowded, Lina can switch directly to the backup
+route without restarting the whole decision process.
+
+
+4:48 - 5:00 | CONCLUSION
+
+Action:
+Leave the final route screen visible.
+
+Narration:
+In summary, TripFit helps Lina's group transform scattered saved ideas
+into one transparent, justified, and recoverable decision.
+
+Its goal is not more recommendations, but fewer options, clearer reasons,
+and faster group agreement. Thank you.
+
+
+OPTIONAL ONE-SENTENCE MENTION OF THE SECOND KPS
+
+If time remains, add this before "Thank you":
+
+The prototype also includes a shorter Quick Low-Effort Nearby path for
+a two-person, time-constrained decision before a train.

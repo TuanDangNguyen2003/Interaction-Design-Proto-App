@@ -17,6 +17,8 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
+  // GitHub Pages publishes this repository below the account root URL.
+  base: process.env.GITHUB_ACTIONS === 'true' ? '/Interaction-Design-Proto-App/' : '/',
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for Make, even if

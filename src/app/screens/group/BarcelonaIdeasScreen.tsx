@@ -7,15 +7,10 @@ export default function BarcelonaIdeasScreen() {
 
   return (
     <div className="flex flex-col h-full bg-slate-50 relative overflow-hidden">
-      {/* Screen Label */}
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold">
-        Barcelona Ideas
-      </div>
-
       {/* Header */}
       <div className="px-5 pt-4 pb-2 bg-white sticky top-0 z-40 border-b border-slate-100 shadow-sm flex items-center justify-between">
         <button 
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/group/barcelona-collect')}
           className="p-2 -ml-2 rounded-full hover:bg-slate-100 transition-colors"
         >
           <ChevronLeft className="w-5 h-5 text-slate-600" />
@@ -100,7 +95,7 @@ export default function BarcelonaIdeasScreen() {
                   <div className="w-5 h-5 rounded-full overflow-hidden border border-white">
                     <ImageWithFallback 
                       src="https://images.unsplash.com/photo-1662850886700-4ec19bd30d11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMGZlbWFsZSUyMHN0dWRlbnQlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXx8fHwxNzc5NDg4MjI0fDA&ixlib=rb-4.1.0&q=80&w=1080"
-                      alt="Lina"
+                      alt="Organizer"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -186,7 +181,7 @@ export default function BarcelonaIdeasScreen() {
                   <div className="w-5 h-5 rounded-full overflow-hidden border border-white">
                     <ImageWithFallback 
                       src="https://images.unsplash.com/photo-1662850886700-4ec19bd30d11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMGZlbWFsZSUyMHN0dWRlbnQlMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MXx8fHwxNzc5NDg4MjI0fDA&ixlib=rb-4.1.0&q=80&w=1080"
-                      alt="Lina"
+                      alt="Organizer"
                       className="w-full h-full object-cover"
                     />
                   </div>

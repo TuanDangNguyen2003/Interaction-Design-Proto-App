@@ -33,9 +33,9 @@ export default function BarcelonaDecisionBoardScreen() {
       effort: 'Low',
       weatherFit: 'Indoor',
       price: '$$',
-      groupFit: 'Strong',
+      groupFit: 'Medium',
       strength: 'Great cocktails, TikTok recommended',
-      tradeoff: 'Might need a reservation',
+      tradeoff: 'Reservation uncertain for a group of 4',
     },
     {
       name: 'Rooftop Tapas Bar',
@@ -57,10 +57,6 @@ export default function BarcelonaDecisionBoardScreen() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="flex flex-col h-full bg-slate-50 relative"
     >
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Barcelona Board
-      </div>
-
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0">
         <button onClick={() => navigate('/group/barcelona-sources')} className="text-slate-400 hover:text-slate-600 transition-colors">
           <ChevronLeft className="w-6 h-6" />

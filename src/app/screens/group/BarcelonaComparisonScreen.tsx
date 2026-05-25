@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { AlertTriangle, Check, ChevronDown, Crown, Info, ShieldCheck, TrendingUp } from 'lucide-react';
+import { AlertTriangle, ChevronDown, Crown, Info, TrendingUp } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function BarcelonaComparisonScreen() {
@@ -32,15 +32,15 @@ export default function BarcelonaComparisonScreen() {
       name: 'Hidden Speakeasy in El Born',
       fits: [
         { label: 'Time fit', value: 'Strong' },
-        { label: 'Budget fit', value: 'Strong' },
-        { label: 'Energy fit', value: 'Strong' },
+        { label: 'Budget fit', value: 'Medium' },
+        { label: 'Energy fit', value: 'Medium' },
         { label: 'Weather fit', value: 'Strong' },
-        { label: 'Group fit', value: 'Strong' },
+        { label: 'Group fit', value: 'Medium' },
       ],
-      riskLabel: 'Low risk',
-      riskIcon: <ShieldCheck className="w-4 h-4 text-emerald-500" />,
-      riskColor: 'text-emerald-700 bg-emerald-50',
-      tradeoff: 'Might need a reservation',
+      riskLabel: 'Reservation uncertain',
+      riskIcon: <AlertTriangle className="w-4 h-4 text-rose-500" />,
+      riskColor: 'text-rose-700 bg-rose-50',
+      tradeoff: 'Harder to seat four without booking ahead',
     },
     {
       name: 'Rooftop Tapas Bar',
@@ -71,10 +71,6 @@ export default function BarcelonaComparisonScreen() {
       transition={{ duration: 0.2, ease: "easeOut" }}
       className="h-full bg-slate-900/20 relative overflow-hidden flex flex-col justify-end"
     >
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Barcelona Compare
-      </div>
-
       <div className="absolute inset-0 bg-slate-50">
         <div className="px-5 pt-14 opacity-30">
           <div className="h-5 w-52 bg-slate-300 rounded-full mb-5" />

@@ -32,10 +32,6 @@ export default function BarcelonaDirectionsScreen() {
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="flex flex-col h-full bg-slate-50 relative overflow-hidden"
     >
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Barcelona Directions
-      </div>
-
       <button
         onClick={() => navigate(-1)}
         className="absolute top-3 left-3 z-50 w-9 h-9 rounded-full bg-white/95 border border-white shadow-lg flex items-center justify-center text-slate-700 hover:bg-white active:scale-[0.96] transition-all"

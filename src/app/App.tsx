@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
+import { HashRouter, Routes, Route, Navigate } from 'react-router';
 import LandingScreen from './screens/LandingScreen';
 import DecisionSetupScreen from './screens/DecisionSetupScreen';
 import EditContextScreen from './screens/EditContextScreen';
@@ -32,6 +32,9 @@ import GroupDirectionsScreen from './screens/group/GroupDirectionsScreen';
 import GroupShareScreen from './screens/group/GroupShareScreen';
 import GroupUseBackupScreen from './screens/group/GroupUseBackupScreen';
 import GroupDashboardScreen from './screens/group/GroupDashboardScreen';
+import BarcelonaCreateGroupScreen from './screens/group/BarcelonaCreateGroupScreen';
+import BarcelonaInviteFriendsScreen from './screens/group/BarcelonaInviteFriendsScreen';
+import BarcelonaCollectIdeasScreen from './screens/group/BarcelonaCollectIdeasScreen';
 import BarcelonaIdeasScreen from './screens/group/BarcelonaIdeasScreen';
 import BarcelonaSetupScreen from './screens/group/BarcelonaSetupScreen';
 import BarcelonaSourcesScreen from './screens/group/BarcelonaSourcesScreen';
@@ -52,7 +55,7 @@ export default function App() {
   });
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="min-h-screen bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center p-8">
         {/* Simple Phone Border */}
         <div className="w-[390px] h-[844px] border-[8px] border-slate-800 rounded-[40px] shadow-2xl overflow-hidden bg-white">
@@ -110,6 +113,9 @@ export default function App() {
               <Route path="/group/share" element={<GroupShareScreen />} />
               <Route path="/group/use-backup" element={<GroupUseBackupScreen />} />
               <Route path="/group/dashboard" element={<GroupDashboardScreen />} />
+              <Route path="/group/barcelona-create" element={<BarcelonaCreateGroupScreen />} />
+              <Route path="/group/barcelona-invite" element={<BarcelonaInviteFriendsScreen />} />
+              <Route path="/group/barcelona-collect" element={<BarcelonaCollectIdeasScreen />} />
               <Route path="/group/barcelona-ideas" element={<BarcelonaIdeasScreen />} />
               <Route path="/group/barcelona-setup" element={<BarcelonaSetupScreen />} />
               <Route path="/group/barcelona-sources" element={<BarcelonaSourcesScreen />} />
@@ -127,6 +133,6 @@ export default function App() {
           </div>
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
