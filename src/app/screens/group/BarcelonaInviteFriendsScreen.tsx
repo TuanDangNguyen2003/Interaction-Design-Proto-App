@@ -9,7 +9,11 @@ const friends = [
   { name: 'Elena', initials: 'E', detail: 'Saved map pins', color: 'bg-blue-100 text-blue-700' },
 ] as const;
 
-export default function BarcelonaInviteFriendsScreen() {
+interface BarcelonaInviteFriendsScreenProps {
+  onFriendsInvited: () => void;
+}
+
+export default function BarcelonaInviteFriendsScreen({ onFriendsInvited }: BarcelonaInviteFriendsScreenProps) {
   const navigate = useNavigate();
   const [selected, setSelected] = useState<string[]>([]);
   const [hasScanned, setHasScanned] = useState(false);
@@ -138,7 +142,10 @@ export default function BarcelonaInviteFriendsScreen() {
         </p>
         <button
           disabled={!allSelected}
-          onClick={() => navigate('/group/barcelona-collect')}
+          onClick={() => {
+            onFriendsInvited();
+            navigate('/');
+          }}
           className={`w-full rounded-2xl py-4 font-bold text-[16px] transition-all flex items-center justify-center gap-2 ${
             allSelected
               ? 'bg-gradient-to-r from-primary to-cyan-500 text-white shadow-lg shadow-primary/30 active:scale-[0.98]'

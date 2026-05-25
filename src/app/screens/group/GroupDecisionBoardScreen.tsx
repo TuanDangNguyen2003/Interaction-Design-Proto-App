@@ -96,7 +96,7 @@ export default function GroupDecisionBoardScreen() {
           <Info className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
           <div>
             <p className="text-[12px] text-amber-900 font-bold leading-relaxed mb-0.5">
-              11 options filtered out: too far, outdoor-only, too expensive, or poor group fit.
+              13 options filtered out: too far, outdoor-only, too expensive, or poor group fit.
             </p>
           </div>
         </button>

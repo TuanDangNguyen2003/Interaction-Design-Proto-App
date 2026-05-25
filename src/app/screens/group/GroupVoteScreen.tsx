@@ -16,7 +16,7 @@ export default function GroupVoteScreen() {
   const votes = [
     { name: 'Lina (You)', vote: 'Yes', status: 'yes' },
     { name: 'Emma', vote: 'Yes', status: 'yes' },
-    { name: 'Lucas', vote: 'Maybe', status: 'maybe' },
+    { name: 'Elena', vote: 'Maybe', status: 'maybe' },
     { name: 'Sofia', vote: 'Yes', status: 'yes' },
   ];
 

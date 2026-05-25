@@ -127,7 +127,7 @@ export default function BarcelonaSourcesScreen() {
       <div className="p-5 border-t border-slate-200/60 bg-white shrink-0 space-y-4 shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.05)] relative z-10">
         <div className="bg-slate-50 rounded-xl p-3 border border-slate-100">
           <p className="text-[12px] text-slate-500 font-medium text-center leading-relaxed">
-            30 total options • Filtering for: 4 people, 2 hours, $$ budget
+            16 total options • Filtering for: 4 people, 2 hours, $$ budget
           </p>
         </div>
         <button

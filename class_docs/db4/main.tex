@@ -40,86 +40,26 @@
 
 \textbf{Product name:} TripFit
 
-\textbf{Prototype URL:} \textit{To be added before submission.}
+\textbf{Prototype URL:} \href{https://tuandangnguyen2003.github.io/Interaction-Design-Proto-App/}{Open the TripFit interactive prototype}
 
-\textbf{Video URL:} \textit{To be added before submission.}
+\textbf{Video URL:} \textit{To be added after recording.}
 
-\textbf{Prototype scope:} The submitted prototype is a mobile-first digital mockup shown inside a phone frame. It supports two key path scenarios derived from Design Brief 3. The primary path is Lina's Barcelona group decision flow, where TripFit turns scattered group ideas into one explainable shared decision. The secondary path is Tran's low-effort nearby flow, where TripFit helps two travelers quickly choose a practical Lyon stop before a train. The prototype does not include sign-up or registration screens, following the Design Brief 4 instructions.
+\textbf{Prototype scope:} The submitted prototype is a mobile-first digital mockup shown inside a phone frame. It implements two key path scenarios derived from Design Brief 3: a shared group decision in Barcelona and a quick low-effort nearby decision in Lyon. The initial landing interface presents generic needs---``Create a shared trip'' and ``Quick Low-Effort Nearby''---rather than forcing users to select a persona. In the primary Lina scenario, she creates Barcelona Trip while she is together with her friends, finds the nearby friends who are also using TripFit, and invites them into the group. Lina then returns to the landing screen while their saved places, links, and pins accumulate in the trip card. Once 16 ideas are available, she opens the shared pool and starts a Group Vibe Check to reach an explainable decision with a backup. The prototype excludes sign-up and registration.
 
-\section{Vision Statement}
+\section{Vision Statement and Task Tree}
 
 \textit{TripFit helps young independent travelers choose what to do next during short city trips by turning scattered saved ideas and nearby options into a small, transparent shortlist that fits their current mood, time, energy, budget, weather, and group situation.}
 
-\section{Task Tree}
-
-The task tree below follows the structure developed in Design Brief 3, but is phrased to match the implemented digital mockup. It represents the main user goal and the ordered tasks needed to reach that goal.
-
 \begin{tripfitbox}
 \textbf{Root goal: Choose a contextually fitting next activity during a short city trip}
-\end{tripfitbox}
-
-\begin{enumerate}[leftmargin=1.5em]
-    \item \textbf{Recognize the decision moment}
-    \begin{itemize}
-        \item The traveler or group has free time before the next fixed event.
-        \item Many possible ideas exist, but they are scattered across saved lists, social media, Maps pins, and messages.
-        \item The user wants one realistic next plan, not a full itinerary.
-    \end{itemize}
-
-    \item \textbf{Express the current context}
-    \begin{itemize}
-        \item Practical context: time left, current location, budget, weather/environment.
-        \item Experiential context: group energy and desired vibe.
-        \item Social context: solo, duo, or group size and shared preferences.
-    \end{itemize}
-
-    \item \textbf{Gather candidate options}
-    \begin{itemize}
-        \item Reuse saved places, Maps pins, and social-media ideas.
-        \item Add nearby realistic options that are available now.
-        \item Show which sources are included before filtering.
-    \end{itemize}
-
-    \item \textbf{Filter and compare options}
-    \begin{itemize}
-        \item Remove options that are too far, too expensive, outdoor-only, or poor group fit.
-        \item Create a shortlist of three realistic options.
-        \item Explain why the top option is recommended and what trade-offs remain.
-        \item Allow a bottom-sheet comparison without leaving the decision board.
-    \end{itemize}
-
-    \item \textbf{Choose and act}
-    \begin{itemize}
-        \item Open the recommended option detail.
-        \item Run a quick group vote when several people need to align.
-        \item Confirm the chosen option and keep a backup.
-        \item Open directions and switch to the backup route if needed.
-    \end{itemize}
+\begin{enumerate}[leftmargin=1.5em, itemsep=0.15em, topsep=0.4em]
+    \item \textbf{Start a timely decision:} choose a shared group decision or a quick nearby decision according to the current need.
+    \item \textbf{Gather candidate ideas:} create a shared trip, invite nearby TripFit users in the group, and return to it once their saved links and pins have arrived, or reuse nearby and previously saved options.
+    \item \textbf{Express current constraints:} select time, location, energy, budget, environment, and social needs through lightweight controls.
+    \item \textbf{Reduce decision load:} filter unsuitable options, present a shortlist, and explain the top fit and remaining trade-offs.
+    \item \textbf{Commit and recover:} align with companions when needed, confirm one option, preserve a backup, and switch routes if the situation changes.
 \end{enumerate}
-
-\section{Key Path Scenarios Used for the Prototype}
-
-The final prototype supports two key path scenarios derived from the context scenarios in Design Brief 3. Lina's path is the primary, more detailed path because she is the main persona and expresses the strongest version of the group decision problem. Tran's path is a shorter secondary path that demonstrates how the same product logic also supports a simpler duo-travel situation.
-
-\subsection{KPS 1: Lina chooses with her group in Barcelona}
-
-Lina is in Barcelona with three friends on the second day of a short trip. The group has a few hours before dinner. Everyone is slightly tired, the budget is moderate, and the group chat contains many saved ideas from TikTok, Instagram, screenshots, and Google Maps pins. Lina opens TripFit from the landing screen and enters the Barcelona trip space.
-
-First, she reviews the unsorted group ideas. TripFit shows the raw material of the decision: TikToks, Maps pins, Instagram posts, and group messages. Lina then starts a group vibe check. On the setup screen, she expresses the current context through constrained controls: group energy, budget, environment, time left, and location. Small information buttons explain what these parameters mean without forcing her to type a free prompt.
-
-After Lina confirms the vibe, TripFit shows the sources it will use: saved places, Google Maps pins, and nearby realistic options. The system then displays a sorting checklist, making visible how it filters the data. When sorting is complete, Lina arrives at the Barcelona Decision Board. Instead of a long list, she sees three realistic options. The top option, Cerveceria Catalana, is clearly marked as the best overall fit, with a reason explaining that it balances time, budget, weather, and group fit. A feedback message also explains that other options were filtered out.
-
-If Lina wants more confidence, she opens the comparison bottom sheet. This sheet rises from the bottom over the decision board, making it clear that she has not left the decision context; she is only comparing trade-offs before choosing. She taps the top pick to see a detailed explanation of why it fits now, including time fit, budget fit, weather fit, group fit, and the main trade-off.
-
-Lina chooses Cerveceria Catalana and TripFit runs a quick group check. Her own vote appears immediately, while the other group members briefly show a voting state before resolving to their final answers. Once the group agrees, the confirmation screen creates task closure with the message ``Decision made!'' and congratulates the user with ``Good choice.'' It also shows that a backup is ready. Finally, Lina opens directions. If the chosen place becomes crowded or no longer feels right, she can switch directly to the backup route inside the directions screen without restarting the flow.
-
-\subsection{KPS 2: Tran quickly filters a nearby option in Lyon}
-
-Tran is in Lyon with one friend and has about two hours before taking the train. Unlike Lina, she does not need a full group alignment flow. She wants a practical, low-effort answer quickly. From the landing screen, she chooses the ``Low-Effort Nearby'' action.
-
-Tran enters a lightweight context: two people, two hours left, low-to-moderate energy, and a starting location near Lyon Perrache. She then chooses which sources to include, such as saved Lyon places, nearby open places, and a few ideas from her friend. TripFit sorts these candidates by distance, opening status, effort, and fit with the train window.
-
-The app then presents a small decision board with three realistic options: Riverside Cafe Walk, Mini Textile Museum Stop, and Les Halles Food Stop. Instead of producing one black-box recommendation, TripFit explains why the first option is the best low-effort fit and which options were filtered out. Tran can compare the trade-offs, inspect the best option, choose it, save a backup, and open directions. This path demonstrates the same core principle as Lina's path--fewer options, clearer reasons, faster confidence--but in a simpler duo-travel context.
+\end{tripfitbox}
 
 \section{Application of Interaction Design Principles}
 
@@ -127,143 +67,82 @@ This section explains how the prototype applies the eight interaction design pri
 
 \subsection{Clear visibility of user actions in the UI}
 
-TripFit keeps important user choices visible as the task progresses. On the Barcelona Setup screen, the selected group energy, budget, environment, time left, and location are visible in the controls themselves. On the Barcelona Sources and Barcelona Board screens, the app repeats the current context in compact summaries such as ``4 people'', ``2 hours'', ``moderate energy'', and ``\$\$ budget''. This reduces the gulf of evaluation because Lina can see what the system believes the current decision context is.
+TripFit keeps important choices and progress visible as the task proceeds. After Lina invites friends, the home screen shows her Barcelona Trip card changing from ``Friends are adding ideas'' to ``16 ideas collected,'' making the shared preparation visible before she begins a decision. On the context setup screen, selected group energy, budget, environment, time, and location remain visible in their controls. On the decision board, a compact context summary repeats what the recommendation is based on.
 
-\textit{Example screens: Barcelona Setup, Barcelona Sources, Barcelona Board.}
+\textit{Example screens: Home with Barcelona Trip, Set the Group Vibe, Decision Board.}
 
 \subsection{Design constraints and visual mapping between tasks and controls}
 
-The prototype constrains input to lightweight controls: chips, cards, segmented choices, and a slider. Lina never needs to type a vague prompt such as ``find something nice for us''. Instead, each control maps directly to one decision parameter: energy is adjusted with a slider, budget with dollar-sign chips, environment with indoor/mixed/outdoor icons, and time with predefined chips. This makes the relationship between user goals and interface actions predictable.
+The prototype constrains input to lightweight controls: selectable friend cards, chips, segmented choices, and a slider. The organizer never needs to type a vague prompt such as ``find something nice for us''. Instead, each control maps directly to a task: select friends to invite, adjust energy with a slider, set budget with dollar-sign chips, choose environment with icons, and set time with predefined chips. Information buttons explain the meaning of these compact settings.
 
-\textit{Example screen: Barcelona Setup.}
+\textit{Example screens: Invite Friends, Set the Group Vibe.}
 
 \subsection{Meaningful feedback to ease evaluation}
 
-TripFit gives feedback about both process and output. During Barcelona Sorting, a checklist shows that the system is combining saved ideas, removing options that are too far or too expensive, considering weather, and prioritizing group fit. On the Barcelona Board, a filtered-out explanation tells the user that 11 options were removed because they were too far, outdoor-only, too expensive, or poor group fit. Recommendation cards also show strengths and trade-offs rather than presenting unexplained rankings.
+TripFit gives feedback about both process and output. The invitation screen briefly scans for nearby friends who are using TripFit, then the home trip card shows contribution progress and changes to a ready state when 16 ideas have arrived. During sorting, a checklist shows that the system is combining ideas, removing options that are too far or too expensive, considering weather, and prioritizing group fit. On the board, a filtered-out explanation and strength/trade-off blocks make the resulting ranking understandable.
 
-\textit{Example screens: Barcelona Sorting, Barcelona Board, Cerv Option Detail.}
+\textit{Example screens: Invite Friends, Home with Barcelona Trip, Sorting, Decision Board, Option Detail.}
 
 \subsection{Breaking a big task into smaller steps}
 
-Choosing what to do next during a short trip is cognitively heavy because it involves many constraints at once. TripFit breaks this task into a sequence: inspect ideas, set context, gather sources, sort/filter, review the board, compare trade-offs, inspect the top option, run a group vote, confirm, and open directions. The stepper at the top of the main flow makes this structure visible: Context, Sources, Decision Board, Group Check, and Confirm.
+Choosing what to do next during a short trip is cognitively heavy because it involves contribution, constraints, comparison, and agreement. TripFit breaks the group task into manageable stages: create the trip, invite friends, return home as ideas arrive, review the shared pool, set context, gather sources, sort/filter, compare the shortlist, check group agreement, confirm, and open directions. Once the decision stage begins, a progress stepper keeps the major stages visible: Context, Sources, Decision Board, Group Check, and Confirm.
 
-\textit{Example screens: Barcelona Setup, Barcelona Sources, Barcelona Board, Cerve Quick Vote, Barcelona Confirmation.}
+\textit{Example screens: Create Shared Trip, Invite Friends, Home with Barcelona Trip, Set the Group Vibe, Decision Board, Quick Group Check, Confirmation.}
 
 \subsection{Task closure}
 
-The Barcelona Confirmation screen provides explicit task closure. It does not merely navigate to another list; it states ``Decision made!'' and shows the selected destination, relevant details, and the backup status. The primary next action is clear: get directions. This tells Lina that the decision task is finished and the group can now act.
+The confirmation screen provides explicit task closure. It does not merely navigate to another list; it states ``Decision made!'' and shows the selected destination, relevant details, and backup status. The primary next action is clear: get directions. This tells the organizer that the group decision is finished and the group can now act.
 
-\textit{Example screen: Barcelona Confirmation.}
+\textit{Example screen: Decision Confirmation.}
 
 \subsection{Congratulating the user}
 
 The final confirmation screen congratulates the user with the phrase ``Good choice.'' This is a small but important confidence cue. The interviews showed that users often hesitate even after narrowing options, so positive feedback helps reduce post-choice anxiety and reinforces that the selected option fits the group's context.
 
-\textit{Example screen: Barcelona Confirmation.}
+\textit{Example screen: Decision Confirmation.}
 
 \subsection{Clear exit marks}
 
-The prototype provides clear exits throughout the flow. Most screens include a back button. The Barcelona Compare screen is designed as a bottom sheet with a handle and downward close button, so it is visually obvious that the user can return to the board. The confirmation and directions screens also include clear exits such as back, back to home, and done.
+The prototype provides clear exits throughout the flow. Most screens include a back button. The comparison view is designed as a bottom sheet with a handle and downward close button, so it is visually obvious that the user can return to the decision board. The confirmation and directions screens also include clear exits such as back, back to home, and done.
 
-\textit{Example screens: Barcelona Compare, Barcelona Confirmation, Barcelona Directions.}
+\textit{Example screens: Compare Trade-offs, Decision Confirmation, Directions.}
 
 \subsection{Allowing errors and emergency exits}
 
-TripFit allows the user to recover when the situation changes or a recommendation becomes unsuitable. The user can go back to the board, use a backup instead, or switch between the best route and backup route directly in the Barcelona Directions screen. This supports the travel context, where crowding, weather, fatigue, and group preferences can change quickly.
+TripFit allows the user to recover when the situation changes or a recommendation becomes unsuitable. The user can change the main choice, save an alternative, or switch between the best route and the backup route directly on the directions screen. This supports the travel context, where crowding, weather, fatigue, and group preferences can change quickly.
 
-\textit{Example screens: Barcelona Confirmation, Barcelona Directions.}
+\textit{Example screens: Backup Option, Decision Confirmation, Directions.}
 
-\section{Visual Design Principles}
+\section{Instructor Review and Iteration}
 
-The prototype uses a consistent mobile-first visual style that supports the task structure.
+An earlier prototype version was presented using a simpler two-person travel situation based on Tran's context. In that version, users entered their time, location, weather, and preferences, received a suggestion, and adjusted the inputs if the suggestion did not fit. This made contextual recommendation visible, but it did not make TripFit's distinctive purpose clear.
 
-\begin{itemize}
-    \item \textbf{Visual hierarchy:} Primary actions such as ``Confirm Vibe'', ``Build group decision board'', ``Compare all options'', ``Choose this'', ``Save backup and confirm'', and ``Get directions'' use larger filled buttons and stronger contrast. Secondary or emergency actions are visually quieter.
+\subsection{Feedback received}
 
-    \item \textbf{Grouping:} Related information is grouped into cards: context settings, imported sources, recommendation cards, fit breakdowns, vote rows, confirmation ticket, and route details. This makes each screen scannable.
+During the prototype review, the instructor identified the following issues:
 
-    \item \textbf{Alignment and spacing:} Screens use a consistent card grid, rounded containers, repeated padding, and aligned controls. The setup screen groups Budget/Environment and Time/Location into predictable pairs.
-
-    \item \textbf{Color and emphasis:} Teal/cyan is used as the main action and recommendation color. Slate neutrals support readability. Amber highlights warnings or trade-offs, green indicates agreement or backup readiness, and soft blue/purple/pink accents distinguish information sources.
-
-    \item \textbf{Screen inertia:} The screens share the same phone-frame context, stepper style, rounded cards, typography, and bottom action area. This helps users feel that they are moving through one coherent system rather than unrelated pages.
-
-    \item \textbf{Logical path:} The visual composition follows the user's mental sequence: context first, sources second, shortlist third, choice fourth, confirmation last. The Barcelona Compare bottom sheet also preserves the board as the underlying context, matching its role as an extension rather than a separate destination.
+\begin{itemize}[leftmargin=1.5em, itemsep=0.15em]
+    \item The product needed to focus on a specific persona and a sharply defined pain point instead of covering many kinds of travel decisions.
+    \item The interaction appeared too close to a generic AI assistant: entering context and receiving suggestions did not explain what TripFit does better.
+    \item Showing an obviously poor suggestion, such as an outdoor activity in unsuitable weather, reduced trust in the recommendation process.
+    \item The prototype needed one clear solution to one core problem rather than several loosely related features.
 \end{itemize}
 
-\section{Prototype Review and Iteration}
+\subsection{Design response}
 
-The prototype changed substantially after the first review. Version 1 of TripFit was built around a more general travel decision flow, mainly because it was easier to film a two-person scenario based on Tran's persona. In that version, two travelers had two hours left, discussed a few possible options, opened TripFit, entered their context, and received a recommendation. If the recommendation was not right, the user adjusted the inputs and tried again.
-
-This first version helped us test the basic idea of contextual recommendation, but it also revealed a major weakness: the interaction felt too close to a generic AI assistant. The user essentially described a situation, received an answer, and refined the prompt when the answer was not good enough. As a result, the specific design problem and the specific value of TripFit were not visible enough.
-
-\subsection{Feedback on Version 1}
-
-The instructor feedback pointed to four main issues:
-
-\begin{itemize}
-    \item \textbf{The target persona was too broad.} The prototype needed to focus on one specific user and one specific pain point instead of trying to cover many travel situations.
-
-    \item \textbf{The difference from a generic AI assistant was unclear.} If the interaction is simply ``enter context and get a suggestion'', users could imagine doing the same thing with ChatGPT.
-
-    \item \textbf{The wrong-suggestion scenario damaged trust.} Showing a clearly inappropriate recommendation, such as an outdoor walk in the rain, made the system look unreliable rather than helpful.
-
-    \item \textbf{The prototype tried to cover too much.} The core tension was not sharp enough: it was unclear whether TripFit was for solo discovery, duo travel, group planning, plan repair, or general recommendation.
-\end{itemize}
-
-\subsection{Design Decision After Feedback}
-
-After this feedback, we decided to focus the final prototype primarily on Lina, our primary persona. Lina's core problem is not simply finding places. Her problem is managing too many scattered group ideas from TikTok, Instagram, Google Maps, screenshots, and group chats, then helping the group converge on one choice. Tran remains in the prototype as a secondary KPS, but this path is deliberately shorter and uses the same product logic in a simpler duo setting.
-
-This changed the positioning of TripFit:
+The redesign makes Lina's group decision problem the primary, detailed experience. Her problem is not a lack of places to visit; it is that four friends already have too many scattered ideas across TikTok links, Google Maps pins, and messages. The updated prototype therefore begins with Lina creating Barcelona Trip while the friends are together, detecting the nearby friends already using TripFit, and inviting them into the group. After this setup, Lina returns to the landing screen; while her friends add their saved places, the trip card visibly accumulates their contributions. When it is ready, she opens the shared pool and starts a Group Vibe Check.
 
 \begin{tripfitbox}
-\textbf{Old direction:} Tell the app your situation and get recommendations.\\
-\textbf{New direction:} Turn everyone's scattered saved ideas into one shared, explainable group decision.
+\textbf{Previous framing:} Enter a situation and receive recommendations.\\
+\textbf{Revised framing:} Turn scattered group ideas into one explainable, recoverable decision.
 \end{tripfitbox}
 
-The final prototype therefore positions TripFit as a contextual decision-support tool rather than a generic recommendation app. In Lina's path, TripFit acts as a group decision-support tool: the group contributes saved ideas, TripFit collects them into one pool, filters them according to the current context, compares the best options, explains the trade-offs, supports a quick group check, and keeps a backup in case the chosen option fails. In Tran's path, the same logic is simplified for a duo decision: combine saved and nearby options, filter by current constraints, and choose a low-effort fit before the train.
+The redesign also makes the recommendation process more accountable. Context is entered through constrained controls rather than a free prompt; the sorting checklist explains the filtering process; the decision board reduces 16 ideas to three realistic fits and states why 13 were filtered out; and option cards show strengths, trade-offs, and risk. Finally, a quick group check, a saved backup, and route switching address the uncertainty of real travel decisions without requiring the user to restart.
 
-\subsection{Final Walkthrough Task}
-
-\begin{tripfitbox}
-\textbf{Walkthrough 1: Lina group decision.} You are in Barcelona with three friends. You have a few hours before dinner, everyone is slightly tired, and the group has many saved places from TikTok, Instagram, screenshots, and Google Maps. Use TripFit to choose what to do next, align with the group, keep a backup, and open directions.
-
-\textbf{Walkthrough 2: Tran low-effort nearby.} You are in Lyon with one friend and have two hours before the train. You want something close, low effort, and still worth doing. Use TripFit to filter nearby and saved options, choose the best fit, keep a backup, and open directions.
-\end{tripfitbox}
-
-\subsection{Observed problems in the redesigned prototype}
-
-\begin{itemize}
-    \item \textbf{Problem 1: The best option was not obvious enough.} The Barcelona Board showed three options, but the top option did not visually communicate that it was the recommended best fit.
-
-    \item \textbf{Problem 2: Some screens felt like dead ends or unnecessary branches.} The confirmation screen lacked a back button, the directions screen lacked a back button, and ``Use backup instead'' initially sent the user backward to backup selection instead of adapting the current route.
-
-    \item \textbf{Problem 3: Some feedback was too static.} The quick vote screen immediately showed final votes, which made the group-check interaction feel less alive. The directions map was also too blank to communicate a route.
-
-    \item \textbf{Problem 4: The comparison screen felt like a full navigation step.} The comparison view originally entered like another screen, even though conceptually it should behave like an extension of the decision board.
-
-    \item \textbf{Problem 5: Some parameters needed explanation.} The setup screen used compact controls for budget, energy, environment, time, and location, but users might not immediately understand what each setting means.
-\end{itemize}
-
-\subsection{Changes made after feedback}
-
-\begin{itemize}
-    \item \textbf{Change 1: Rebuilt the prototype around Lina's group decision problem while preserving Tran as a secondary KPS.} The final Lina flow now starts from the Barcelona group trip, shows the group's unsorted ideas, gathers saved sources, filters them, and turns them into a decision board. The Tran flow was reframed as a shorter low-effort nearby path in Lyon. This makes the product's value clearer: fewer options, clearer reasons, and faster agreement.
-
-    \item \textbf{Change 2: Clarified the top recommendation.} The first option on Barcelona Board now has a stronger highlighted border, a ``\#1 best fit'' badge, and a short explanation of why it is the best overall balance. This improves visibility and feedback.
-
-    \item \textbf{Change 3: Improved exits and emergency recovery.} Back buttons were added to confirmation and directions. The directions screen now lets users switch between Cerveceria Catalana and the backup route in place. This supports clear exits and emergency exits.
-
-    \item \textbf{Change 4: Added more dynamic feedback.} The quick vote screen now briefly shows Emma, Lucas, and Sofia as voting before their final statuses appear. The directions screen now includes a stylized map with a visible route and destination pin. This improves feedback and makes the prototype more playful.
-
-    \item \textbf{Change 5: Reframed comparison as a bottom sheet.} Barcelona Compare now slides up from the bottom over a dimmed board-like background. This communicates that the user is still on the decision board and is only comparing before choosing.
-
-    \item \textbf{Change 6: Added parameter explanations.} The Barcelona Setup screen now includes small information buttons for group energy, budget, environment, time left, and location. Each opens a modal with details, such as the meaning of each budget level. This improves visibility while preserving constrained input.
-\end{itemize}
+Tran remains as a shorter secondary key path scenario, demonstrating that the same principle of reducing options with transparent reasons can support a time-constrained two-person decision. However, Lina's path is the main demonstration because it addresses the more specific pain point revealed through the instructor feedback.
 
 \section{Conclusion}
 
-TripFit's prototype demonstrates the central design direction developed across the previous design briefs: the product should not generate more travel content, but help users make a confident decision from the content and options they already have. The final Barcelona flow focuses on reducing decision overload, supporting contextual fit, explaining recommendations transparently, helping a group align quickly, and ending with a clear next action plus a recoverable backup path.
+TripFit's prototype demonstrates the central design direction developed across the previous design briefs: the product should not generate more travel content, but help users make a confident decision from content and realistic nearby options. Its primary group path turns scattered contributions into an explainable agreement, while its shorter nearby path supports time-constrained decisions. Both conclude with a clear action and a recoverable backup.
 
 \end{document}

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router';
 import LandingScreen from './screens/LandingScreen';
 import DecisionSetupScreen from './screens/DecisionSetupScreen';
@@ -34,7 +35,6 @@ import GroupUseBackupScreen from './screens/group/GroupUseBackupScreen';
 import GroupDashboardScreen from './screens/group/GroupDashboardScreen';
 import BarcelonaCreateGroupScreen from './screens/group/BarcelonaCreateGroupScreen';
 import BarcelonaInviteFriendsScreen from './screens/group/BarcelonaInviteFriendsScreen';
-import BarcelonaCollectIdeasScreen from './screens/group/BarcelonaCollectIdeasScreen';
 import BarcelonaIdeasScreen from './screens/group/BarcelonaIdeasScreen';
 import BarcelonaSetupScreen from './screens/group/BarcelonaSetupScreen';
 import BarcelonaSourcesScreen from './screens/group/BarcelonaSourcesScreen';
@@ -48,11 +48,28 @@ import BarcelonaConfirmationScreen from './screens/group/BarcelonaConfirmationSc
 import BarcelonaDirectionsScreen from './screens/group/BarcelonaDirectionsScreen';
 
 export default function App() {
+  const [hasBarcelonaTrip, setHasBarcelonaTrip] = useState(false);
+  const [barcelonaContributions, setBarcelonaContributions] = useState(0);
   const currentTime = new Date().toLocaleTimeString('en-US', {
     hour: 'numeric',
     minute: '2-digit',
     hour12: true
   });
+
+  useEffect(() => {
+    if (!hasBarcelonaTrip || barcelonaContributions >= 3) return;
+
+    const timer = window.setTimeout(() => {
+      setBarcelonaContributions((current) => current + 1);
+    }, barcelonaContributions === 0 ? 900 : 700);
+
+    return () => window.clearTimeout(timer);
+  }, [hasBarcelonaTrip, barcelonaContributions]);
+
+  const handleBarcelonaFriendsInvited = () => {
+    setHasBarcelonaTrip(true);
+    setBarcelonaContributions(0);
+  };
 
   return (
     <HashRouter>
@@ -79,7 +96,15 @@ export default function App() {
           {/* Screen content */}
           <div className="w-full h-[calc(100%-44px)] bg-white overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             <Routes>
-              <Route path="/" element={<LandingScreen />} />
+              <Route
+                path="/"
+                element={
+                  <LandingScreen
+                    hasBarcelonaTrip={hasBarcelonaTrip}
+                    barcelonaContributions={barcelonaContributions}
+                  />
+                }
+              />
               <Route path="/setup" element={<DecisionSetupScreen />} />
               <Route path="/edit-context" element={<EditContextScreen />} />
               <Route path="/sources" element={<SourceSelectionScreen />} />
@@ -114,8 +139,10 @@ export default function App() {
               <Route path="/group/use-backup" element={<GroupUseBackupScreen />} />
               <Route path="/group/dashboard" element={<GroupDashboardScreen />} />
               <Route path="/group/barcelona-create" element={<BarcelonaCreateGroupScreen />} />
-              <Route path="/group/barcelona-invite" element={<BarcelonaInviteFriendsScreen />} />
-              <Route path="/group/barcelona-collect" element={<BarcelonaCollectIdeasScreen />} />
+              <Route
+                path="/group/barcelona-invite"
+                element={<BarcelonaInviteFriendsScreen onFriendsInvited={handleBarcelonaFriendsInvited} />}
+              />
               <Route path="/group/barcelona-ideas" element={<BarcelonaIdeasScreen />} />
               <Route path="/group/barcelona-setup" element={<BarcelonaSetupScreen />} />
               <Route path="/group/barcelona-sources" element={<BarcelonaSourcesScreen />} />

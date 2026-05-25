@@ -27,7 +27,7 @@ export default function BarcelonaCreateGroupScreen() {
         <div className="mb-7">
           <div className="inline-flex items-center gap-1.5 bg-primary/10 text-primary rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider mb-4">
             <Users className="w-3.5 h-3.5" />
-            Group Vibe Check
+            Shared trip
           </div>
           <h1 className="text-[27px] font-extrabold text-slate-800 tracking-tight mb-2">
             Create a shared trip

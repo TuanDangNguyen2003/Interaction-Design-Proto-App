@@ -55,7 +55,7 @@ export default function GroupSetupScreen() {
              <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-[14px]">E</div>
            </div>
            <div>
-             <div className="text-[13px] font-bold text-slate-800">Barcelona Girls</div>
+             <div className="text-[13px] font-bold text-slate-800">Barcelona Trip</div>
              <div className="text-[11px] text-slate-400 font-medium">4 members organizing</div>
            </div>
         </div>

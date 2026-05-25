@@ -10,14 +10,14 @@ export default function BarcelonaIdeasScreen() {
       {/* Header */}
       <div className="px-5 pt-4 pb-2 bg-white sticky top-0 z-40 border-b border-slate-100 shadow-sm flex items-center justify-between">
         <button 
-          onClick={() => navigate('/group/barcelona-collect')}
+          onClick={() => navigate('/')}
           className="p-2 -ml-2 rounded-full hover:bg-slate-100 transition-colors"
         >
           <ChevronLeft className="w-5 h-5 text-slate-600" />
         </button>
         <div className="text-center">
           <h1 className="text-[15px] font-bold text-slate-800">Barcelona Trip</h1>
-          <p className="text-[11px] text-slate-500 font-medium">Unsorted Ideas</p>
+          <p className="text-[11px] text-slate-500 font-medium">16 collected ideas</p>
         </div>
         <button className="p-2 -mr-2 rounded-full hover:bg-slate-100 transition-colors">
           <Filter className="w-5 h-5 text-slate-600" />
@@ -120,12 +120,12 @@ export default function BarcelonaIdeasScreen() {
             </div>
             <div className="flex-1 flex flex-col justify-between py-1">
               <div>
-                <h3 className="text-[14px] font-bold text-slate-800 leading-tight line-clamp-2 mb-1">"Sarah said we have to do the sunrise tour here!"</h3>
+                <h3 className="text-[14px] font-bold text-slate-800 leading-tight line-clamp-2 mb-1">"Sofia said we have to do the sunrise tour here!"</h3>
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                    <div className="w-5 h-5 rounded-full bg-amber-100 border border-white flex items-center justify-center text-[9px] font-bold text-amber-700">S</div>
-                  <span className="text-[11px] font-medium text-slate-400">Sarah added</span>
+                  <span className="text-[11px] font-medium text-slate-400">Sofia added</span>
                 </div>
                 <Link2 className="w-3.5 h-3.5 text-slate-300" />
               </div>
@@ -212,7 +212,7 @@ export default function BarcelonaIdeasScreen() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                    <div className="w-5 h-5 rounded-full bg-amber-100 border border-white flex items-center justify-center text-[9px] font-bold text-amber-700">S</div>
-                  <span className="text-[11px] font-medium text-slate-400">Sarah added</span>
+                  <span className="text-[11px] font-medium text-slate-400">Sofia added</span>
                 </div>
                 <Link2 className="w-3.5 h-3.5 text-slate-300" />
               </div>
