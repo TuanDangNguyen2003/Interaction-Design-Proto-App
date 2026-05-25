@@ -214,8 +214,8 @@ has moved from scattered ideas to one agreed action.
 4:35 - 4:52 | DIRECTIONS AND RECOVERY
 
 Action:
-On the directions screen, click "Use backup instead" once. You may toggle
-back to the best choice if time permits.
+On the directions screen, tap the highlighted "Backup ready" destination
+card once. You may tap the displayed best choice to switch back if time permits.
 
 Narration:
 Finally, TripFit supports uncertainty in real travel situations. If the

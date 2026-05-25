@@ -74,14 +74,18 @@ export default function BarcelonaBackupSelectionScreen() {
           Save backup
         </button>
         <button
-          onClick={() => navigate('/group/barcelona-confirmation')}
-          className="w-full bg-white border border-slate-200 text-slate-700 rounded-2xl py-3.5 font-bold text-[15px] hover:bg-slate-50 transition-all active:scale-[0.98]"
+          type="button"
+          disabled
+          aria-disabled="true"
+          className="w-full bg-white border border-slate-200 text-slate-700 rounded-2xl py-3.5 font-bold text-[15px] cursor-default"
         >
           Skip backup
         </button>
         <button
-          onClick={() => navigate('/group/barcelona-board')}
-          className="w-full text-slate-500 text-[14px] font-bold hover:text-slate-800 transition-colors py-1.5"
+          type="button"
+          disabled
+          aria-disabled="true"
+          className="w-full text-slate-500 text-[14px] font-bold py-1.5 cursor-default"
         >
           Change main choice
         </button>

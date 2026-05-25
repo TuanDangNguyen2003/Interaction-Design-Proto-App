@@ -189,20 +189,12 @@ export default function BarcelonaConfirmationScreen() {
           <Navigation className="w-5 h-5" />
           Get directions
         </button>
-        <div className="grid grid-cols-2 gap-3">
-          <button
-            onClick={() => navigate('/')}
-            className="bg-slate-50 border border-slate-200 text-slate-600 rounded-2xl py-3 font-bold text-[14px] hover:bg-slate-100 transition-all active:scale-[0.98]"
-          >
-            Back to home
-          </button>
-          <button
-            onClick={() => navigate('/group/barcelona-backup-selection', { state: { previousOption: isBackup ? 'Hidden Speakeasy' : 'Cervecería Catalana' } })}
-            className="bg-teal-50 border border-teal-100 text-teal-700 rounded-2xl py-3 font-bold text-[14px] hover:bg-teal-100 transition-all active:scale-[0.98]"
-          >
-            {isBackup ? 'Change choice' : 'Use backup'}
-          </button>
-        </div>
+        <button
+          onClick={() => navigate('/')}
+          className="w-full bg-slate-50 border border-slate-200 text-slate-600 rounded-2xl py-3 font-bold text-[14px] hover:bg-slate-100 transition-all active:scale-[0.98]"
+        >
+          Back to home
+        </button>
       </div>
     </motion.div>
   );

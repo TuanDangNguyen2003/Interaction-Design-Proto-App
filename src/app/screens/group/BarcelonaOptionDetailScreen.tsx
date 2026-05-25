@@ -120,12 +120,6 @@ export default function BarcelonaOptionDetailScreen() {
         >
           Keep as backup
         </button>
-        <button
-          onClick={() => navigate(-1)}
-          className="w-full text-slate-500 text-[14px] font-bold hover:text-slate-800 transition-colors py-1.5"
-        >
-          Go back
-        </button>
       </div>
     </motion.div>
   );
