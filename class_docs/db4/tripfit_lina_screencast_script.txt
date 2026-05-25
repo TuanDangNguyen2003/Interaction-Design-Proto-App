@@ -53,12 +53,16 @@ across different apps.
 
 Action:
 Let the nearby-friends scanning animation appear. When Emma, Sofia, and
-Elena appear, select all three and click "Invite friends."
+Elena appear, select all three and click "Invite friends." Pause on the
+confirmation state, then click "Done."
 
 Narration:
 Because the friends are together and already using TripFit, the app
 detects nearby users. Lina invites her three travel companions so that
 they can each contribute places they already saved.
+
+TripFit confirms that Barcelona Trip is ready and that all four members
+have joined before Lina returns to the landing screen.
 
 
 1:15 - 1:35 | RETURN HOME AND COLLECT SHARED IDEAS

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Check, ChevronLeft, Link2, Loader2, Radar, Send, Sparkles } from 'lucide-react';
+import { Check, CircleCheckBig, ChevronLeft, Link2, Loader2, Radar, Send, Sparkles, Users } from 'lucide-react';
 import { motion } from 'motion/react';
 
 const friends = [
@@ -17,6 +17,7 @@ export default function BarcelonaInviteFriendsScreen({ onFriendsInvited }: Barce
   const navigate = useNavigate();
   const [selected, setSelected] = useState<string[]>([]);
   const [hasScanned, setHasScanned] = useState(false);
+  const [isConfirmed, setIsConfirmed] = useState(false);
   const allSelected = selected.length === friends.length;
 
   useEffect(() => {
@@ -30,6 +31,11 @@ export default function BarcelonaInviteFriendsScreen({ onFriendsInvited }: Barce
       : [...current, name]);
   };
 
+  const finishInvitation = () => {
+    onFriendsInvited();
+    navigate('/');
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 10 }}
@@ -38,17 +44,54 @@ export default function BarcelonaInviteFriendsScreen({ onFriendsInvited }: Barce
       className="flex flex-col h-full bg-slate-50 relative"
     >
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0">
-        <button onClick={() => navigate('/group/barcelona-create')} className="text-slate-400 hover:text-slate-600 transition-colors" aria-label="Go back">
+        <button onClick={() => isConfirmed ? finishInvitation() : navigate('/group/barcelona-create')} className="text-slate-400 hover:text-slate-600 transition-colors" aria-label="Go back">
           <ChevronLeft className="w-6 h-6" />
         </button>
         <div className="flex-1 flex gap-1.5">
-          {[true, true, false].map((active, index) => (
+          {[true, true, isConfirmed].map((active, index) => (
             <div key={index} className={`h-1.5 flex-1 rounded-full ${active ? 'bg-primary' : 'bg-slate-100'}`} />
           ))}
         </div>
       </div>
 
-      <div className="flex-1 px-5 py-6 overflow-y-auto">
+      {isConfirmed ? (
+        <div className="flex-1 px-5 py-7 flex flex-col items-center justify-center text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ type: 'spring', damping: 20, stiffness: 240 }}
+            className="w-20 h-20 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5"
+          >
+            <CircleCheckBig className="w-10 h-10" />
+          </motion.div>
+          <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider mb-4">
+            <Check className="w-3.5 h-3.5" />
+            Group ready
+          </div>
+          <h1 className="text-[27px] font-extrabold text-slate-800 tracking-tight mb-2">
+            Barcelona Trip is set!
+          </h1>
+          <p className="text-[14px] text-slate-500 font-medium leading-relaxed mb-6 max-w-[290px]">
+            Emma, Sofia, and Elena have joined. Everyone can now add saved places to the shared trip.
+          </p>
+
+          <div className="w-full bg-white border border-slate-200/60 rounded-[22px] p-4 shadow-sm text-left">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-xl bg-cyan-50 text-primary flex items-center justify-center">
+                <Users className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-[15px] font-extrabold text-slate-800">Barcelona Trip</p>
+                <p className="text-[12px] font-medium text-slate-500">4 members joined</p>
+              </div>
+            </div>
+            <div className="bg-cyan-50 border border-cyan-100 rounded-[14px] px-3 py-2.5 text-[12px] font-medium text-cyan-800 leading-relaxed">
+              Ideas will appear on your home screen as friends contribute.
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="flex-1 px-5 py-6 overflow-y-auto">
         <div className="mb-6">
           <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider mb-4">
             <Check className="w-3.5 h-3.5" />
@@ -130,30 +173,37 @@ export default function BarcelonaInviteFriendsScreen({ onFriendsInvited }: Barce
             </button>
           </motion.div>
         )}
-      </div>
+        </div>
+      )}
 
       <div className="p-5 border-t border-slate-200/60 bg-white shrink-0 space-y-3">
-        <p className="text-[12px] text-slate-500 font-medium text-center">
-          {!hasScanned
-            ? 'Looking for nearby friends...'
-            : allSelected
-              ? '3 friends selected and ready to invite'
-              : 'Select Emma, Sofia, and Elena to continue'}
-        </p>
+        {!isConfirmed && (
+          <p className="text-[12px] text-slate-500 font-medium text-center">
+            {!hasScanned
+              ? 'Looking for nearby friends...'
+              : allSelected
+                ? '3 friends selected and ready to invite'
+                : 'Select Emma, Sofia, and Elena to continue'}
+          </p>
+        )}
         <button
-          disabled={!allSelected}
+          disabled={!isConfirmed && !allSelected}
           onClick={() => {
-            onFriendsInvited();
-            navigate('/');
+            if (isConfirmed) {
+              finishInvitation();
+              return;
+            }
+
+            setIsConfirmed(true);
           }}
           className={`w-full rounded-2xl py-4 font-bold text-[16px] transition-all flex items-center justify-center gap-2 ${
-            allSelected
+            isConfirmed || allSelected
               ? 'bg-gradient-to-r from-primary to-cyan-500 text-white shadow-lg shadow-primary/30 active:scale-[0.98]'
               : 'bg-slate-100 text-slate-400 cursor-not-allowed'
           }`}
         >
-          <Send className="w-5 h-5" />
-          {hasScanned ? 'Invite friends' : 'Scanning nearby friends'}
+          {isConfirmed ? <Check className="w-5 h-5" /> : <Send className="w-5 h-5" />}
+          {isConfirmed ? 'Done' : hasScanned ? 'Invite friends' : 'Scanning nearby friends'}
         </button>
       </div>
     </motion.div>

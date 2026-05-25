@@ -94,16 +94,33 @@ export default function LandingScreen({ hasBarcelonaTrip, barcelonaContributions
               <h2 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
                 Your trips
               </h2>
-              <span className="text-[11px] font-bold text-cyan-700 bg-cyan-50 rounded-full px-2.5 py-1">
-                1 active
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-bold text-cyan-700 bg-cyan-50 rounded-full px-2.5 py-1">
+                  1 active
+                </span>
+                <button
+                  type="button"
+                  onClick={() => navigate('/group/barcelona-create')}
+                  className="h-8 rounded-full bg-white border border-slate-200 px-3 flex items-center gap-1.5 text-[11px] font-bold text-slate-600 shadow-sm active:scale-[0.98] transition-all"
+                >
+                  <Plus className="w-3.5 h-3.5 text-primary" />
+                  New trip
+                </button>
+              </div>
             </div>
 
-            <motion.section
+            <motion.button
+              type="button"
+              disabled={!tripReady}
+              onClick={() => navigate('/group/barcelona-ideas')}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35 }}
-              className="bg-white border-2 border-cyan-200 rounded-[22px] shadow-sm overflow-hidden mb-5"
+              className={`w-full text-left bg-white border-2 border-cyan-200 rounded-[22px] shadow-sm overflow-hidden mb-5 transition-all ${
+                tripReady
+                  ? 'hover:border-primary/45 hover:shadow-md active:scale-[0.985]'
+                  : 'cursor-default'
+              }`}
             >
               <div className="p-4">
                 <div className="flex items-start justify-between gap-3 mb-4">
@@ -176,22 +193,19 @@ export default function LandingScreen({ hasBarcelonaTrip, barcelonaContributions
                 </div>
               </div>
 
-              <button
-                type="button"
-                disabled={!tripReady}
-                onClick={() => navigate('/group/barcelona-ideas')}
-                className={`w-full border-t px-4 py-3.5 flex items-center justify-between transition-all ${
+              <div
+                className={`w-full border-t px-4 py-3.5 flex items-center justify-between ${
                   tripReady
-                    ? 'border-cyan-100 bg-cyan-50/60 text-cyan-700 active:bg-cyan-100'
-                    : 'border-slate-100 bg-slate-50 text-slate-400 cursor-not-allowed'
+                    ? 'border-cyan-100 bg-cyan-50/60 text-cyan-700'
+                    : 'border-slate-100 bg-slate-50 text-slate-400'
                 }`}
               >
                 <span className="text-[13px] font-bold">
                   {tripReady ? 'Review ideas and decide' : 'Collecting contributions'}
                 </span>
                 {tripReady ? <ArrowRight className="w-4.5 h-4.5" /> : <Sparkles className="w-4 h-4" />}
-              </button>
-            </motion.section>
+              </div>
+            </motion.button>
 
             <h2 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-3 px-1">
               Need something else now?
@@ -214,17 +228,6 @@ export default function LandingScreen({ hasBarcelonaTrip, barcelonaContributions
         )}
       </div>
 
-      {hasBarcelonaTrip && (
-        <button
-          type="button"
-          onClick={() => navigate('/group/barcelona-create')}
-          className="absolute top-7 right-5 w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-500 shadow-sm flex items-center justify-center"
-          aria-label="Create another shared trip"
-          title="Create another shared trip"
-        >
-          <Plus className="w-4.5 h-4.5" />
-        </button>
-      )}
     </motion.div>
   );
 }
