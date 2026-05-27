@@ -44,7 +44,7 @@
 
 \textbf{Video URL:} \textit{To be added after recording.}
 
-\textbf{Prototype scope:} The submitted prototype is a mobile-first digital mockup shown inside a phone frame. It implements two key path scenarios derived from Design Brief 3: a shared group decision in Barcelona and a quick low-effort nearby decision in Lyon. The initial landing interface presents generic needs---``Create a shared trip'' and ``Quick Low-Effort Nearby''---rather than forcing users to select a persona. In the primary Lina scenario, she creates Barcelona Trip while she is together with her friends, finds the nearby friends who are also using TripFit, and invites them into the group. Lina then returns to the landing screen while their saved places, links, and pins accumulate in the trip card. Once 16 ideas are available, she opens the shared pool and starts a Group Vibe Check to reach an explainable decision with a backup. The prototype excludes sign-up and registration.
+\textbf{Prototype scope:} The submitted prototype is a mobile-first digital mockup shown inside a phone frame. It implements two key path scenarios derived from Design Brief 3: a shared group decision in Barcelona and a quick low-effort nearby decision in Lyon. The initial landing interface presents generic needs---``Create a shared trip'' and ``Quick Low-Effort Nearby''---rather than forcing users to select a persona. In the primary Lina scenario, she creates Barcelona Trip while she is together with her friends, finds nearby friends already using TripFit, and invites them into the group. Lina then adds her own scattered Google Maps pins, saved TikToks, and Instagram reel before returning home while her friends' additions arrive. Once the shared pool reaches 16 ideas, she starts a Group Vibe Check to reach an explainable decision with a backup. The prototype excludes sign-up and registration.
 
 \section{Vision Statement and Task Tree}
 
@@ -54,7 +54,7 @@
 \textbf{Root goal: Choose a contextually fitting next activity during a short city trip}
 \begin{enumerate}[leftmargin=1.5em, itemsep=0.15em, topsep=0.4em]
     \item \textbf{Start a timely decision:} choose a shared group decision or a quick nearby decision according to the current need.
-    \item \textbf{Gather candidate ideas:} create a shared trip, invite nearby TripFit users in the group, and return to it once their saved links and pins have arrived, or reuse nearby and previously saved options.
+    \item \textbf{Gather candidate ideas:} create a shared trip, invite nearby TripFit users, add one's own scattered saves, and return to it once companions' links and pins have arrived, or reuse nearby and previously saved options.
     \item \textbf{Express current constraints:} select time, location, energy, budget, environment, and social needs through lightweight controls.
     \item \textbf{Reduce decision load:} filter unsuitable options, present a shortlist, and explain the top fit and remaining trade-offs.
     \item \textbf{Commit and recover:} align with companions when needed, confirm one option, preserve a backup, and switch routes if the situation changes.
@@ -67,27 +67,27 @@ This section explains how the prototype applies the eight interaction design pri
 
 \subsection{Clear visibility of user actions in the UI}
 
-TripFit keeps important choices and progress visible as the task proceeds. After Lina invites friends, the home screen shows her Barcelona Trip card changing from ``Friends are adding ideas'' to ``16 ideas collected,'' making the shared preparation visible before she begins a decision. On the context setup screen, selected group energy, budget, environment, time, and location remain visible in their controls. On the decision board, a compact context summary repeats what the recommendation is based on.
+TripFit keeps important choices and progress visible as the task proceeds. Lina sees that her five selected ideas have been added before returning home. The Barcelona Trip card then changes from ``Collecting group ideas'' to ``16 ideas collected,'' while stating that her own ideas are already included. On the context setup screen, selected group energy, budget, environment, time, and location remain visible in their controls. On the decision board, a compact context summary repeats what the recommendation is based on.
 
-\textit{Example screens: Home with Barcelona Trip, Set the Group Vibe, Decision Board.}
+\textit{Example screens: Add Your Ideas, Home with Barcelona Trip, Set the Group Vibe, Decision Board.}
 
 \subsection{Design constraints and visual mapping between tasks and controls}
 
-The prototype constrains input to lightweight controls: selectable friend cards, chips, segmented choices, and a slider. The organizer never needs to type a vague prompt such as ``find something nice for us''. Instead, each control maps directly to a task: select friends to invite, adjust energy with a slider, set budget with dollar-sign chips, choose environment with icons, and set time with predefined chips. Information buttons explain the meaning of these compact settings.
+The prototype constrains input to lightweight controls: selectable friend and source cards, chips, segmented choices, and a slider. The organizer never needs to type a vague prompt such as ``find something nice for us''. Instead, each control maps directly to a task: choose which saved sources to bring into the trip, adjust energy with a slider, set budget with dollar-sign chips, choose environment with icons, and set time with predefined chips. Information buttons explain the meaning of these compact settings.
 
-\textit{Example screens: Invite Friends, Set the Group Vibe.}
+\textit{Example screens: Invite Friends, Add Your Ideas, Set the Group Vibe.}
 
 \subsection{Meaningful feedback to ease evaluation}
 
-TripFit gives feedback about both process and output. The invitation screen briefly scans for nearby friends who are using TripFit, then confirms that Barcelona Trip is set and that four members have joined before Lina chooses to return home. The home trip card shows contribution progress and changes to a ready state when 16 ideas have arrived. During sorting, a checklist shows that the system is combining ideas, removing options that are too far or too expensive, considering weather, and prioritizing group fit. On the board, a filtered-out explanation and strength/trade-off blocks make the resulting ranking understandable.
+TripFit gives feedback about both process and output. The invitation screen briefly scans for nearby friends using TripFit, then confirms that four members have joined. After Lina selects her scattered sources, the app confirms that five of her ideas have entered Barcelona Trip. The home trip card shows the remaining contribution progress and changes to a ready state when 16 ideas have arrived. During sorting, a checklist shows that the system is combining ideas, removing options that are too far or too expensive, considering weather, and prioritizing group fit. On the board, a filtered-out explanation and strength/trade-off blocks make the resulting ranking understandable.
 
-\textit{Example screens: Group Ready Confirmation, Home with Barcelona Trip, Sorting, Decision Board, Option Detail.}
+\textit{Example screens: Group Ready Confirmation, Add Your Ideas, Home with Barcelona Trip, Sorting, Decision Board, Option Detail.}
 
 \subsection{Breaking a big task into smaller steps}
 
-Choosing what to do next during a short trip is cognitively heavy because it involves contribution, constraints, comparison, and agreement. TripFit breaks the group task into manageable stages: create the trip, invite friends, confirm that the group is ready, return home as ideas arrive, review the shared pool, set context, gather sources, sort/filter, compare the shortlist, check group agreement, confirm, and open directions. Once the decision stage begins, a progress stepper keeps the major stages visible: Context, Sources, Decision Board, Group Check, and Confirm.
+Choosing what to do next during a short trip is cognitively heavy because it involves contribution, constraints, comparison, and agreement. TripFit breaks the group task into manageable stages: create the trip, invite friends, add Lina's own sources, return home as other ideas arrive, review the shared pool, set context, gather sources, sort/filter, compare the shortlist, check group agreement, confirm, and open directions. Once the decision stage begins, a progress stepper keeps the major stages visible: Context, Sources, Decision Board, Group Check, and Confirm.
 
-\textit{Example screens: Create Shared Trip, Invite Friends, Group Ready Confirmation, Home with Barcelona Trip, Set the Group Vibe, Decision Board, Quick Group Check, Confirmation.}
+\textit{Example screens: Create Shared Trip, Invite Friends, Add Your Ideas, Home with Barcelona Trip, Set the Group Vibe, Decision Board, Quick Group Check, Confirmation.}
 
 \subsection{Task closure}
 
@@ -130,7 +130,7 @@ During the prototype review, the instructor identified the following issues:
 
 \subsection{Design response}
 
-The redesign makes Lina's group decision problem the primary, detailed experience. Her problem is not a lack of places to visit; it is that four friends already have too many scattered ideas across TikTok links, Google Maps pins, and messages. The updated prototype therefore begins with Lina creating Barcelona Trip while the friends are together, detecting the nearby friends already using TripFit, and inviting them into the group. After this setup, Lina returns to the landing screen; while her friends add their saved places, the trip card visibly accumulates their contributions. When it is ready, she opens the shared pool and starts a Group Vibe Check.
+The redesign makes Lina's group decision problem the primary, detailed experience. Her problem is not a lack of places to visit; it is that she and her friends already have too many scattered ideas across TikTok links, Instagram saves, Google Maps pins, and messages. The updated prototype therefore begins with Lina creating Barcelona Trip while the friends are together, detecting nearby friends already using TripFit, and inviting them into the group. Lina contributes her own scattered saves first, making her uncertainty and participation visible rather than treating her only as an organizer. She then returns to the landing screen while her friends' additions visibly accumulate in the trip card. When it is ready, she opens the shared pool and starts a Group Vibe Check.
 
 \begin{tripfitbox}
 \textbf{Previous framing:} Enter a situation and receive recommendations.\\

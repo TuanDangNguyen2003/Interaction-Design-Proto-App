@@ -35,6 +35,7 @@ import GroupUseBackupScreen from './screens/group/GroupUseBackupScreen';
 import GroupDashboardScreen from './screens/group/GroupDashboardScreen';
 import BarcelonaCreateGroupScreen from './screens/group/BarcelonaCreateGroupScreen';
 import BarcelonaInviteFriendsScreen from './screens/group/BarcelonaInviteFriendsScreen';
+import BarcelonaAddIdeasScreen from './screens/group/BarcelonaAddIdeasScreen';
 import BarcelonaIdeasScreen from './screens/group/BarcelonaIdeasScreen';
 import BarcelonaSetupScreen from './screens/group/BarcelonaSetupScreen';
 import BarcelonaSourcesScreen from './screens/group/BarcelonaSourcesScreen';
@@ -66,7 +67,7 @@ export default function App() {
     return () => window.clearTimeout(timer);
   }, [hasBarcelonaTrip, barcelonaContributions]);
 
-  const handleBarcelonaFriendsInvited = () => {
+  const handleBarcelonaIdeasAdded = () => {
     setHasBarcelonaTrip(true);
     setBarcelonaContributions(0);
   };
@@ -139,9 +140,10 @@ export default function App() {
               <Route path="/group/use-backup" element={<GroupUseBackupScreen />} />
               <Route path="/group/dashboard" element={<GroupDashboardScreen />} />
               <Route path="/group/barcelona-create" element={<BarcelonaCreateGroupScreen />} />
+              <Route path="/group/barcelona-invite" element={<BarcelonaInviteFriendsScreen />} />
               <Route
-                path="/group/barcelona-invite"
-                element={<BarcelonaInviteFriendsScreen onFriendsInvited={handleBarcelonaFriendsInvited} />}
+                path="/group/barcelona-add-ideas"
+                element={<BarcelonaAddIdeasScreen onIdeasAdded={handleBarcelonaIdeasAdded} />}
               />
               <Route path="/group/barcelona-ideas" element={<BarcelonaIdeasScreen />} />
               <Route path="/group/barcelona-setup" element={<BarcelonaSetupScreen />} />

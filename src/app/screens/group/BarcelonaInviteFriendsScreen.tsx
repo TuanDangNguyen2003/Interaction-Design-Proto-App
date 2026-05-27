@@ -9,11 +9,7 @@ const friends = [
   { name: 'Elena', initials: 'E', detail: 'Saved map pins', color: 'bg-blue-100 text-blue-700' },
 ] as const;
 
-interface BarcelonaInviteFriendsScreenProps {
-  onFriendsInvited: () => void;
-}
-
-export default function BarcelonaInviteFriendsScreen({ onFriendsInvited }: BarcelonaInviteFriendsScreenProps) {
+export default function BarcelonaInviteFriendsScreen() {
   const navigate = useNavigate();
   const [selected, setSelected] = useState<string[]>([]);
   const [hasScanned, setHasScanned] = useState(false);
@@ -31,10 +27,7 @@ export default function BarcelonaInviteFriendsScreen({ onFriendsInvited }: Barce
       : [...current, name]);
   };
 
-  const finishInvitation = () => {
-    onFriendsInvited();
-    navigate('/');
-  };
+  const continueToIdeas = () => navigate('/group/barcelona-add-ideas');
 
   return (
     <motion.div
@@ -44,7 +37,7 @@ export default function BarcelonaInviteFriendsScreen({ onFriendsInvited }: Barce
       className="flex flex-col h-full bg-slate-50 relative"
     >
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0">
-        <button onClick={() => isConfirmed ? finishInvitation() : navigate('/group/barcelona-create')} className="text-slate-400 hover:text-slate-600 transition-colors" aria-label="Go back">
+        <button onClick={() => isConfirmed ? continueToIdeas() : navigate('/group/barcelona-create')} className="text-slate-400 hover:text-slate-600 transition-colors" aria-label="Go back">
           <ChevronLeft className="w-6 h-6" />
         </button>
         <div className="flex-1 flex gap-1.5">
@@ -86,7 +79,7 @@ export default function BarcelonaInviteFriendsScreen({ onFriendsInvited }: Barce
               </div>
             </div>
             <div className="bg-cyan-50 border border-cyan-100 rounded-[14px] px-3 py-2.5 text-[12px] font-medium text-cyan-800 leading-relaxed">
-              Ideas will appear on your home screen as friends contribute.
+              Next, add your own saved ideas while your friends prepare theirs.
             </div>
           </div>
         </div>
@@ -190,7 +183,7 @@ export default function BarcelonaInviteFriendsScreen({ onFriendsInvited }: Barce
           disabled={!isConfirmed && !allSelected}
           onClick={() => {
             if (isConfirmed) {
-              finishInvitation();
+              continueToIdeas();
               return;
             }
 
@@ -203,7 +196,7 @@ export default function BarcelonaInviteFriendsScreen({ onFriendsInvited }: Barce
           }`}
         >
           {isConfirmed ? <Check className="w-5 h-5" /> : <Send className="w-5 h-5" />}
-          {isConfirmed ? 'Done' : hasScanned ? 'Invite friends' : 'Scanning nearby friends'}
+          {isConfirmed ? 'Add my ideas' : hasScanned ? 'Invite friends' : 'Scanning nearby friends'}
         </button>
       </div>
     </motion.div>

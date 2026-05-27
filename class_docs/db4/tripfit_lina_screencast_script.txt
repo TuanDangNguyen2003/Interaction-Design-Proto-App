@@ -1,5 +1,5 @@
 TRIPFIT SCREENCAST SCRIPT - LINA KEY PATH SCENARIO
-Target duration: approximately 4 minutes 30 seconds
+Target duration: approximately 4 minutes 40 seconds
 
 Before recording:
 - Begin on the TripFit landing screen.
@@ -8,7 +8,7 @@ Before recording:
 - Do not scroll through every option or read every line on screen.
 
 
-0:00 - 0:20 | LANDING SCREEN
+0:00 - 0:18 | LANDING SCREEN
 
 Action:
 Show the TripFit landing screen and point briefly to Create a shared trip.
@@ -23,7 +23,7 @@ to turn existing ideas into fewer options, clearer reasons, and a faster
 decision.
 
 
-0:20 - 0:40 | START A SHARED TRIP
+0:18 - 0:36 | START A SHARED TRIP
 
 Action:
 Click "Create trip" under Create a shared trip.
@@ -38,7 +38,7 @@ Lina wants to help the group agree on one realistic plan without spending
 their evening debating.
 
 
-0:40 - 0:55 | CREATE SHARED TRIP
+0:36 - 0:48 | CREATE SHARED TRIP
 
 Action:
 On the create group screen, click "Create group."
@@ -49,12 +49,12 @@ one place to collect their ideas instead of keeping them fragmented
 across different apps.
 
 
-0:55 - 1:15 | FIND AND INVITE FRIENDS
+0:48 - 1:05 | FIND AND INVITE FRIENDS
 
 Action:
 Let the nearby-friends scanning animation appear. When Emma, Sofia, and
 Elena appear, select all three and click "Invite friends." Pause on the
-confirmation state, then click "Done."
+confirmation state, then click "Add my ideas."
 
 Narration:
 Because the friends are together and already using TripFit, the app
@@ -62,26 +62,40 @@ detects nearby users. Lina invites her three travel companions so that
 they can each contribute places they already saved.
 
 TripFit confirms that Barcelona Trip is ready and that all four members
-have joined before Lina returns to the landing screen.
+have joined. Lina is also part of the decision overload, so she adds her
+own scattered saves next.
 
 
-1:15 - 1:35 | RETURN HOME AND COLLECT SHARED IDEAS
+1:05 - 1:25 | ADD LINA'S SCATTERED IDEAS
 
 Action:
-After clicking "Invite friends," show that Lina returns to the home screen.
+On Add your ideas, select Google Maps saved, TikTok favorites, and
+Instagram saved. Click "Add 5 ideas to trip," pause on the confirmation,
+then click "Done."
+
+Narration:
+Lina already has possible places scattered across apps. Instead of
+typing a prompt, she explicitly includes her saved pins, videos, and
+reel in the shared trip.
+
+TripFit confirms that her five ideas have been added, so her contribution
+is visible before the group decision begins.
+
+
+1:25 - 1:40 | RETURN HOME AND COLLECT SHARED IDEAS
+
+Action:
+After clicking "Done," show that Lina returns to the home screen.
 Let the Barcelona Trip card change from collecting contributions to
 "16 ideas collected," then click "Review ideas and decide."
 
 Narration:
-After creating the group and sending the invitations, Lina returns to
-the landing screen. Barcelona Trip now appears in her list of trips
-while her friends add their saved ideas over the next few minutes.
-
-In this prototype, the arrival of the 16 ideas is simulated so that we
-can see this collaborative process without switching between accounts.
+After adding her own ideas, Lina returns to the landing screen. Barcelona
+Trip shows that her five ideas are already included while her friends add
+their saved ideas over the next few minutes.
 
 
-1:35 - 1:53 | UNSORTED IDEA POOL
+1:40 - 1:52 | UNSORTED IDEA POOL
 
 Action:
 Briefly show the Barcelona idea pool, then click "Start Group Vibe Check."
@@ -94,7 +108,7 @@ Instead of searching for even more places, Lina starts a Group Vibe Check
 to decide what actually fits the group right now.
 
 
-1:53 - 2:17 | SET THE GROUP VIBE
+1:52 - 2:12 | SET THE GROUP VIBE
 
 Action:
 Show the setup controls. Open one information icon briefly, for example
@@ -109,7 +123,7 @@ decision factor, and the information buttons explain what each parameter
 means.
 
 
-2:17 - 2:33 | SOURCES
+2:12 - 2:25 | SOURCES
 
 Action:
 Show the sources screen and click "Build group decision board."
@@ -122,7 +136,7 @@ This makes the result more transparent because Lina can understand where
 the final choices come from.
 
 
-2:33 - 2:47 | SORTING FEEDBACK
+2:25 - 2:37 | SORTING FEEDBACK
 
 Action:
 Wait for the sorting checklist to complete and advance automatically.
@@ -133,7 +147,7 @@ saved ideas, removing options that do not fit the constraints, considering
 weather and budget, and prioritizing realistic group choices.
 
 
-2:47 - 3:08 | DECISION BOARD
+2:37 - 2:55 | DECISION BOARD
 
 Action:
 On the decision board, point to the filtered-out message and the marked
@@ -149,7 +163,7 @@ TripFit also explains that other options were filtered out, so this is not
 a black-box recommendation.
 
 
-3:08 - 3:25 | COMPARE TRADE-OFFS
+2:55 - 3:10 | COMPARE TRADE-OFFS
 
 Action:
 Briefly show the comparison bottom sheet, then click the top option.
@@ -162,7 +176,7 @@ For example, Hidden Speakeasy is an appealing indoor alternative, but it
 is less reliable for a group of four because a reservation may be needed.
 
 
-3:25 - 3:41 | OPTION DETAIL
+3:10 - 3:24 | OPTION DETAIL
 
 Action:
 Show the Cerveceria Catalana image and explanation, then click "Choose this."
@@ -173,7 +187,7 @@ venue, practical facts, its fit breakdown, and its main trade-off: it may
 be crowded, so keeping a backup is sensible.
 
 
-3:41 - 4:02 | QUICK GROUP CHECK
+3:24 - 3:43 | QUICK GROUP CHECK
 
 Action:
 Let the voting indicators resolve, then click "Save backup and confirm."
@@ -186,7 +200,7 @@ One person raises the concern that the restaurant could be crowded, so
 TripFit suggests saving an alternative before final confirmation.
 
 
-4:02 - 4:19 | BACKUP OPTION
+3:43 - 3:56 | BACKUP OPTION
 
 Action:
 Show the backup explanation and click "Save backup."
@@ -198,7 +212,7 @@ calmer drinks-focused atmosphere if the tapas venue is crowded, while
 availability should still be checked first.
 
 
-4:19 - 4:35 | CONFIRMATION
+3:56 - 4:10 | CONFIRMATION
 
 Action:
 Show the confirmation screen, then click "Get directions."
@@ -211,7 +225,7 @@ Lina can see the chosen destination and that a backup is ready. The group
 has moved from scattered ideas to one agreed action.
 
 
-4:35 - 4:52 | DIRECTIONS AND RECOVERY
+4:10 - 4:27 | DIRECTIONS AND RECOVERY
 
 Action:
 On the directions screen, tap the highlighted "Backup ready" destination
@@ -223,7 +237,7 @@ main venue becomes too crowded, Lina can switch directly to the backup
 route without restarting the whole decision process.
 
 
-4:52 - 5:00 | CONCLUSION
+4:27 - 4:40 | CONCLUSION
 
 Action:
 Leave the final route screen visible.

@@ -169,12 +169,12 @@ export default function LandingScreen({ hasBarcelonaTrip, barcelonaContributions
                     )}
                     <div>
                       <p className={`text-[13px] font-extrabold ${tripReady ? 'text-emerald-800' : 'text-cyan-800'}`}>
-                        {tripReady ? '16 ideas collected' : 'Friends are adding ideas...'}
+                        {tripReady ? '16 ideas collected' : 'Collecting group ideas...'}
                       </p>
                       <p className="text-[11px] font-medium text-slate-500">
                         {tripReady
                           ? 'Ready to choose what fits the group now.'
-                          : `${barcelonaContributions} of 3 friends contributed saved places`}
+                          : `Your 5 ideas added • ${barcelonaContributions} of 3 friends contributed`}
                       </p>
                     </div>
                   </div>
