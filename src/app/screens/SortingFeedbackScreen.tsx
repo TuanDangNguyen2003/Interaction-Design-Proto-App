@@ -48,16 +48,12 @@ export default function SortingFeedbackScreen() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="flex flex-col h-full bg-slate-50 relative"
     >
-      <div className="absolute top-2 right-12 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Tran Sorting
-      </div>
-
       <div className="px-4 py-4 flex justify-end shrink-0">
         <button 
           onClick={() => navigate('/sources')} 
           className="w-8 h-8 flex items-center justify-center bg-white border border-slate-200 rounded-full text-slate-400 hover:text-slate-600 shadow-sm"
         >
-          <X className="w-6 h-6" />
+          <X className="w-5 h-5" />
         </button>
       </div>
 

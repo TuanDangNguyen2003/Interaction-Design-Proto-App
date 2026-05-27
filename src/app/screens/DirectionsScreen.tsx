@@ -23,6 +23,7 @@ export default function DirectionsScreen() {
       };
   const currentLocation = { x: 24, y: 58 };
   const alternateRoute = isBackupRoute ? 'Riverside Café Walk' : 'Les Halles Food Stop';
+  const alternateTime = isBackupRoute ? '8 min' : '12 min';
 
   return (
     <motion.div
@@ -31,10 +32,6 @@ export default function DirectionsScreen() {
       transition={{ duration: 0.3, ease: 'easeOut' }}
       className="flex flex-col h-full bg-slate-50 relative overflow-hidden"
     >
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Tran Directions
-      </div>
-
       <button
         onClick={() => navigate(-1)}
         className="absolute top-3 left-3 z-50 w-9 h-9 rounded-full bg-white/95 border border-white shadow-lg flex items-center justify-center text-slate-700 hover:bg-white active:scale-[0.96] transition-all"
@@ -140,7 +137,7 @@ export default function DirectionsScreen() {
                 <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Destination</p>
                 <h2 className="text-[18px] font-extrabold text-slate-800">{route.name}</h2>
               </div>
-              <div className="bg-teal-500/10 text-teal-600 px-3 py-1 rounded-full text-[13px] font-bold">
+              <div className="shrink-0 whitespace-nowrap bg-teal-500/10 text-teal-600 px-3 py-1 rounded-full text-[13px] font-bold">
                 {route.walkTime}
               </div>
             </div>
@@ -152,35 +149,46 @@ export default function DirectionsScreen() {
             </div>
           </div>
 
-          <div className="bg-white border-2 border-slate-100 rounded-[16px] p-4 flex justify-between items-center mb-auto">
-            <div>
-              <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">
+          <motion.button
+            type="button"
+            onClick={() => setIsBackupRoute((current) => !current)}
+            whileTap={{ scale: 0.985 }}
+            className="group relative w-full overflow-hidden bg-teal-50/50 border-2 border-teal-200 rounded-[18px] p-4 flex justify-between items-center mb-auto text-left shadow-[0_8px_22px_-18px_rgba(13,148,136,0.7)] hover:bg-teal-50 transition-colors"
+            aria-label={`${isBackupRoute ? 'Switch back to best choice' : 'Use backup route'}: ${alternateRoute}, ${alternateTime}`}
+          >
+            <motion.div
+              aria-hidden="true"
+              className="absolute -top-10 h-28 w-20 rotate-[22deg] bg-white/55 blur-sm"
+              initial={{ x: -120 }}
+              animate={{ x: 410 }}
+              transition={{ duration: 2.8, repeat: Infinity, repeatDelay: 1.4, ease: 'easeInOut' }}
+            />
+            <div className="relative">
+              <p className="text-[11px] font-bold text-teal-600 uppercase tracking-wider mb-0.5">
                 {isBackupRoute ? 'Best choice available' : 'Backup ready'}
               </p>
-              <h3 className="text-[15px] font-bold text-slate-700">{alternateRoute}</h3>
+              <h3 className="text-[15px] font-bold text-slate-800">{alternateRoute}</h3>
             </div>
-            <Navigation className="w-5 h-5 text-slate-300" />
-          </div>
+            <div className="relative flex items-center gap-2">
+              <span className="text-[12px] font-bold text-teal-700 bg-white/80 border border-teal-100 rounded-full px-2.5 py-1">
+                {alternateTime}
+              </span>
+              <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center shadow-sm">
+                <Navigation className="w-4 h-4 text-white" />
+              </div>
+            </div>
+          </motion.button>
         </div>
       </div>
 
       <div className="p-5 border-t border-slate-200/60 bg-white shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.05)] shrink-0">
-        <div className="bg-slate-50 border border-slate-200/70 rounded-[22px] p-2 grid grid-cols-[1fr_auto] gap-2">
-          <button
-            onClick={() => navigate('/')}
-            className="bg-slate-800 text-white rounded-[18px] py-3.5 font-bold text-[15px] shadow-lg shadow-slate-800/20 hover:bg-slate-700 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
-          >
-            <Check className="w-4 h-4" strokeWidth={3} />
-            Done
-          </button>
-          <button
-            onClick={() => setIsBackupRoute((current) => !current)}
-            className="min-w-[142px] bg-white border border-teal-100 text-teal-700 rounded-[18px] px-3 py-2 font-bold text-[12px] leading-tight hover:bg-teal-50 transition-all active:scale-[0.98] flex flex-col items-center justify-center"
-          >
-            <span>{isBackupRoute ? 'Use best choice instead' : 'Use backup instead'}</span>
-            <span className="text-[10px] text-slate-400 font-bold mt-0.5">{isBackupRoute ? '8 min route' : '12 min route'}</span>
-          </button>
-        </div>
+        <button
+          onClick={() => navigate('/')}
+          className="w-full bg-slate-800 text-white rounded-[18px] py-3.5 font-bold text-[15px] shadow-lg shadow-slate-800/20 hover:bg-slate-700 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+        >
+          <Check className="w-4 h-4" strokeWidth={3} />
+          Done
+        </button>
       </div>
     </motion.div>
   );

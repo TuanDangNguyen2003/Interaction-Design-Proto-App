@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { ChevronLeft, ChevronRight, Users, Clock, CloudRain, Sun, Cloud, MapPin, Zap, Info, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Users, Clock, CloudRain, Sun, Cloud, MapPin, Zap, Info, X, LocateFixed } from 'lucide-react';
 import { motion } from 'motion/react';
 
 const setupDetails = {
   energy: {
     title: 'Energy level',
-    summary: 'This keeps the nearby option realistic for how much effort Tran and her friend want right now.',
+    summary: 'This keeps the nearby option realistic for how much effort you and your friend want right now.',
     rows: [
       { label: 'Low effort', value: 'Sit-down stops and very short walks.' },
       { label: 'Moderate', value: 'A simple activity or short transit is okay.' },
@@ -33,7 +33,7 @@ const setupDetails = {
   },
   time: {
     title: 'Time left',
-    summary: 'Tran needs an option that leaves enough buffer to return for the train.',
+    summary: 'You need an option that leaves enough buffer to return for the train.',
     rows: [
       { label: '1 hr', value: 'Only immediate, very low-commitment stops.' },
       { label: '2 hrs', value: 'A nearby break with a comfortable return buffer.' },
@@ -42,10 +42,10 @@ const setupDetails = {
   },
   location: {
     title: 'Location',
-    summary: 'The starting point determines travel time and whether an option is train-safe.',
+    summary: 'TripFit detects your current area to calculate travel time and keep the stop train-safe.',
     rows: [
-      { label: 'Lyon Perrache', value: 'Search begins near the station area.' },
-      { label: 'Tap to change', value: 'Update this if Tran moves elsewhere.' },
+      { label: 'Detected now', value: 'Your location is Lyon Perrache station area.' },
+      { label: 'Automatic update', value: 'TripFit uses your phone location for nearby filtering.' },
       { label: 'Why it matters', value: 'Closer places rank higher when departure time matters.' },
     ],
   },
@@ -77,11 +77,6 @@ export default function DecisionSetupScreen() {
 
   return (
     <div className="flex flex-col h-full bg-slate-50 relative">
-      {/* Screen Label */}
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Tran Setup
-      </div>
-
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0">
         <button onClick={() => navigate('/')} className="text-slate-400 hover:text-slate-600 transition-colors">
           <ChevronLeft className="w-6 h-6" />
@@ -98,9 +93,9 @@ export default function DecisionSetupScreen() {
       <div className="flex-1 px-5 py-6 flex flex-col gap-5 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <div>
           <h1 className="text-[26px] font-extrabold text-slate-800 tracking-tight mb-1">
-            Quick nearby filter
+            Set your quick-stop fit
           </h1>
-          <p className="text-[14px] text-slate-500 font-medium">Tran and one friend have two hours before the train.</p>
+          <p className="text-[14px] text-slate-500 font-medium">Find a nearby option that fits your time and energy.</p>
         </div>
 
         {/* Energy Slider */}
@@ -204,8 +199,8 @@ export default function DecisionSetupScreen() {
             </div>
           </div>
 
-          <div className="bg-white p-4 rounded-[20px] border border-slate-200/60 shadow-sm flex flex-col justify-center relative overflow-hidden group cursor-pointer hover:border-primary/30 transition-colors">
-            <div className="absolute -right-3 -bottom-3 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
+          <div className="bg-white p-4 rounded-[20px] border border-slate-200/60 shadow-sm flex flex-col justify-center relative overflow-hidden">
+            <div className="absolute -right-3 -bottom-3 opacity-[0.04]">
               <MapPin size={64} />
             </div>
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 mb-1.5 uppercase tracking-wider relative z-10">
@@ -213,7 +208,10 @@ export default function DecisionSetupScreen() {
               <InfoButton topic="location" />
             </label>
             <div className="text-[15px] font-bold text-slate-800 truncate relative z-10">Lyon Perrache</div>
-            <div className="text-[11px] text-primary font-bold mt-1 relative z-10">Tap to change</div>
+            <div className="text-[11px] text-primary font-bold mt-1 relative z-10 flex items-center gap-1">
+              <LocateFixed className="w-3 h-3" />
+              Detected location
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router';
-import { ChevronLeft, X } from 'lucide-react';
+import { ChevronLeft, Info, XCircle } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export default function FilteredOptionsScreen() {
   const navigate = useNavigate();
@@ -7,70 +8,65 @@ export default function FilteredOptionsScreen() {
   const filteredOptions = [
     {
       name: 'Hilltop viewpoint',
-      reason: 'Removed because it takes too much effort before the train',
-      icon: '☔',
+      reason: 'Removed because it needs too much walking before the train.',
     },
     {
-      name: 'Far museum',
-      reason: 'Removed because it is 35 min away',
-      icon: '📏',
+      name: 'Museum across town',
+      reason: 'Removed because it is 35 minutes away from Lyon Perrache.',
     },
     {
-      name: 'Restaurant queue',
-      reason: 'Removed because uncertain wait',
-      icon: '⏱️',
+      name: 'Popular brunch queue',
+      reason: 'Removed because the waiting time is too uncertain.',
     },
     {
-      name: 'Long activity',
-      reason: 'Removed because exceeds 2 hours',
-      icon: '⏳',
+      name: 'Long market tour',
+      reason: 'Removed because it does not leave a comfortable train buffer.',
     },
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white relative">
-      {/* Screen Label */}
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold">
-        Tran Filtered
-      </div>
-
-      <div className="border-b border-border px-4 py-4 flex items-center gap-3">
-        <button onClick={() => navigate('/board')} className="text-muted-foreground">
+    <motion.div
+      initial={{ opacity: 0, x: 10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      className="flex flex-col h-full bg-slate-50 relative"
+    >
+      <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0">
+        <button onClick={() => navigate('/board')} className="text-slate-400 hover:text-slate-600 transition-colors" aria-label="Go back">
           <ChevronLeft className="w-6 h-6" />
         </button>
-        <h2 className="font-medium text-foreground">Why these were filtered out</h2>
+        <h1 className="text-[17px] font-bold text-slate-800">Why options were filtered out</h1>
       </div>
 
-      <div className="flex-1 px-6 py-6">
-        <p className="text-[15px] text-muted-foreground mb-6 font-medium leading-relaxed">
-          These options didn't match your context.
-        </p>
+      <div className="flex-1 px-5 py-6 overflow-y-auto">
+        <div className="bg-amber-50 rounded-[20px] p-5 border border-amber-200/60 mb-6 flex flex-col items-center text-center">
+          <Info className="w-8 h-8 text-amber-500 mb-3" />
+          <p className="text-[14px] text-amber-900 font-medium leading-relaxed">
+            These places were available ideas, but they did not fit the two-hour train window and low-effort context.
+          </p>
+        </div>
 
         <div className="space-y-3">
           {filteredOptions.map((option) => (
-            <div
-              key={option.name}
-              className="bg-gradient-to-br from-slate-50 to-slate-100/50 border border-border/50 rounded-2xl p-5 flex items-start gap-3 shadow-sm"
-            >
-              <span className="text-3xl">{option.icon}</span>
-              <div className="flex-1">
-                <h3 className="font-semibold text-foreground mb-1.5 text-[16px]">{option.name}</h3>
-                <p className="text-[14px] text-muted-foreground leading-relaxed">{option.reason}</p>
+            <div key={option.name} className="bg-white border border-slate-200/60 rounded-[16px] p-4 flex gap-3">
+              <XCircle className="w-5 h-5 text-slate-300 shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-[15px] font-bold text-slate-800 mb-1">{option.name}</h3>
+                <p className="text-[13px] text-slate-500 font-medium leading-relaxed">{option.reason}</p>
               </div>
-              <X className="w-5 h-5 text-red-400" strokeWidth={2.5} />
             </div>
           ))}
         </div>
       </div>
 
-      <div className="p-6 border-t border-border bg-white">
+      <div className="p-5 border-t border-slate-200/60 bg-white shrink-0">
         <button
           onClick={() => navigate('/board')}
-          className="w-full bg-gradient-to-r from-primary to-cyan-500 text-primary-foreground rounded-xl py-4 font-semibold shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all hover:scale-[1.02]"
+          className="w-full bg-slate-800 text-white rounded-2xl py-3.5 font-bold text-[15px] shadow-lg shadow-slate-800/20 hover:bg-slate-700 transition-all active:scale-[0.98]"
         >
           Back to decision board
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -17,7 +17,7 @@ export default function SourceSelectionScreen() {
     {
       id: 1,
       icon: <Bookmark className="w-6 h-6" />,
-      title: 'Tran saved places',
+      title: 'Your saved places',
       desc: '4 ideas saved before the trip',
       status: 'included',
       iconBg: 'bg-purple-100 text-purple-600',
@@ -38,7 +38,7 @@ export default function SourceSelectionScreen() {
       id: 3,
       icon: <Users className="w-6 h-6" />,
       title: 'Friend ideas',
-      desc: "3 ideas from Tran's friend",
+      desc: "3 ideas from your friend",
       status: 'included',
       iconBg: 'bg-amber-100 text-amber-600',
       cardBg: 'bg-gradient-to-br from-white to-amber-50/30',
@@ -53,10 +53,6 @@ export default function SourceSelectionScreen() {
       transition={{ duration: 0.3, ease: 'easeOut' }}
       className="flex flex-col h-full bg-slate-50 relative"
     >
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Tran Sources
-      </div>
-
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0">
         <button onClick={() => navigate('/setup')} className="text-slate-400 hover:text-slate-600 transition-colors">
           <ChevronLeft className="w-6 h-6" />
@@ -83,7 +79,7 @@ export default function SourceSelectionScreen() {
             Feeding the decision engine
           </h1>
           <p className="text-[15px] text-slate-500 font-medium leading-relaxed">
-            TripFit combines what Tran already has with options that still fit the train window.
+            TripFit combines what you already saved with options that still fit the train window.
           </p>
         </div>
 

@@ -1,9 +1,45 @@
 import { useNavigate } from 'react-router';
+import { useEffect, useRef } from 'react';
 import { ChevronLeft, Navigation, PartyPopper, MapPin, Sparkles, Clock, Users, DollarSign, Check, Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
+import confetti from 'canvas-confetti';
 
 export default function ConfirmationScreen() {
   const navigate = useNavigate();
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    if (!canvasRef.current) return;
+
+    const celebration = confetti.create(canvasRef.current, {
+      resize: true,
+      useWorker: true,
+    });
+    const end = Date.now() + 2000;
+    let frameId = 0;
+
+    const frame = () => {
+      celebration({
+        particleCount: 4,
+        angle: 270,
+        spread: 90,
+        startVelocity: 25,
+        origin: { x: Math.random(), y: -0.1 },
+        colors: ['#facc15', '#ef4444', '#22c55e', '#a855f7'],
+      });
+
+      if (Date.now() < end) {
+        frameId = requestAnimationFrame(frame);
+      }
+    };
+
+    frame();
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      celebration.reset();
+    };
+  }, []);
 
   const steps = [
     { number: 1, label: 'Context', active: true },
@@ -20,9 +56,10 @@ export default function ConfirmationScreen() {
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className="flex flex-col h-full bg-slate-50 relative overflow-hidden"
     >
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Tran Confirmation
-      </div>
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none z-40"
+      />
 
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0 relative z-30">
         <button
@@ -66,7 +103,7 @@ export default function ConfirmationScreen() {
                 Decision made!
               </h1>
               <p className="text-teal-50 font-medium text-center relative z-10 text-[15px]">
-                Good choice. Tran is heading to
+                Good choice. You are heading to
               </p>
             </div>
 
@@ -141,20 +178,12 @@ export default function ConfirmationScreen() {
           <Navigation className="w-5 h-5" />
           Get directions
         </button>
-        <div className="grid grid-cols-2 gap-3">
-          <button
-            onClick={() => navigate('/')}
-            className="bg-slate-50 border border-slate-200 text-slate-600 rounded-2xl py-3 font-bold text-[14px] hover:bg-slate-100 transition-all active:scale-[0.98]"
-          >
-            Back to home
-          </button>
-          <button
-            onClick={() => navigate('/backup-selection')}
-            className="bg-teal-50 border border-teal-100 text-teal-700 rounded-2xl py-3 font-bold text-[14px] hover:bg-teal-100 transition-all active:scale-[0.98]"
-          >
-            Use backup
-          </button>
-        </div>
+        <button
+          onClick={() => navigate('/')}
+          className="w-full bg-slate-50 border border-slate-200 text-slate-600 rounded-2xl py-3 font-bold text-[14px] hover:bg-slate-100 transition-all active:scale-[0.98]"
+        >
+          Back to home
+        </button>
       </div>
     </motion.div>
   );

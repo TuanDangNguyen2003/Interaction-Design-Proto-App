@@ -57,11 +57,6 @@ export default function DecisionBoardScreen() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="flex flex-col h-full bg-slate-50 relative"
     >
-      {/* Screen Label */}
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Tran Board
-      </div>
-
       <div className="border-b border-slate-200/60 bg-white px-4 py-3 flex items-center gap-3 shrink-0">
         <button onClick={() => navigate('/sources')} className="text-slate-400 hover:text-slate-600 transition-colors">
           <ChevronLeft className="w-6 h-6" />
@@ -84,20 +79,20 @@ export default function DecisionBoardScreen() {
       <div className="flex-1 px-5 py-5 flex flex-col min-h-0 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <div className="shrink-0 mb-3">
           <h1 className="text-[24px] font-extrabold text-slate-800 tracking-tight mb-1">
-            3 realistic fits
+            3 realistic fits for your stop
           </h1>
         </div>
 
         <button
           onClick={() => navigate('/filtered')}
-          className="w-full bg-blue-50/50 border border-blue-100 rounded-[16px] p-3 mb-4 flex items-start gap-2.5 hover:bg-blue-50 transition-colors text-left shrink-0 active:scale-[0.98]"
+          className="w-full bg-amber-50/50 border border-amber-200/60 rounded-[16px] p-3 mb-4 flex items-start gap-2.5 hover:bg-amber-50 transition-colors text-left shrink-0 active:scale-[0.98]"
         >
-          <Info className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+          <Info className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
           <div>
-            <p className="text-[12px] text-blue-900 font-bold leading-relaxed mb-0.5">
-              8 options filtered out: too far, closed soon, or too demanding before the train.
+            <p className="text-[12px] text-amber-900 font-bold leading-relaxed mb-0.5">
+              16 options filtered out: too far, closed soon, or too demanding before the train.
             </p>
-            <p className="text-[11px] text-blue-600/80 font-medium">
+            <p className="text-[11px] text-amber-700/80 font-medium">
               Sorted from saved, nearby, and friend-suggested places.
             </p>
           </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { ChevronLeft, ChevronRight, Clock, Zap, MapPin, DollarSign, Cloud, Sun, Umbrella, Info, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clock, Zap, MapPin, DollarSign, Cloud, Sun, Umbrella, Info, X, LocateFixed } from 'lucide-react';
 import { motion } from 'motion/react';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 
@@ -43,10 +43,10 @@ const setupDetails = {
   },
   location: {
     title: 'Location',
-    summary: 'The starting area anchors travel time and distance filters.',
+    summary: 'TripFit detects the group location to anchor travel time and distance filters.',
     rows: [
-      { label: 'BCN Center', value: 'Searches around central Barcelona.' },
-      { label: 'Tap to change', value: 'Use when the group moves to another neighborhood.' },
+      { label: 'Detected now', value: 'The group is in central Barcelona.' },
+      { label: 'Automatic update', value: 'TripFit uses the phone location for nearby filtering.' },
       { label: 'Why it matters', value: 'Closer options get priority when time is limited.' },
     ],
   },
@@ -219,8 +219,8 @@ export default function BarcelonaSetupScreen() {
             </div>
           </div>
 
-          <div className="bg-white p-4 rounded-[20px] border border-slate-200/60 shadow-sm flex flex-col justify-center relative overflow-hidden group cursor-pointer hover:border-primary/30 transition-colors">
-            <div className="absolute -right-3 -bottom-3 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
+          <div className="bg-white p-4 rounded-[20px] border border-slate-200/60 shadow-sm flex flex-col justify-center relative overflow-hidden">
+            <div className="absolute -right-3 -bottom-3 opacity-[0.04]">
               <MapPin size={64} />
             </div>
             <label className="text-[12px] font-bold text-slate-500 flex items-center gap-1.5 mb-1.5 uppercase tracking-wider relative z-10">
@@ -228,7 +228,10 @@ export default function BarcelonaSetupScreen() {
               <InfoButton topic="location" />
             </label>
             <div className="text-[15px] font-bold text-slate-800 truncate relative z-10">BCN Center</div>
-            <div className="text-[11px] text-primary font-bold mt-1 relative z-10">Tap to change</div>
+            <div className="text-[11px] text-primary font-bold mt-1 relative z-10 flex items-center gap-1">
+              <LocateFixed className="w-3 h-3" />
+              Detected location
+            </div>
           </div>
         </div>
       </div>

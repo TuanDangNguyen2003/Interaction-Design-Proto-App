@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
-import { ChevronLeft, Check, AlertCircle, Image as ImageIcon } from 'lucide-react';
+import { ChevronLeft, Check, AlertCircle } from 'lucide-react';
 import { motion } from 'motion/react';
+import riversideCafeHero from '../../imports/riverside-cafe-lyon-hero.webp';
 
 export default function OptionDetailScreen() {
   const navigate = useNavigate();
@@ -20,10 +21,6 @@ export default function OptionDetailScreen() {
       transition={{ duration: 0.3, ease: 'easeOut' }}
       className="flex flex-col h-full bg-slate-50 relative"
     >
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Tran Option Detail
-      </div>
-
       <div className="absolute top-4 left-4 z-50">
         <button
           onClick={() => navigate(-1)}
@@ -34,9 +31,13 @@ export default function OptionDetailScreen() {
       </div>
 
       <div className="flex-1 overflow-y-auto">
-        <div className="h-[240px] bg-slate-200 relative flex items-center justify-center">
-          <ImageIcon className="w-12 h-12 text-slate-400" />
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900/80 to-transparent" />
+        <div className="h-[240px] bg-slate-200 relative overflow-hidden">
+          <img
+            src={riversideCafeHero}
+            alt="Covered riverside cafe terrace in Lyon with coffee before a train departure"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent" />
           <h1 className="absolute bottom-5 left-5 text-white text-[28px] font-extrabold tracking-tight">
             Riverside Café Walk
           </h1>
@@ -59,7 +60,7 @@ export default function OptionDetailScreen() {
               <div className="flex gap-3">
                 <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" strokeWidth={3} />
                 <p className="text-[14px] text-primary-900 font-bold leading-relaxed">
-                  Best match for Tran and her friend: close, affordable, covered, and easy to leave from before the train.
+                  Best match for two travelers: close, affordable, covered, and easy to leave from before the train.
                 </p>
               </div>
             </div>
@@ -98,7 +99,7 @@ export default function OptionDetailScreen() {
             <div className="bg-amber-50 border border-amber-200/60 rounded-[16px] p-4 flex gap-3">
               <AlertCircle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
               <p className="text-[13px] text-amber-900 font-medium leading-relaxed">
-                It is less unique than the museum, so TripFit keeps Les Halles as a backup if Tran wants a food-focused stop.
+                It is less unique than the museum, so TripFit keeps Les Halles as a food-focused backup.
               </p>
             </div>
           </div>
@@ -113,16 +114,12 @@ export default function OptionDetailScreen() {
           Choose this
         </button>
         <button
-          onClick={() => navigate('/backup-saved')}
-          className="w-full bg-white border border-slate-200 text-slate-700 rounded-2xl py-3.5 font-bold text-[15px] hover:bg-slate-50 transition-all active:scale-[0.98]"
+          type="button"
+          disabled
+          aria-disabled="true"
+          className="w-full bg-white border border-slate-200 text-slate-500 rounded-2xl py-3.5 font-bold text-[15px] cursor-default"
         >
           Keep as backup
-        </button>
-        <button
-          onClick={() => navigate(-1)}
-          className="w-full text-slate-500 text-[14px] font-bold hover:text-slate-800 transition-colors py-1.5"
-        >
-          Go back
         </button>
       </div>
     </motion.div>

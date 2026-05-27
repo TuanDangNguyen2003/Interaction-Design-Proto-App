@@ -34,7 +34,7 @@ three friends. They have a few hours before dinner, but their possible
 plans are scattered across TikTok links, Google Maps pins, and group
 messages.
 
-Lina wants to help the group agree on one realistic plan without spending
+Lina wants to help the group agree on one plan without spending
 their evening debating.
 
 
@@ -44,7 +44,7 @@ Action:
 On the create group screen, click "Create group."
 
 Narration:
-Lina first creates a shared Barcelona Trip space. This gives everyone
+Lina first creates a shared group called Barcelona Trip. This gives everyone
 one place to collect their ideas instead of keeping them fragmented
 across different apps.
 
@@ -58,12 +58,10 @@ confirmation state, then click "Add my ideas."
 
 Narration:
 Because the friends are together and already using TripFit, the app
-detects nearby users. Lina invites her three travel companions so that
-they can each contribute places they already saved.
+detects nearby users. Lina invites them so that they can add their saved ideas.
 
-TripFit confirms that Barcelona Trip is ready and that all four members
-have joined. Lina is also part of the decision overload, so she adds her
-own scattered saves next.
+TripFit confirms that the group is ready and all four members
+have joined. Lina is also part of the decision overload, so she adds her own saved ideas to the trip.
 
 
 1:05 - 1:25 | ADD LINA'S SCATTERED IDEAS
@@ -74,9 +72,8 @@ Instagram saved. Click "Add 5 ideas to trip," pause on the confirmation,
 then click "Done."
 
 Narration:
-Lina already has possible places scattered across apps. Instead of
-typing a prompt, she explicitly includes her saved pins, videos, and
-reel in the shared trip.
+Instead of typing a prompt, she explicitly includes her saved pins, videos, and
+reel in the group.
 
 TripFit confirms that her five ideas have been added, so her contribution
 is visible before the group decision begins.
@@ -90,9 +87,8 @@ Let the Barcelona Trip card change from collecting contributions to
 "16 ideas collected," then click "Review ideas and decide."
 
 Narration:
-After adding her own ideas, Lina returns to the landing screen. Barcelona
-Trip shows that her five ideas are already included while her friends add
-their saved ideas over the next few minutes.
+Lina returns to the landing screen. The group card shows that her five ideas are already included 
+while her friends add their saved ideas over the next few minutes.
 
 
 1:40 - 1:52 | UNSORTED IDEA POOL
@@ -129,7 +125,7 @@ Action:
 Show the sources screen and click "Build group decision board."
 
 Narration:
-TripFit then makes its information sources visible. It uses the group's
+The app then makes its information sources visible. It uses the group's
 saved places, Google Maps pins, and nearby realistic options.
 
 This makes the result more transparent because Lina can understand where
@@ -156,7 +152,7 @@ top option. Then click "Compare all options."
 Narration:
 The result is a decision board with only three realistic options.
 
-Cerveceria Catalana is clearly marked as the best fit because it balances
+Cerveceria Catalana is clearly indicated as the best fit because it balances
 time, budget, weather protection, and suitability for the group.
 
 TripFit also explains that other options were filtered out, so this is not
@@ -193,8 +189,7 @@ Action:
 Let the voting indicators resolve, then click "Save backup and confirm."
 
 Narration:
-Because this is a group decision, TripFit runs a quick group check.
-The organizer's choice appears immediately while the friends respond.
+And because this is a group decision, the app runs a quick group check to see if everyone is on board.
 
 One person raises the concern that the restaurant could be crowded, so
 TripFit suggests saving an alternative before final confirmation.
@@ -206,11 +201,11 @@ Action:
 Show the backup explanation and click "Save backup."
 
 Narration:
-The suggested backup is Hidden Speakeasy in El Born. It is not presented
+The suggested backup is Hidden Speakeasy. It is not presented
 as better than the main choice. It is a nearby indoor alternative with a
-calmer drinks-focused atmosphere if the tapas venue is crowded, while
-availability should still be checked first.
+calmer drinks-focused atmosphere if the tapas venue is crowded. 
 
+Lina then saves it as a backup, which is a safety net for the group.
 
 3:56 - 4:10 | CONFIRMATION
 

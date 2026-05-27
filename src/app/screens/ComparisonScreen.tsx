@@ -71,10 +71,6 @@ export default function ComparisonScreen() {
       transition={{ duration: 0.2, ease: 'easeOut' }}
       className="h-full bg-slate-900/20 relative overflow-hidden flex flex-col justify-end"
     >
-      <div className="absolute top-2 right-2 z-50 bg-slate-800 text-white px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm">
-        Tran Compare
-      </div>
-
       <div className="absolute inset-0 bg-slate-50">
         <div className="px-5 pt-14 opacity-30">
           <div className="h-5 w-52 bg-slate-300 rounded-full mb-5" />
