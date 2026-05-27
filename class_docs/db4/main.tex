@@ -67,19 +67,19 @@ This section explains how the prototype applies the eight interaction design pri
 
 \subsection{Clear visibility of user actions in the UI}
 
-TripFit keeps important choices and progress visible as the task proceeds. Lina sees that her five selected ideas have been added before returning home. The Barcelona Trip card then changes from ``Collecting group ideas'' to ``16 ideas collected,'' while stating that her own ideas are already included. On the context setup screen, selected group energy, budget, environment, time, and location remain visible in their controls. On the decision board, a compact context summary repeats what the recommendation is based on.
+TripFit keeps important choices and progress visible as the task proceeds. Lina sees that her five selected ideas have been added before returning home. The Barcelona Trip card then changes from ``Collecting group ideas'' to ``16 ideas collected,'' while stating that her own ideas are already included. On the context setup screen, selected group energy, budget, environment, time, and location remain visible in their controls (Figure~\ref{fig:screen-evidence}a). On the decision board, a compact context summary repeats what the recommendation is based on (Figure~\ref{fig:screen-evidence}c).
 
 \textit{Example screens: Add Your Ideas, Home with Barcelona Trip, Set the Group Vibe, Decision Board.}
 
 \subsection{Design constraints and visual mapping between tasks and controls}
 
-The prototype constrains input to lightweight controls: selectable friend and source cards, chips, segmented choices, and a slider. The organizer never needs to type a vague prompt such as ``find something nice for us''. Instead, each control maps directly to a task: choose which saved sources to bring into the trip, adjust energy with a slider, set budget with dollar-sign chips, choose environment with icons, and set time with predefined chips. Information buttons explain the meaning of these compact settings.
+The prototype constrains input to lightweight controls: selectable friend and source cards, chips, segmented choices, and a slider. The organizer never needs to type a vague prompt such as ``find something nice for us''. Instead, each control maps directly to a task: choose which saved sources to bring into the trip, adjust energy with a slider, set budget with dollar-sign chips, choose environment with icons, and set time with predefined chips. Information buttons explain the meaning of these compact settings, as visible in Figure~\ref{fig:screen-evidence}a.
 
 \textit{Example screens: Invite Friends, Add Your Ideas, Set the Group Vibe.}
 
 \subsection{Meaningful feedback to ease evaluation}
 
-TripFit gives feedback about both process and output. The invitation screen briefly scans for nearby friends using TripFit, then confirms that four members have joined. After Lina selects her scattered sources, the app confirms that five of her ideas have entered Barcelona Trip. The home trip card shows the remaining contribution progress and changes to a ready state when 16 ideas have arrived. During sorting, a checklist shows that the system is combining ideas, removing options that are too far or too expensive, considering weather, and prioritizing group fit. On the board, a filtered-out explanation and strength/trade-off blocks make the resulting ranking understandable.
+TripFit gives feedback about both process and output. The invitation screen briefly scans for nearby friends using TripFit, then confirms that four members have joined. After Lina selects her scattered sources, the app confirms that five of her ideas have entered Barcelona Trip. The home trip card shows the remaining contribution progress and changes to a ready state when 16 ideas have arrived. During sorting, a checklist shows that the system is combining ideas, removing options that are too far or too expensive, considering weather, and prioritizing group fit (Figure~\ref{fig:screen-evidence}b). On the board, a filtered-out explanation and strength/trade-off blocks make the resulting ranking understandable (Figure~\ref{fig:screen-evidence}c).
 
 \textit{Example screens: Group Ready Confirmation, Add Your Ideas, Home with Barcelona Trip, Sorting, Decision Board, Option Detail.}
 
@@ -91,28 +91,69 @@ Choosing what to do next during a short trip is cognitively heavy because it inv
 
 \subsection{Task closure}
 
-The confirmation screen provides explicit task closure. It does not merely navigate to another list; it states ``Decision made!'' and shows the selected destination, relevant details, and backup status. The primary next action is clear: get directions. This tells the organizer that the group decision is finished and the group can now act.
+The confirmation screen provides explicit task closure. It does not merely navigate to another list; it states ``Decision made!'' and shows the selected destination, relevant details, and backup status (Figure~\ref{fig:screen-evidence}d). The primary next action is clear: get directions. This tells the organizer that the group decision is finished and the group can now act.
 
 \textit{Example screen: Decision Confirmation.}
 
 \subsection{Congratulating the user}
 
-The final confirmation screen congratulates the user with the phrase ``Good choice.'' This is a small but important confidence cue. The interviews showed that users often hesitate even after narrowing options, so positive feedback helps reduce post-choice anxiety and reinforces that the selected option fits the group's context.
+The final confirmation screen congratulates the user with the phrase ``Good choice'' and a brief confetti animation (Figure~\ref{fig:screen-evidence}d). This is a small but important confidence cue. The interviews showed that users often hesitate even after narrowing options, so positive feedback helps reduce post-choice anxiety and reinforces that the selected option fits the group's context.
 
 \textit{Example screen: Decision Confirmation.}
 
 \subsection{Clear exit marks}
 
-The prototype provides clear exits throughout the flow. Most screens include a back button. The comparison view is designed as a bottom sheet with a handle and downward close button, so it is visually obvious that the user can return to the decision board. The confirmation and directions screens also include clear exits such as back, back to home, and done.
+The prototype provides clear exits throughout the flow. Most screens include a back button. The comparison view is designed as a bottom sheet with a handle and downward close button, so it is visually obvious that the user can return to the decision board. The confirmation and directions screens also include clear exits such as back, back to home, and done; the final ``Done'' action is visible in Figure~\ref{fig:screen-evidence}e.
 
 \textit{Example screens: Compare Trade-offs, Decision Confirmation, Directions.}
 
 \subsection{Allowing errors and emergency exits}
 
-TripFit communicates recoverability by showing alternate actions such as changing the main choice or skipping a backup. Within the implemented key path, the user saves an alternative and can interactively switch routes by tapping the highlighted alternate destination card on the directions screen. This supports the travel context, where crowding, weather, fatigue, and group preferences can change quickly.
+TripFit communicates recoverability by showing alternate actions such as changing the main choice or skipping a backup. Within the implemented key path, the user saves an alternative and can interactively switch routes by tapping the highlighted alternate destination card on the directions screen (Figure~\ref{fig:screen-evidence}e). This supports the travel context, where crowding, weather, fatigue, and group preferences can change quickly.
 
 \textit{Example screens: Backup Option, Decision Confirmation, Directions.}
 
+\clearpage
+\subsection{Screenshot Evidence}
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}[t]{0.25\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/setup.png}\\[-0.2em]
+        \scriptsize (a) Visible context controls
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.25\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/sorting.png}\\[-0.2em]
+        \scriptsize (b) Filtering feedback
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.25\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/decision-board.png}\\[-0.2em]
+        \scriptsize (c) Explained best fit
+    \end{minipage}
+
+    \vspace{0.7em}
+
+    \begin{minipage}[t]{0.25\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/confirmation.png}\\[-0.2em]
+        \scriptsize (d) Closure and celebration
+    \end{minipage}
+    \hspace{2.4em}
+    \begin{minipage}[t]{0.25\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/directions-backup.png}\\[-0.2em]
+        \scriptsize (e) Backup route recovery
+    \end{minipage}
+    \caption{Screens demonstrating constrained input, transparent feedback, task closure, congratulation, and an emergency exit in Lina's key path scenario.}
+    \label{fig:screen-evidence}
+\end{figure}
+
+\clearpage
 \section{Instructor Review and Iteration}
 
 An earlier prototype version was presented using a simpler two-person travel situation based on Tran's context. In that version, users entered their time, location, weather, and preferences, received a suggestion, and adjusted the inputs if the suggestion did not fit. This made contextual recommendation visible, but it did not make TripFit's distinctive purpose clear.
